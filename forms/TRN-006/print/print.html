@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Ficha de avaliação</title>
+	<style>
+		body {
+			background: rgb(#fff) !important;
+			font-family: Arial;
+			padding: 1cm;
+		}
+		page {
+			background: white;
+			display: block;
+			margin: 0 auto;
+			margin-bottom: 0.5cm;
+			box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+		}
+		page[size="A4"][layout="portrait"] {
+			width: 29.7cm;
+			height: 21cm; 
+			padding: 1cm;
+		}
+		@media print {
+			@page {size: landscape}
+			body, page {
+				margin: 0 !important;
+				box-shadow: 0 !important;
+			}
+			page{
+				padding: 0cm !important;
+			}
+			th{
+				-webkit-print-color-adjust: exact;
+			}
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
+	<script src="http://ecp.fluigcloud.com.br:80/portal/resources/js/jquery/jquery.js"></script>
+	<script src="http://ecp.fluigcloud.com.br:80/portal/resources/js/jquery/jquery-ui.min.js"></script>
+</head>
+<body onselectstart="return false" oncontextmenu="return false" ondragstart="return false" onMouseOver="window.status='..message perso .. '; return true;"> 
+	<span id="content-pages">
+		<span id="spanPage___0"></span>
+	</span>
+</body>
+</html>
