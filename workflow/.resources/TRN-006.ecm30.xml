@@ -9,7 +9,7 @@
     <active>true</active>
     <publicProcess>false</publicProcess>
     <volumeId>Default</volumeId>
-    <categoryId></categoryId>
+    <categoryId>Treinamento</categoryId>
     <managerEngineAllocationId></managerEngineAllocationId>
     <snapshotFrequency>0</snapshotFrequency>
     <baseDay>0</baseDay>
@@ -425,7 +425,17 @@
   </list>
   <list/>
   <list/>
-  <list/>
+  <list>
+    <ProcessFormField>
+      <processFormFieldPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <fieldId>campoDescritor</fieldId>
+      </processFormFieldPK>
+      <fieldDescription>campoDescritor</fieldDescription>
+      <slotId>1</slotId>
+    </ProcessFormField>
+  </list>
   <list/>
   <list/>
 </list>
