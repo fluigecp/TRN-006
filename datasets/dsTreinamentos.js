@@ -37,6 +37,8 @@ function createDataset(fields, constraints, sortFields) {
         customDataset.addColumn("documentid");
         customDataset.addColumn("numSolic");
         customDataset.addColumn("statusTreinamento");
+        customDataset.addColumn("avaliacaoReacao");
+        customDataset.addColumn("avaliacaoEficacia");
 
         // check for filters
         if (constraints !== null && constraints !== undefined && constraints.length > 0) {
@@ -120,7 +122,9 @@ function createDataset(fields, constraints, sortFields) {
                     treinamentosRequisicao.getValue(i, "valorUtilizado"),
                     treinamentosRequisicao.getValue(i, "documentid"),
                     treinamentosRequisicao.getValue(i, "numProcess"),
-                    ""
+                    "",
+                    treinamentosRequisicao.getValue(i,"avaliacaoReacao"),
+                    treinamentosRequisicao.getValue(i,"avaliacaoEficacia")
                 ));
             }
             var solicitacoesDepartamentos = DatasetFactory.getDataset("propor_treinamentos_anuais", null, filtersTRN002, null);
@@ -148,7 +152,9 @@ function createDataset(fields, constraints, sortFields) {
                         treinamentos.getValue(x, "valorGastoTbTreinamentos"),
                         solicitacoesDepartamentos.getValue(i, "documentid"),
                         solicitacoesDepartamentos.getValue(i, "numProcess"),
-                        treinamentos.getValue(x, "statsTbTreinamentos")
+                        treinamentos.getValue(x, "statsTbTreinamentos"),
+                        treinamentosRequisicao.getValue(i,"avaliacaoReacao"),
+                        treinamentosRequisicao.getValue(i,"avaliacaoEficacia")
                     ));
                 }
                 filtersTRN002Table.pop();
@@ -180,7 +186,9 @@ function createDataset(fields, constraints, sortFields) {
                     treinamentosRequisicao.getValue(i, "valorUtilizado"),
                     treinamentosRequisicao.getValue(i, "documentid"),
                     treinamentosRequisicao.getValue(i, "numProcess"),
-                    ""
+                    "",
+                    treinamentosRequisicao.getValue(i,"avaliacaoReacao"),
+                    treinamentosRequisicao.getValue(i,"avaliacaoEficacia")
                 ));
             }
             var solicitacoesDepartamentos = DatasetFactory.getDataset("propor_treinamentos_anuais", null, [metadata], null);
@@ -206,7 +214,9 @@ function createDataset(fields, constraints, sortFields) {
                         treinamentos.getValue(x, "valorGastoTbTreinamentos"),
                         solicitacoesDepartamentos.getValue(i, "documentid"),
                         solicitacoesDepartamentos.getValue(i, "numProcess"),
-                        treinamentos.getValue(x, "statsTbTreinamentos")
+                        treinamentos.getValue(x, "statsTbTreinamentos"),
+                        treinamentosRequisicao.getValue(i,"avaliacaoReacao"),
+                        treinamentosRequisicao.getValue(i,"avaliacaoEficacia")
                     ));
                 }
             }
