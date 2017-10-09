@@ -5,7 +5,7 @@
  var lifecycle = (function() {
     /** Lifecycle Variables */
     var activity = 0,
-    modo = '';
+    modo = "";
 
     var setup = function () {
         activity = getAtividade();
@@ -20,7 +20,7 @@
     var control = function () {
         /** Início - Life Cycle */
         // GLOBAL LISTENERS 
-        $('.expand').on('click ', manipulateDOM.actions4Listeners.expandTextAreaListener);
+        $(".expand").on("click ", manipulateDOM.actions4Listeners.expandTextAreaListener);
         if ( activity == 0 || activity == 4 ) {
             
         }
