@@ -26,7 +26,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>Avaliar Treinamento - Reação</processId>
-      <version>2</version>
+      <version>4</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>0</formId>
@@ -73,8 +73,8 @@
       <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>90</positionX>
-      <positionY>70</positionY>
+      <positionX>110</positionX>
+      <positionY>96</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -93,51 +93,6 @@
       <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
       <destinationStates/>
       <digitalSignature>false</digitalSignature>
-    </ProcessState>
-    <ProcessState>
-      <processStatePK>
-        <companyId>1</companyId>
-        <processId>TRN-006</processId>
-        <version>1</version>
-        <sequence>14</sequence>
-      </processStatePK>
-      <stateName>Início</stateName>
-      <stateDescription>startconditional14</stateDescription>
-      <instruction>Atividade inicial do processo</instruction>
-      <deadlineTime>0</deadlineTime>
-      <joint>false</joint>
-      <agreementPercentage>0</agreementPercentage>
-      <engineAllocationId>Usuário</engineAllocationId>
-      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;User&gt;0000&lt;/User&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
-      <selectColleague>0</selectColleague>
-      <initialState>true</initialState>
-      <notifyAuthorityDelay>true</notifyAuthorityDelay>
-      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
-      <allowanceAuthorityTime>1</allowanceAuthorityTime>
-      <frequenceAuthorityTime>1</frequenceAuthorityTime>
-      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
-      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
-      <transferAttachments>false</transferAttachments>
-      <subProcessId></subProcessId>
-      <formFolder>0</formFolder>
-      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
-      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
-      <automatic>false</automatic>
-      <positionX>90</positionX>
-      <positionY>130</positionY>
-      <forecastedEffortType>0</forecastedEffortType>
-      <forecastedEffort>0</forecastedEffort>
-      <notifyManagerFollowUp>false</notifyManagerFollowUp>
-      <notifyManagerDelay>false</notifyManagerDelay>
-      <frequenceManagerTime>0</frequenceManagerTime>
-      <inhibitTransfer>false</inhibitTransfer>
-      <periodId></periodId>
-      <stateType>0</stateType>
-      <bpmnType>13</bpmnType>
-      <signalId>0</signalId>
-      <counterSign>false</counterSign>
-      <openInstances>0</openInstances>
-      <destinationStates/>
     </ProcessState>
     <ProcessState>
       <processStatePK>
@@ -244,8 +199,8 @@
         <version>1</version>
         <sequence>18</sequence>
       </processStatePK>
-      <stateName>Gerar avaliação de reação</stateName>
-      <stateDescription>Gerar avaliação de reação</stateDescription>
+      <stateName>Serviço inicializador</stateName>
+      <stateDescription>Serviço inicializador</stateDescription>
       <instruction></instruction>
       <deadlineTime>0</deadlineTime>
       <joint>false</joint>
@@ -300,6 +255,8 @@
       <deadlineTime>0</deadlineTime>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Grupo</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Group&gt;Processos&lt;/Group&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
       <selectColleague>0</selectColleague>
       <initialState>false</initialState>
       <notifyAuthorityDelay>true</notifyAuthorityDelay>
@@ -314,8 +271,59 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>228</positionX>
+      <positionX>190</positionX>
       <positionY>740</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <allowanceManagerTime>0</allowanceManagerTime>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>80</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
+      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>1</version>
+        <sequence>26</sequence>
+      </processStatePK>
+      <stateName>Avaliar treinamento</stateName>
+      <stateDescription>Avaliar treinamento</stateDescription>
+      <instruction></instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Campo Formulário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;matResponsavelSolic&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
+      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>320</positionX>
+      <positionY>79</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -366,7 +374,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>180</positionX>
-      <positionY>595</positionY>
+      <positionY>620</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -462,7 +470,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>1</expressionOrder>
-        <version>2</version>
+        <version>4</version>
         <sequence>10</sequence>
       </conditionProcessStatePK>
       <condition>1 = 1</condition>
@@ -539,22 +547,6 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <version>1</version>
-        <linkSequence>20</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>14</initialStateSequence>
-      <finalStateSequence>18</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>TRN-006</processId>
-        <version>1</version>
         <linkSequence>23</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
@@ -592,6 +584,22 @@
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
       <initialStateSequence>18</initialStateSequence>
+      <finalStateSequence>26</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>1</version>
+        <linkSequence>27</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>26</initialStateSequence>
       <finalStateSequence>5</finalStateSequence>
       <returnLabel></returnLabel>
       <name></name>
@@ -604,33 +612,52 @@
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
         <companyId>1</companyId>
-        <eventId>startconditional14</eventId>
-        <processId>TRN-006</processId>
-        <version>1</version>
-      </workflowProcessEventPK>
-      <eventDescription>function startconditional14() {
-}</eventDescription>
-    </WorkflowProcessEvent>
-    <WorkflowProcessEvent>
-      <workflowProcessEventPK>
-        <companyId>1</companyId>
         <eventId>servicetask18</eventId>
         <processId>TRN-006</processId>
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function servicetask18(attempt, message) {
- try {
-	 var Service = ServiceManager.getService(&apos;ECMCardService&apos;);
-	 var serviceHelper = Service.getBean();
-  //var serviceLocator = serviceHelper.instantiate(&apos;classe.locator&apos;);
- } catch(error) { 
-	log.error(error);
-	throw error;
- }
-}</eventDescription>
+	try {
+		var Service = ServiceManager.getService(&apos;ECMWorkflowEngineService&apos;);
+		var serviceHelper = Service.getBean();
+	 //var serviceLocator = serviceHelper.instantiate(&apos;classe.locator&apos;);
+	} catch(error) { 
+	   log.error(error);
+	   throw error;
+	}
+}
+</eventDescription>
     </WorkflowProcessEvent>
   </list>
-  <list/>
+  <list>
+    <AdvancedProcessProperties>
+      <advancedProcessPropertiesPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <propertyId>loginUserWS</propertyId>
+        <version>4</version>
+      </advancedProcessPropertiesPK>
+      <propertieValue>servico</propertieValue>
+    </AdvancedProcessProperties>
+    <AdvancedProcessProperties>
+      <advancedProcessPropertiesPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <propertyId>matUserWS</propertyId>
+        <version>4</version>
+      </advancedProcessPropertiesPK>
+      <propertieValue>0000</propertieValue>
+    </AdvancedProcessProperties>
+    <AdvancedProcessProperties>
+      <advancedProcessPropertiesPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <propertyId>passwdUserWS</propertyId>
+        <version>4</version>
+      </advancedProcessPropertiesPK>
+      <propertieValue>fcea920f7412b5da7be0cf42b8c93759</propertieValue>
+    </AdvancedProcessProperties>
+  </list>
   <list>
     <SwimLane>
       <color>C0C7CC</color>
@@ -638,7 +665,7 @@
       <width>1071</width>
       <positionX>30</positionX>
       <positionY>40</positionY>
-      <stateName>Solicitante</stateName>
+      <stateName>Usuário Fluig</stateName>
       <type>2</type>
       <parentSequence>0</parentSequence>
       <swimLanePK>
@@ -720,7 +747,7 @@
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>2</version>
+        <version>4</version>
         <linkSequence>9</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -731,75 +758,111 @@
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>2</version>
+        <version>4</version>
         <linkSequence>19</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
-      <positionX>280</positionX>
-      <positionY>87</positionY>
+      <positionX>242</positionX>
+      <positionY>113</positionY>
     </ProcessLinkBend>
     <ProcessLinkBend>
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>2</version>
-        <linkSequence>20</linkSequence>
-        <bendSequence>1</bendSequence>
-      </processLinkBendPK>
-      <positionX>280</positionX>
-      <positionY>147</positionY>
-    </ProcessLinkBend>
-    <ProcessLinkBend>
-      <processLinkBendPK>
-        <companyId>1</companyId>
-        <processId>TRN-006</processId>
-        <version>2</version>
-        <linkSequence>20</linkSequence>
-        <bendSequence>2</bendSequence>
-      </processLinkBendPK>
-      <positionX>280</positionX>
-      <positionY>330</positionY>
-    </ProcessLinkBend>
-    <ProcessLinkBend>
-      <processLinkBendPK>
-        <companyId>1</companyId>
-        <processId>TRN-006</processId>
-        <version>2</version>
+        <version>4</version>
         <linkSequence>23</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
-      <positionX>194</positionX>
+      <positionX>110</positionX>
+      <positionY>634</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>4</version>
+        <linkSequence>23</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>110</positionX>
+      <positionY>700</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>4</version>
+        <linkSequence>23</linkSequence>
+        <bendSequence>3</bendSequence>
+      </processLinkBendPK>
+      <positionX>110</positionX>
       <positionY>768</positionY>
     </ProcessLinkBend>
     <ProcessLinkBend>
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>2</version>
+        <version>4</version>
         <linkSequence>25</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
-      <positionX>563</positionX>
-      <positionY>596</positionY>
+      <positionX>372</positionX>
+      <positionY>602</positionY>
     </ProcessLinkBend>
-  </list>
-  <list>
-    <ProcessStateTrigger>
-      <processStateTriggerPK>
+    <ProcessLinkBend>
+      <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>2</version>
-        <stateSequence>14</stateSequence>
-        <triggerSequence>0</triggerSequence>
-      </processStateTriggerPK>
-      <runType>1</runType>
-      <type>3</type>
-      <value>TRN-006.startconditional14.js</value>
-      <timeTrigger>0:0:0</timeTrigger>
-      <frequencia>01</frequencia>
-    </ProcessStateTrigger>
+        <version>4</version>
+        <linkSequence>27</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>562</positionX>
+      <positionY>114</positionY>
+    </ProcessLinkBend>
   </list>
   <list/>
+  <list>
+    <ExtendedPropertyField>
+      <extendedPropertyFieldPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>4</version>
+        <stateSequence>0</stateSequence>
+        <propertyName>loginUserWS</propertyName>
+      </extendedPropertyFieldPK>
+      <propertyType>0</propertyType>
+      <propertyDescription>loginUserWS</propertyDescription>
+      <propertyValue>servico</propertyValue>
+      <isDefaultProperty>false</isDefaultProperty>
+    </ExtendedPropertyField>
+    <ExtendedPropertyField>
+      <extendedPropertyFieldPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>4</version>
+        <stateSequence>0</stateSequence>
+        <propertyName>matUserWS</propertyName>
+      </extendedPropertyFieldPK>
+      <propertyType>0</propertyType>
+      <propertyDescription>matUserWS</propertyDescription>
+      <propertyValue>0000</propertyValue>
+      <isDefaultProperty>false</isDefaultProperty>
+    </ExtendedPropertyField>
+    <ExtendedPropertyField>
+      <extendedPropertyFieldPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>4</version>
+        <stateSequence>0</stateSequence>
+        <propertyName>passwdUserWS</propertyName>
+      </extendedPropertyFieldPK>
+      <propertyType>0</propertyType>
+      <propertyDescription>passwdUserWS</propertyDescription>
+      <propertyValue>fcea920f7412b5da7be0cf42b8c93759</propertyValue>
+      <isDefaultProperty>false</isDefaultProperty>
+    </ExtendedPropertyField>
+  </list>
   <list>
     <ProcessFormField>
       <processFormFieldPK>
@@ -817,9 +880,9 @@
       <processId>TRN-006</processId>
       <version>1</version>
       <sequence>18</sequence>
-      <attempts>1</attempts>
+      <attempts>0</attempts>
       <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
-      <serviceName>ECMCardService</serviceName>
+      <serviceName>ECMWorkflowEngineService</serviceName>
     </ProcessStateService>
   </list>
   <list/>
