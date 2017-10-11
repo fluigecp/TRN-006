@@ -24,6 +24,10 @@
         if ( activity == 0 || activity == 4 ) {
             
         }
+
+        if ( activity == 26 ) {
+            $("#btnPrint").on("click", manipulateDOM.actions4Listeners.printAvaliacaoListener);
+        }
         
         /** Modo VIEW  */
 

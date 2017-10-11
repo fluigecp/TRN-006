@@ -20,7 +20,7 @@ var printModule = (function(){
                 setTimeout(function() {
                     var list = getData();
                     setData(myWindow, list);
-                }, 4000);
+                }, 2000);
 
                 
             } else {
@@ -65,7 +65,7 @@ var printModule = (function(){
         '						<img src="../logo12.png" alt="" width="45" height="45">'+
         '					</div>'+
         '					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">'+
-        '						<h4>Ficha de avaliação de treinamento - reação</h4>'+
+        '						<h4>Avaliação de reação</h4>'+
         '					</div>'+
       /*  '					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="font-size: 10px;">'+
         '						<span><b>Data: </b></span><span>'+dia+'/'+mes+'/'+ano+'</span>'+
@@ -191,20 +191,20 @@ var printModule = (function(){
             '       <div class="row">'+
                 '       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 15px;">'+
                 '           <p><b>1 - Na sua opinião, o treinamento recebido atendeu suas expectativas?</b></p>'+
-                '           <div class="col-xs- col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">Todas (100 a 76%)</label></div>'+
-                '           <div class="col-xs- col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">A maioria (75 a 51%)</label></div>'+
-                '           <div class="col-xs- col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">A minoria (50 a 26%)</label></div>'+
-                '           <div class="col-xs- col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">Não atendeu (25 a 0%)</label></div>'+
+                '           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">Todas (100 a 76%)</label></div>'+
+                '           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">A maioria (75 a 51%)</label></div>'+
+                '           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">A minoria (50 a 26%)</label></div>'+
+                '           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">Não atendeu (25 a 0%)</label></div>'+
                 '       </div>'+
             '       </div>'+
 
             '       <div class="row">'+
                 '       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 15px;">'+
                 '           <p><b>2- Você irá utilizar em seu trabalho o que aprendeu no treinamento?</b></p>'+
-                '           <div class="col-xs- col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">Sempre (100 a 76%)</label></div>'+
-                '           <div class="col-xs- col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">Quase sempre (75 a 51%)</label></div>'+
-                '           <div class="col-xs- col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">As vezes (50 a 26%)</label></div>'+
-                '           <div class="col-xs- col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">Nunca (25 a 0%)</label></div>'+
+                '           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">Sempre (100 a 76%)</label></div>'+
+                '           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">Quase sempre (75 a 51%)</label></div>'+
+                '           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">As vezes (50 a 26%)</label></div>'+
+                '           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">Nunca (25 a 0%)</label></div>'+
                 '       </div>'+
             '       </div>'+
 
@@ -409,7 +409,7 @@ var printModule = (function(){
             '       </div>'+
 
             '       <div class="row">'+
-                '       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 100px;">'+
+                '       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 10px;">'+
                 '           <p><b>5- Quais sugestões você poderia oferecer para nossa utilização nos próximos treinamentos?</b></p>'+
                 '       </div>'+
             '       </div>';
@@ -424,10 +424,10 @@ var printModule = (function(){
             /*myWindow.document.getElementById("content-pages").appendChild(dvHeader);
             myWindow.document.getElementById("content-pages").appendChild(dvDados);*/
 
-           /* setTimeout(function() {
+           /*setTimeout(function() {
                 myWindow.print();
                 myWindow.close(); 
-            }, 1500); */
+            }, 1500);*/
 
         }catch(err){
             console.log('Erro na funcao '+ err.message);
@@ -438,5 +438,5 @@ var printModule = (function(){
 
     return {
         print: geraAvaliacao
-    } 
+    };
 })();
