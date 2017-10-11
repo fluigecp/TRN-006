@@ -163,7 +163,7 @@ var printModule = (function(){
                 '                <thead>'+
                 '                    <tr>'+
                 '                        <th width="50%" class="text-center" style="'+style+'">Data de realização</th>'+
-                '                        <th width="50%" class="text-center" style="'+style+'">Carga horária</th>'+
+                '                        <th width="50%" class="text-center" style="'+style+'">Carga horária(hrs)</th>'+
                 '                    </tr>'+
                 '                </thead>'+
                 '                <tbody>'+

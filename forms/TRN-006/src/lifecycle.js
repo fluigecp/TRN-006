@@ -18,9 +18,11 @@
     };
 
     var control = function () {
-        /** Início - Life Cycle */
         // GLOBAL LISTENERS 
         $(".expand").on("click ", manipulateDOM.actions4Listeners.expandTextAreaListener);
+        
+        /** Início - Life Cycle */
+
         if ( activity == 0 || activity == 4 ) {
             
         }
