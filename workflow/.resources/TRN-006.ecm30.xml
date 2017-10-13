@@ -612,6 +612,159 @@
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
         <companyId>1</companyId>
+        <eventId>beforeTaskSave</eventId>
+        <processId>TRN-006</processId>
+        <version>1</version>
+      </workflowProcessEventPK>
+      <eventDescription>function beforeTaskSave(colleagueId, nextSequenceId, userList) {&#xd;
+    var atividade = getValue(&apos;WKNumState&apos;);&#xd;
+&#xd;
+    //HISTÓRICO NO EVENTO&#xd;
+    if (getValue(&quot;WKCompletTask&quot;) == &quot;true&quot;) {&#xd;
+        atualizaHistorico(&quot;obsHistorico&quot;);&#xd;
+        log.info(&quot;HISTÓRICO ATUALIZADO&quot;);&#xd;
+    } else {&#xd;
+        log.info(&quot;HISTÓRICO NÃO ATUALIZADO&quot;);&#xd;
+    }&#xd;
+&#xd;
+    // verificando anexo&#xd;
+    if (atividade == 5) {&#xd;
+        if (!getAttachments(5, 1, &quot;|pdf|png|jpg|jpeg| &quot;)) {&#xd;
+            throw (&quot; Anexar: \nCertificado.&quot;);&#xd;
+        }&#xd;
+    }&#xd;
+&#xd;
+    if (atividade == 26) {&#xd;
+        if (!getAttachments(12, 1, &quot;|pdf|png|jpg|jpeg| &quot;)) {&#xd;
+            throw (&quot; Anexar: \nAvaliação de reação.&quot;);&#xd;
+        }&#xd;
+    }&#xd;
+}&#xd;
+&#xd;
+/** Funções utilizadas no histórico */&#xd;
+&#xd;
+function atualizaHistorico(name) {&#xd;
+    if (name == &quot;&quot;) {&#xd;
+        return;&#xd;
+    }&#xd;
+    var mensagem = hAPI.getCardValue(name);&#xd;
+&#xd;
+    if (mensagem == null || mensagem == &quot;&quot;) {&#xd;
+        return;&#xd;
+    }&#xd;
+&#xd;
+    var ultimaAtualizacao = hAPI.getCardValue(&quot;ultimaAtualizacao&quot;) == &quot;&quot; ? &quot; &quot; : hAPI.getCardValue(&quot;ultimaAtualizacao&quot;);&#xd;
+    var historico = hAPI.getCardValue(&quot;historico&quot;) == &quot;&quot; ? &quot; &quot; : hAPI.getCardValue(&quot;historico&quot;);&#xd;
+&#xd;
+    var usuarioLogado = &quot;&quot;;&#xd;
+    try {&#xd;
+        usuarioLogado = usuario();&#xd;
+    } catch (err) {&#xd;
+        usuarioLogado = &quot;Erro ao buscar usuário&quot;;&#xd;
+    }&#xd;
+&#xd;
+    var htmlHistoricoNovo = dataHoraAtual() + &quot; - &quot; + usuarioLogado + &quot;  \r\n&quot; + mensagem + &quot;\r\n \r\n&quot;;&#xd;
+&#xd;
+    hAPI.setCardValue(&quot;ultimaAtualizacao&quot;, htmlHistoricoNovo);&#xd;
+    hAPI.setCardValue(&quot;historico&quot;, ultimaAtualizacao + historico);&#xd;
+    hAPI.setCardValue(name, &quot;&quot;);&#xd;
+}&#xd;
+&#xd;
+&#xd;
+function dataHoraAtual() {&#xd;
+    var dt = new Date();&#xd;
+    var txtData = (dt.getDate() &lt; 10 ? &quot;0&quot; + dt.getDate() : dt.getDate()) + &quot;/&quot; + ((dt.getMonth() + 1) &lt; 10 ? &quot;0&quot; + (dt.getMonth() + 1) : (dt.getMonth() + 1)) + &quot;/&quot; + dt.getFullYear() + &quot; - &quot; + (dt.getHours() &lt; 10 ? &quot;0&quot; + dt.getHours() : dt.getHours()) + &quot;:&quot; + (dt.getMinutes() &lt; 10 ? &quot;0&quot; + dt.getMinutes() : dt.getMinutes());&#xd;
+    return txtData;&#xd;
+}&#xd;
+&#xd;
+&#xd;
+function usuario() {&#xd;
+    var c1 = DatasetFactory.createConstraint(&quot;colleaguePK.colleagueId&quot;, getValue(&quot;WKUser&quot;), getValue(&quot;WKUser&quot;), ConstraintType.MUST);&#xd;
+    var dsUser = DatasetFactory.getDataset(&quot;colleague&quot;, [&quot;colleagueName&quot;], [c1], null);&#xd;
+    return dsUser.getValue(0, &quot;colleagueName&quot;);&#xd;
+}&#xd;
+&#xd;
+/* Fim - Histórico */&#xd;
+&#xd;
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////&#xd;
+// @activity será o número da atividade que deseja validar a inserção dos anexos. Valor do tipo int                                                                                                                 //&#xd;
+// @numAnexos é a quantidade de anexos necessário para liberar a atividade, ou seja, quantos anexos devem ser anexado na atividade solicitada                                                                       //&#xd;
+// @formato são as extensões permitidas na atividade que está sendo verificada. Deverá ser informado entre &apos;pipe&apos; (|pdf|png|). Se não tiver uma validação de extensão, deixar em branco pois está sendo tratado.    //&#xd;
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////&#xd;
+function getAttachments(activity, numAnexos, formato) {&#xd;
+    //Implementação da função indexOf() para comparação de strings&#xd;
+    if (!String.prototype.includes) {&#xd;
+        String.prototype.includes = function () {&#xd;
+            &apos;use strict&apos;;&#xd;
+            return String.prototype.indexOf.apply(this, arguments) !== -1;&#xd;
+        };&#xd;
+    }&#xd;
+    var countAnexos = 0;&#xd;
+    var formatos = formato.toLowerCase();&#xd;
+    if (activity == 0) {&#xd;
+        if (formatos == &apos;&apos;) {&#xd;
+            if (hAPI.listAttachments().size() &lt; numAnexos) {&#xd;
+                return false;&#xd;
+            }&#xd;
+        } else {&#xd;
+            var anexos = hAPI.listAttachments();&#xd;
+            for (var j = 0; j &lt; anexos.size(); j++) {&#xd;
+                var anexo = anexos.get(j);&#xd;
+                var docName = (anexo.getDocumentDescription()).toLowerCase();&#xd;
+                var docFormato = docName.split(&apos;.&apos;);&#xd;
+                var docFormater = (docFormato.reverse())[0];&#xd;
+                var isFormat = formatos.contains(docFormater);&#xd;
+                if (isFormat == true) {&#xd;
+                    countAnexos++;&#xd;
+                }&#xd;
+            }&#xd;
+            if (countAnexos &gt;= numAnexos) {&#xd;
+                return true;&#xd;
+            }&#xd;
+            return false;&#xd;
+        }&#xd;
+    } else {&#xd;
+        var c1 = DatasetFactory.createConstraint(&apos;processAttachmentPK.processInstanceId&apos;, getValue(&quot;WKNumProces&quot;), getValue(&quot;WKNumProces&quot;), ConstraintType.MUST);&#xd;
+        var anexos = DatasetFactory.getDataset(&apos;processAttachment&apos;, null, [c1], null);&#xd;
+        for (var i = 0; i &lt; anexos.rowsCount; i++) {&#xd;
+            var docId = anexos.getValue(i, &apos;documentId&apos;);&#xd;
+            var c2 = DatasetFactory.createConstraint(&apos;documentPK.documentId&apos;, docId, docId, ConstraintType.MUST);&#xd;
+            var c3 = DatasetFactory.createConstraint(&apos;versionActive&apos;, &apos;true&apos;, &apos;true&apos;, ConstraintType.MUST);&#xd;
+            var dsDocument = DatasetFactory.getDataset(&apos;document&apos;, null, [c2, c3], null);&#xd;
+            var docType = parseInt(dsDocument.getValue(0, &apos;documentType&apos;));&#xd;
+            var docName = (dsDocument.getValue(0, &apos;documentDescription&apos;)).toLowerCase();&#xd;
+            if (docType == 7) {&#xd;
+                var c4 = DatasetFactory.createConstraint(&apos;processHistoryPK.movementSequence&apos;, anexos.getValue(i, &quot;originalMovementSequence&quot;), anexos.getValue(i, &quot;originalMovementSequence&quot;), ConstraintType.MUST);&#xd;
+                var c5 = DatasetFactory.createConstraint(&apos;processHistoryPK.processInstanceId&apos;, getValue(&quot;WKNumProces&quot;), getValue(&quot;WKNumProces&quot;), ConstraintType.MUST);&#xd;
+                var c6 = DatasetFactory.createConstraint(&apos;processHistoryPK.companyId&apos;, anexos.getValue(i, &quot;processAttachmentPK.companyId&quot;), anexos.getValue(i, &quot;processAttachmentPK.companyId&quot;), ConstraintType.MUST);&#xd;
+                var c7 = DatasetFactory.createConstraint(&apos;stateSequence&apos;, activity, activity, ConstraintType.MUST);&#xd;
+                var c8 = DatasetFactory.createConstraint(&apos;active&apos;, &apos;true&apos;, &apos;true&apos;, ConstraintType.MUST);&#xd;
+                var processHistory = DatasetFactory.getDataset(&apos;processHistory&apos;, null, [c4, c5, c6, c7, c8], null);&#xd;
+                var docFormato = (String(docName)).split(&apos;.&apos;);&#xd;
+                var filterStr = docFormato.reverse()[0];&#xd;
+                var isFormat = formatos.includes(filterStr);&#xd;
+                if (formatos != &apos;&apos;) {&#xd;
+                    if (processHistory.rowsCount &gt; 0 &amp;&amp; isFormat == true) {&#xd;
+                        countAnexos++;&#xd;
+                    }&#xd;
+                } else {&#xd;
+                    if (processHistory.rowsCount &gt; 0) {&#xd;
+                        countAnexos++;&#xd;
+                    }&#xd;
+                }&#xd;
+            }&#xd;
+        }&#xd;
+        if (countAnexos &gt;= numAnexos) {&#xd;
+            return true;&#xd;
+        }&#xd;
+        return false;&#xd;
+    }&#xd;
+}&#xd;
+</eventDescription>
+    </WorkflowProcessEvent>
+    <WorkflowProcessEvent>
+      <workflowProcessEventPK>
+        <companyId>1</companyId>
         <eventId>servicetask18</eventId>
         <processId>TRN-006</processId>
         <version>1</version>
@@ -863,17 +1016,7 @@
       <isDefaultProperty>false</isDefaultProperty>
     </ExtendedPropertyField>
   </list>
-  <list>
-    <ProcessFormField>
-      <processFormFieldPK>
-        <companyId>1</companyId>
-        <processId>TRN-006</processId>
-        <fieldId>campoDescritor</fieldId>
-      </processFormFieldPK>
-      <fieldDescription>campoDescritor</fieldDescription>
-      <slotId>1</slotId>
-    </ProcessFormField>
-  </list>
+  <list/>
   <list>
     <ProcessStateService>
       <companyId>1</companyId>
