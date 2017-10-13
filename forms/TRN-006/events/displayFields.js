@@ -39,4 +39,9 @@ function displayFields(form,customHTML){
 		customHTML.append('$(\'#' + id + '\').css(\'display\', \'none\')');
 		customHTML.append('</script>');
 	}
+
+	if ( activity != 26) {
+		ocultaId("btnPrint");
+		ocultaId("btnShowTreinamento");
+	}
  }

@@ -3,11 +3,9 @@
  * @module PrintModule
  */
 var printModule = (function(){
-    var activity = 0,
-    modo = "";
+    var modo = "";
 
     var setup = function () {
-        activity = getAtividade();
         modo = getFormMode();
     };
 
@@ -416,18 +414,18 @@ var printModule = (function(){
             dvDados.innerHTML = html;
             dvDados.id = 'aprovacaoReacaoForm';
             var page = myWindow.document.createElement("page");
-            page.size = "A4";
-            page.layout="portrait";
+            /* page.setAttribute("size", "A4");
+            page.setAttribute("layout","portrait"); */
             page.appendChild(dvHeader);
             page.appendChild(dvDados);
             myWindow.document.getElementById("content-pages").appendChild(page);
             /*myWindow.document.getElementById("content-pages").appendChild(dvHeader);
             myWindow.document.getElementById("content-pages").appendChild(dvDados);*/
 
-           /*setTimeout(function() {
+           setTimeout(function() {
                 myWindow.print();
                 myWindow.close(); 
-            }, 1500);*/
+            }, 1500);
 
         }catch(err){
             console.log('Erro na funcao '+ err.message);
