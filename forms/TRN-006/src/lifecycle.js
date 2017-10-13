@@ -29,6 +29,7 @@
 
         if ( activity == 26 ) {
             $("#btnPrint").on("click", manipulateDOM.actions4Listeners.printAvaliacaoListener);
+            $("#btnShowTreinamento").on("click", manipulateDOM.actions4Listeners.showTreinamentoListener);
         }
         
         /** Modo VIEW  */

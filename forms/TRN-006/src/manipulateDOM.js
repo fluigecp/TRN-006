@@ -28,6 +28,18 @@ var manipulateDOM = (function () {
         printAvaliacaoListener: function(event) {
             event.preventDefault();
             printModule.print();
+        },
+
+        /**
+         * @description Função listener para abrir a solicitação do treinamento de origem
+         */
+        showTreinamentoListener: function(event) {
+            event.preventDefault();
+            var $numSolic = $("#numSolicTreinamento").val()
+            if ($numSolic != "" && $numSolic != undefined && $numSolic != null) {
+                var htmlRef = "/portal/p/1/pageworkflowview?app_ecm_workflowview_detailsProcessInstanceID=" + $numSolic;
+                window.open(htmlRef, "_blank");
+            }
         }
     };
     /**
