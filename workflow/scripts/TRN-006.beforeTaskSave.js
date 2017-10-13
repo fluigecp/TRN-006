@@ -17,7 +17,7 @@ function beforeTaskSave(colleagueId, nextSequenceId, userList) {
     }
 
     if (atividade == 26) {
-        if (!getAttachments(12, 1, "|pdf|png|jpg|jpeg| ")) {
+        if (!getAttachments(26, 1, "|pdf|png|jpg|jpeg| ")) {
             throw (" Anexar: \nAvaliação de reação.");
         }
     }
