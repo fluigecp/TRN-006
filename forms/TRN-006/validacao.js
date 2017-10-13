@@ -6,5 +6,8 @@ function validaCampos(atividade, proximaAtividade) {
 		//addHasFreeTable('fieldType', 'fieldName', 1);
 	}
 
+	if ( atividade == 8 ) {
+		addHasFree("aprovarAvaliacao");
+	}
 	/** Fim Life Cycle Workflow */
 }

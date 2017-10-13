@@ -1,1 +1,4 @@
-/* your css code! */
+.label-for-radio {
+    font-weight: normal !important;
+    cursor: pointer;
+}

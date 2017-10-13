@@ -1,5 +1,5 @@
-function displayFields(form,customHTML){
-    var activity = getValue('WKNumState');
+function displayFields(form, customHTML) {
+	var activity = getValue('WKNumState');
 	form.setShowDisabledFields(true);
 	var modo = form.getFormMode();
 	customHTML.append("<script>");
@@ -40,8 +40,12 @@ function displayFields(form,customHTML){
 		customHTML.append('</script>');
 	}
 
-	if ( activity != 26) {
+	if (activity != 26) {
 		ocultaId("btnPrint");
 		ocultaId("btnShowTreinamento");
 	}
- }
+
+	if (activity != 8) {
+		ocultaClasse("aprovarAvaliacaoContainer");
+	}
+}
