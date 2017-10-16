@@ -11,5 +11,6 @@ function enableFields(form) {
         form.setEnabled('instituicao', false, true);
         form.setEnabled('dataRealizacao', false, true);
         form.setEnabled('cargaHoraria', false, true);
+        form.setEnabled('classificacaoCurso', false, true);
     }
 }

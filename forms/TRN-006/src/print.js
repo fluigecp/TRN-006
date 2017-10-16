@@ -40,6 +40,7 @@ var printModule = (function(){
         instituicao = modo == "VIEW" ? $("span[name*=instituicao]").html() : $("input[name*=instituicao]").val();
         dataRealizacao = modo == "VIEW" ? $("span[name*=dataRealizacao]").html() : $("input[name*=dataRealizacao]").val();
         cargaHoraria = modo == "VIEW" ? $("span[name*=cargaHoraria]").html() : $("input[name*=cargaHoraria]").val();
+        classificacaoCurso = modo == "VIEW" ? $("span[name*=classificacaoCurso]").html() : $("input[name*=classificacaoCurso]").val();
         formObj = {
             "nomeParticipante": nomeParticipante,
             "matricula": matricula,
@@ -47,7 +48,8 @@ var printModule = (function(){
             "nomeTreinamento": nomeTreinamento,
             "instituicao": instituicao,
             "dataRealizacao": dataRealizacao,
-            "cargaHoraria": cargaHoraria
+            "cargaHoraria": cargaHoraria,
+            "classificacaoCurso": classificacaoCurso
         };
         return formObj;
     };
@@ -137,16 +139,20 @@ var printModule = (function(){
                 '               <table class="table table-bordered table-hover table-condensed" style="width: 100%;">'+
                 '                <thead>'+
                 '                    <tr>'+
-                '                        <th width="70%" class="text-center" style="'+style+'">Curso/treinamento</th>'+
-                '                        <th width="30%" class="text-center" style="'+style+'">Instituição</th>'+
+                '                        <th width="33%" class="text-center" style="'+style+'">Curso/treinamento</th>'+
+                '                        <th width="33%" class="text-center" style="'+style+'">Classificação</th>'+
+                '                        <th width="33%" class="text-center" style="'+style+'">Instituição</th>'+
                 '                    </tr>'+
                 '                </thead>'+
                 '                <tbody>'+
                 '                    <tr>'+
-                '                        <td width="70%">'+
+                '                        <td width="33%">'+
                 '                            <span>'+list.nomeTreinamento+'</span>'+
                 '                        </td> '+
-                '                        <td width="30%">'+
+                '                        <td width="33%">'+
+                '                            <span>'+list.classificacaoCurso+'</span>'+
+                '                        </td> '+
+                '                        <td width="33%">'+
                 '                            <span>'+list.instituicao+'</span>'+
                 '                        </td>'+
                 '                    </tr>'+

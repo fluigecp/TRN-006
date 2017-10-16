@@ -985,7 +985,7 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
         <linkSequence>25</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
-      <positionX>372</positionX>
+      <positionX>373</positionX>
       <positionY>602</positionY>
     </ProcessLinkBend>
     <ProcessLinkBend>
