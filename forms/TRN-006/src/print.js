@@ -18,7 +18,7 @@ var printModule = (function(){
                 setTimeout(function() {
                     var list = getData();
                     setData(myWindow, list);
-                }, 2000);
+                }, 3000);
 
                 
             } else {

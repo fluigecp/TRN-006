@@ -26,7 +26,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>Avaliar Treinamento - Reação</processId>
-      <version>9</version>
+      <version>10</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>0</formId>
@@ -470,7 +470,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>1</expressionOrder>
-        <version>9</version>
+        <version>10</version>
         <sequence>10</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovarAvaliacao&quot;) == &quot;Sim&quot;</condition>
@@ -481,7 +481,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>2</expressionOrder>
-        <version>9</version>
+        <version>10</version>
         <sequence>10</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovarAvaliacao&quot;) == &quot;Não&quot;</condition>
@@ -814,7 +814,7 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <propertyId>loginUserWS</propertyId>
-        <version>9</version>
+        <version>10</version>
       </advancedProcessPropertiesPK>
       <propertieValue>servico</propertieValue>
     </AdvancedProcessProperties>
@@ -823,7 +823,7 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <propertyId>matUserWS</propertyId>
-        <version>9</version>
+        <version>10</version>
       </advancedProcessPropertiesPK>
       <propertieValue>0000</propertieValue>
     </AdvancedProcessProperties>
@@ -832,7 +832,7 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <propertyId>passwdUserWS</propertyId>
-        <version>9</version>
+        <version>10</version>
       </advancedProcessPropertiesPK>
       <propertieValue>fcea920f7412b5da7be0cf42b8c93759</propertieValue>
     </AdvancedProcessProperties>
@@ -926,7 +926,7 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>9</version>
+        <version>10</version>
         <linkSequence>9</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -937,7 +937,7 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>9</version>
+        <version>10</version>
         <linkSequence>19</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -948,7 +948,7 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>9</version>
+        <version>10</version>
         <linkSequence>23</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -959,7 +959,7 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>9</version>
+        <version>10</version>
         <linkSequence>23</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -970,7 +970,7 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>9</version>
+        <version>10</version>
         <linkSequence>23</linkSequence>
         <bendSequence>3</bendSequence>
       </processLinkBendPK>
@@ -981,7 +981,7 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>9</version>
+        <version>10</version>
         <linkSequence>25</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -992,7 +992,7 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>9</version>
+        <version>10</version>
         <linkSequence>27</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1003,7 +1003,7 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>9</version>
+        <version>10</version>
         <linkSequence>28</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1014,7 +1014,7 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>9</version>
+        <version>10</version>
         <linkSequence>28</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1025,7 +1025,7 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>9</version>
+        <version>10</version>
         <linkSequence>28</linkSequence>
         <bendSequence>3</bendSequence>
       </processLinkBendPK>
@@ -1036,7 +1036,7 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>9</version>
+        <version>10</version>
         <linkSequence>28</linkSequence>
         <bendSequence>4</bendSequence>
       </processLinkBendPK>
@@ -1047,7 +1047,7 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>9</version>
+        <version>10</version>
         <linkSequence>28</linkSequence>
         <bendSequence>5</bendSequence>
       </processLinkBendPK>
@@ -1061,7 +1061,7 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
       <extendedPropertyFieldPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>9</version>
+        <version>10</version>
         <stateSequence>0</stateSequence>
         <propertyName>loginUserWS</propertyName>
       </extendedPropertyFieldPK>
@@ -1074,7 +1074,7 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
       <extendedPropertyFieldPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>9</version>
+        <version>10</version>
         <stateSequence>0</stateSequence>
         <propertyName>matUserWS</propertyName>
       </extendedPropertyFieldPK>
@@ -1087,7 +1087,7 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
       <extendedPropertyFieldPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>9</version>
+        <version>10</version>
         <stateSequence>0</stateSequence>
         <propertyName>passwdUserWS</propertyName>
       </extendedPropertyFieldPK>
