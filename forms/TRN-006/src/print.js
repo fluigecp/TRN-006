@@ -32,7 +32,7 @@ var printModule = (function(){
 
     var getData = function () {
         var formObj, nomeParticipante, matricula, departamento, nomeTreinamento, instituicao,
-            dataRealizacao, cargaHoraria;
+            dataRealizacao, cargaHoraria, classificacaoCurso;
         nomeParticipante = modo == "VIEW" ? $("span[name*=nomeParticipante]").html() : $("input[name*=nomeParticipante]").val();
         matricula = modo == "VIEW" ? $("span[name*=matricula]").html() : $("input[name*=matricula]").val();
         departamento = modo == "VIEW" ? $("span[name*=area]").html() : $("input[name*=area]").val();
