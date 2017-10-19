@@ -48,4 +48,8 @@ function displayFields(form, customHTML) {
 	if (activity != 8) {
 		ocultaClasse("aprovarAvaliacaoContainer");
 	}
+
+	if ( activity == 0 || activity == 4 ) {
+		ocultaClasse("pergunta-avaliacao");
+	}
 }
