@@ -661,11 +661,11 @@
         }&#xd;
     }&#xd;
 &#xd;
-    if (atividade == 26) {&#xd;
+    /*if (atividade == 26) {&#xd;
         if (!getAttachments(26, 1, &quot;|pdf|png|jpg|jpeg| &quot;)) {&#xd;
             throw (&quot; Anexar: \nAvaliação de reação.&quot;);&#xd;
         }&#xd;
-    }&#xd;
+    }*/&#xd;
 }&#xd;
 &#xd;
 /** Funções utilizadas no histórico */&#xd;

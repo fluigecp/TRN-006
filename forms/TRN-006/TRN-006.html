@@ -1,245 +1,611 @@
 <!DOCTYPE html>
 <html>
-	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-	<head>
-		<title>Form</title>
-		<script type="text/javascript" src="../vcXMLRPC.js"></script>
-		<link rel="stylesheet" type="text/css" href="http://ecp.fluigcloud.com.br/portal/resources/style-guide/css/fluig-style-guide.min.css">
-		<link rel="stylesheet" type="text/css" href="CSS_Fluig.css" />
-		<link rel="stylesheet" type="text/css" href="app.css" />
-		<script src="http://ecp.fluigcloud.com.br/portal/resources/js/jquery/jquery.js"></script>
-		<script src="http://ecp.fluigcloud.com.br/portal/resources/js/jquery/jquery-ui.min.js"></script>
-		<script src="http://ecp.fluigcloud.com.br/portal/resources/js/mustache/mustache-min.js"></script>
-		<script src="http://ecp.fluigcloud.com.br/portal/resources/style-guide/js/fluig-style-guide.min.js"></script>
-		<!-- CUSTOM -->
-		<link href="http://ecp.fluigcloud.com.br/portal/resources/style-guide/css/fluig-style-guide-filter.min.css" rel="stylesheet" type="text/css">
-		<link href="http://ecp.fluigcloud.com.br/portal/resources/style-guide/css/fluig-style-guide-ratingstars.min.css" rel="stylesheet" type="text/css">
-		<script src="http://ecp.fluigcloud.com.br/portal/resources/style-guide/js/fluig-style-guide-filter.min.js"></script>
-		<script src="http://ecp.fluigcloud.com.br/portal/resources/style-guide/js/fluig-style-guide-ratingstars.min.js"></script>
-		<!--<link href='/webdesk/customresources?cid=1&resourceName=temaFormulario/7.css' type='text/css' rel='stylesheet' />-->
-	</head>
-	<body class="fluig-style-guide">
-		<div class="fluig-style-guide container-fluid">
-			<form class="totvs-form grid vertical create-form-components ui-sortable t7" name="createFormComponents" style="padding-left: 10px; padding-right: 10px;">
-				<img src="/portal/resources/images/1/logo_image.png" alt="Logo" id="logo" style="max-height: 50px; max-width: 250px;">
-				<h1 class="title-form-application text-center">Avaliação de treinamento - reação</h1>
-					<!-- FORM CONTROLLERS -->
-					<input type="hidden" name="numProcess" id="numProcess" />
-					<input type="hidden" name="campoDescritor" id="campoDescritor" />
-					<input type="hidden" name="matResponsavelSolic" id="matResponsavelSolic" />
-					<input type="hidden" name="numSolicTreinamento" id="numSolicTreinamento" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
-					<!-- ANALYTICS -->
-					<input type="hidden" name="custom_0" id="custom_0">
-                    <input type="hidden" name="custom_1" id="custom_1">
-                    <input type="hidden" name="custom_2" id="custom_2">
-                    <input type="hidden" name="custom_3" id="custom_3">
-                    <input type="hidden" name="custom_4" id="custom_4">
-                    <input type="hidden" name="custom_5" id="custom_5">
-                    <input type="hidden" name="custom_6" id="custom_6">
-                    <input type="hidden" name="custom_7" id="custom_7">
-                    <input type="hidden" name="custom_8" id="custom_8">
-                    <input type="hidden" name="custom_9" id="custom_9">
-                    <input type="hidden" name="custom_10" id="custom_10">
-                    <input type="hidden" name="custom_11" id="custom_11">
-                    <input type="hidden" name="custom_12" id="custom_12">
-                    <input type="hidden" name="custom_13" id="custom_13">
-                    <input type="hidden" name="custom_14" id="custom_14">
-                    <input type="hidden" name="custom_15" id="custom_15">
-                    <input type="hidden" name="custom_16" id="custom_16">
-                    <input type="hidden" name="custom_17" id="custom_17">
-                    <input type="hidden" name="custom_18" id="custom_18">
-                    <input type="hidden" name="custom_19" id="custom_19">
-                    <input type="hidden" name="custom_20" id="custom_20">
-                    <input type="hidden" name="custom_21" id="custom_21">
-                    <input type="hidden" name="custom_22" id="custom_22">
-                    <input type="hidden" name="custom_23" id="custom_23">
-                    <input type="hidden" name="custom_24" id="custom_24">
-                    <input type="hidden" name="custom_25" id="custom_25">
-                    <input type="hidden" name="custom_26" id="custom_26">
-                    <input type="hidden" name="custom_27" id="custom_27">
-                    <input type="hidden" name="custom_28" id="custom_28">
-                    <input type="hidden" name="custom_29" id="custom_29">
-                    <!--FATOS-->
-                    <input type="hidden" name="fato_0" id="fato_0">
-                    <input type="hidden" name="fato_1" id="fato_1">
-                    <input type="hidden" name="fato_2" id="fato_2">
-                    <input type="hidden" name="fato_3" id="fato_3">
-                    <input type="hidden" name="fato_4" id="fato_4">
-                    <input type="hidden" name="fato_5" id="fato_5">
-                    <input type="hidden" name="fato_6" id="fato_6">
-                    <input type="hidden" name="fato_7" id="fato_7">
-                    <input type="hidden" name="fato_8" id="fato_8">
-                    <input type="hidden" name="fato_9" id="fato_9">
-					<!-- FIM ANALYTICS -->
+<head>
+	<title>Form</title>
+	<script type="text/javascript" src="../vcXMLRPC.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://ecp.fluigcloud.com.br/portal/resources/style-guide/css/fluig-style-guide.min.css">
+	<link rel="stylesheet" type="text/css" href="CSS_Fluig.css" />
+	<link rel="stylesheet" type="text/css" href="app.css" />
+	<script src="http://ecp.fluigcloud.com.br/portal/resources/js/jquery/jquery.js"></script>
+	<script src="http://ecp.fluigcloud.com.br/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script src="http://ecp.fluigcloud.com.br/portal/resources/js/mustache/mustache-min.js"></script>
+	<script src="http://ecp.fluigcloud.com.br/portal/resources/style-guide/js/fluig-style-guide.min.js"></script>
+	<!-- CUSTOM -->
+	<link href="http://ecp.fluigcloud.com.br/portal/resources/style-guide/css/fluig-style-guide-filter.min.css" rel="stylesheet"
+	    type="text/css">
+	<link href="http://ecp.fluigcloud.com.br/portal/resources/style-guide/css/fluig-style-guide-ratingstars.min.css" rel="stylesheet"
+	    type="text/css">
+	<script src="http://ecp.fluigcloud.com.br/portal/resources/style-guide/js/fluig-style-guide-filter.min.js"></script>
+	<script src="http://ecp.fluigcloud.com.br/portal/resources/style-guide/js/fluig-style-guide-ratingstars.min.js"></script>
+	<!--<link href='/webdesk/customresources?cid=1&resourceName=temaFormulario/7.css' type='text/css' rel='stylesheet' />-->
+</head>
 
-				<!-- FIM FORMCONTROLERS -->
-				<!-- Form -->
-				<div class="row">
-					<div class="col-md-6">						
-						<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="nomeParticipante">
-							<div class="form-input">
-								<div class="form-group">
-									<label for="nomeParticipante">Nome do participante</label> <strong>*</strong>
-									<input type="text" id="nomeParticipante" name="nomeParticipante" class="form-control">
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-2">	
-						<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="matricula">
-							<div class="form-input">
-								<div class="form-group">
-									<label for="matricula">Matrícula</label> <strong>*</strong>
-									<input type="text" id="matricula" name="matricula" class="form-control">
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="area">
-							<div class="form-input">
-								<div class="form-group">
-									<label for="area">Área</label> <strong>*</strong>
-									<input type="text" id="area" name="area" class="form-control">
-								</div>
+<body class="fluig-style-guide">
+	<div class="fluig-style-guide container-fluid">
+		<form class="totvs-form grid vertical create-form-components ui-sortable t7" name="createFormComponents" style="padding-left: 10px; padding-right: 10px;">
+			<img src="/portal/resources/images/1/logo_image.png" alt="Logo" id="logo" style="max-height: 50px; max-width: 250px;">
+			<h1 class="title-form-application text-center">Avaliação de treinamento - reação</h1>
+			<!-- FORM CONTROLLERS -->
+			<input type="hidden" name="numProcess" id="numProcess" />
+			<input type="hidden" name="campoDescritor" id="campoDescritor" />
+			<input type="hidden" name="matResponsavelSolic" id="matResponsavelSolic" />
+			<input type="hidden" name="numSolicTreinamento" id="numSolicTreinamento" />
+
+			<!-- ANALYTICS -->
+			<input type="hidden" name="custom_0" id="custom_0">
+			<input type="hidden" name="custom_1" id="custom_1">
+			<input type="hidden" name="custom_2" id="custom_2">
+			<input type="hidden" name="custom_3" id="custom_3">
+			<input type="hidden" name="custom_4" id="custom_4">
+			<input type="hidden" name="custom_5" id="custom_5">
+			<input type="hidden" name="custom_6" id="custom_6">
+			<input type="hidden" name="custom_7" id="custom_7">
+			<input type="hidden" name="custom_8" id="custom_8">
+			<input type="hidden" name="custom_9" id="custom_9">
+			<input type="hidden" name="custom_10" id="custom_10">
+			<input type="hidden" name="custom_11" id="custom_11">
+			<input type="hidden" name="custom_12" id="custom_12">
+			<input type="hidden" name="custom_13" id="custom_13">
+			<input type="hidden" name="custom_14" id="custom_14">
+			<input type="hidden" name="custom_15" id="custom_15">
+			<input type="hidden" name="custom_16" id="custom_16">
+			<input type="hidden" name="custom_17" id="custom_17">
+			<input type="hidden" name="custom_18" id="custom_18">
+			<input type="hidden" name="custom_19" id="custom_19">
+			<input type="hidden" name="custom_20" id="custom_20">
+			<input type="hidden" name="custom_21" id="custom_21">
+			<input type="hidden" name="custom_22" id="custom_22">
+			<input type="hidden" name="custom_23" id="custom_23">
+			<input type="hidden" name="custom_24" id="custom_24">
+			<input type="hidden" name="custom_25" id="custom_25">
+			<input type="hidden" name="custom_26" id="custom_26">
+			<input type="hidden" name="custom_27" id="custom_27">
+			<input type="hidden" name="custom_28" id="custom_28">
+			<input type="hidden" name="custom_29" id="custom_29">
+			<!--FATOS-->
+			<input type="hidden" name="fato_0" id="fato_0">
+			<input type="hidden" name="fato_1" id="fato_1">
+			<input type="hidden" name="fato_2" id="fato_2">
+			<input type="hidden" name="fato_3" id="fato_3">
+			<input type="hidden" name="fato_4" id="fato_4">
+			<input type="hidden" name="fato_5" id="fato_5">
+			<input type="hidden" name="fato_6" id="fato_6">
+			<input type="hidden" name="fato_7" id="fato_7">
+			<input type="hidden" name="fato_8" id="fato_8">
+			<input type="hidden" name="fato_9" id="fato_9">
+			<!-- FIM ANALYTICS -->
+
+			<!-- FIM FORMCONTROLERS -->
+			<!-- Form -->
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="nomeParticipante">
+						<div class="form-input">
+							<div class="form-group">
+								<label for="nomeParticipante">Nome do participante</label>
+								<strong>*</strong>
+								<input type="text" id="nomeParticipante" name="nomeParticipante" class="form-control">
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-4">
-						<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="cursoTreinamento">
-							<div class="form-input">
-								<div class="form-group">
-									<label for="cursoTreinamento">Curso/treinamento</label> <strong>*</strong>
-									<input type="text" id="cursoTreinamento" name="cursoTreinamento" class="form-control">
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="classificacaoCurso">
-							<div class="form-input">
-								<div class="form-group">
-									<label for="classificacaoCurso">Classificação</label> <strong>*</strong>
-									<input type="text" id="classificacaoCurso" name="classificacaoCurso" class="form-control">
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="instituicao">
-							<div class="form-input">
-								<div class="form-group">
-									<label for="instituicao">Instituição</label> <strong>*</strong>
-									<input type="text" id="instituicao" name="instituicao" class="form-control">
-								</div>
+				<div class="col-md-2">
+					<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="matricula">
+						<div class="form-input">
+							<div class="form-group">
+								<label for="matricula">Matrícula</label>
+								<strong>*</strong>
+								<input type="text" id="matricula" name="matricula" class="form-control">
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-6">	
-						<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="dataRealizacao">
-							<div class="form-input">
-								<div class="form-group">
-									<label for="dataRealizacao">Data de realização</label> <strong>*</strong>
-									<!-- <input type="text" id="dataRealizacao" name="dataRealizacao" data-date-hour="date" class="form-control" mask="00/00/0000" readonly> -->
-									<input type="text" id="dataRealizacao" name="dataRealizacao" class="form-control">
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="cargaHoraria">
-							<div class="form-input">
-								<div class="form-group">
-									<label for="cargaHoraria">Carga horária(hrs)</label> <strong>*</strong>
-									<input type="text" id="cargaHoraria" name="cargaHoraria" class="form-control" mask="0000">
-								</div>
+				<div class="col-md-4">
+					<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="area">
+						<div class="form-input">
+							<div class="form-group">
+								<label for="area">Área</label>
+								<strong>*</strong>
+								<input type="text" id="area" name="area" class="form-control">
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-4">
-						<button class="btn btn-primary" id="btnPrint" name="btnPrint" type="button">
-							<span class="fluigicon fluigicon-print"></span> Imprimir avaliação
-						</button>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="cursoTreinamento">
+						<div class="form-input">
+							<div class="form-group">
+								<label for="cursoTreinamento">Curso/treinamento</label>
+								<strong>*</strong>
+								<input type="text" id="cursoTreinamento" name="cursoTreinamento" class="form-control">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="classificacaoCurso">
+						<div class="form-input">
+							<div class="form-group">
+								<label for="classificacaoCurso">Classificação</label>
+								<strong>*</strong>
+								<input type="text" id="classificacaoCurso" name="classificacaoCurso" class="form-control">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="instituicao">
+						<div class="form-input">
+							<div class="form-group">
+								<label for="instituicao">Instituição</label>
+								<strong>*</strong>
+								<input type="text" id="instituicao" name="instituicao" class="form-control">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="dataRealizacao">
+						<div class="form-input">
+							<div class="form-group">
+								<label for="dataRealizacao">Data de realização</label>
+								<strong>*</strong>
+								<!-- <input type="text" id="dataRealizacao" name="dataRealizacao" data-date-hour="date" class="form-control" mask="00/00/0000" readonly> -->
+								<input type="text" id="dataRealizacao" name="dataRealizacao" class="form-control">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="cargaHoraria">
+						<div class="form-input">
+							<div class="form-group">
+								<label for="cargaHoraria">Carga horária(hrs)</label>
+								<strong>*</strong>
+								<input type="text" id="cargaHoraria" name="cargaHoraria" class="form-control" mask="0000">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<button class="btn btn-primary" id="btnPrint" name="btnPrint" type="button">
+						<span class="fluigicon fluigicon-print"></span> Imprimir avaliação
+					</button>
 
-						<button class="btn btn-primary" id="btnShowTreinamento" name="btnShowTreinamento" style="margin-left: 10px;" type="button">
-							<span class="fluigicon fluigicon-process-details"></span> Visualizar treinamento
-						</button>
-					</div>
+					<button class="btn btn-primary" id="btnShowTreinamento" name="btnShowTreinamento" style="margin-left: 10px;" type="button">
+						<span class="fluigicon fluigicon-process-details"></span> Visualizar treinamento
+					</button>
 				</div>
+			</div>
+			<!-- Questionário -->
+			<!-- 			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+					<p>Este instrumento tem como objetivo coletar informações sobre o treinamento realizado, a fim de aprimorar nosso trabalho.
+						<br/> Responda todas as questões e assinale com um "X" na sua escolha. Sua opinião é muito importante para nós!</p>
+				</div>
+			</div> -->
 
-				<div class="row">
-					<div class="aprovarAvaliacaoContainer col-md-4">
-						<div class="form-field" data-type="radio" data-show-properties="" data-field-name="aprovarAvaliacao">
-							<div class="form-input">
-								<div class="form-group">
-									<label>Avaliação aprovada?</label>&nbsp;<strong>*</strong>
-									<div class="radio-options">
-										<div class="radio-inline">
-											<label class="label-for-radio"><input name="aprovarAvaliacao" id="aprovarAvaliacao" type="radio" value="Sim"> Sim </label>
-										</div>
-										<div class="radio-inline">
-											<label class="label-for-radio"><input name="aprovarAvaliacao" id="aprovarAvaliacao" type="radio" value="Não"> Não</label>
-										</div>
+			<div class="row" style="margin-top: 25px;">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 15px;">
+					<div class="form-field" data-type="radio" data-show-properties="" data-field-name="pergunta1">
+						<div class="form-input">
+							<div class="form-group">
+								<label>1 - Na sua opinião, o treinamento recebido atendeu suas expectativas?</label>&nbsp;
+								<strong>*</strong>
+								<div class="radio-options">
+									<div class="radio-inline">
+										<label class="label-for-radio">
+											<input name="pergunta1" id="pergunta1" type="radio" value="todas"> Todas (100 a 76%) </label>
+									</div>
+									<div class="radio-inline">
+										<label class="label-for-radio">
+											<input name="pergunta1" id="pergunta1" type="radio" value="a_maioria"> A maioria (75 a 51%) </label>
+									</div>
+									<div class="radio-inline">
+										<label class="label-for-radio">
+											<input name="pergunta1" id="pergunta1" type="radio" value="a_minoria"> A minoria (50 a 26%) </label>
+									</div>
+									<div class="radio-inline">
+										<label class="label-for-radio">
+											<input name="pergunta1" id="pergunta1" type="radio" value="nao_atendeu"> Não atendeu (25 a 0%)</label>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+			</div>
 
-				<!-- FIM - Form --> 
-				<!-- HISTORICO -->
-				<div class="row obsHistoricoContainer" style="margin-top: 30px;">
-					<div class="col-md-12">
-						<div class="form-field" data-type="textarea" data-show-properties="" data-field-name="obsHistorico">
-							<div class="form-input">
-								<div class="form-group">
-									<label>Observações<strong style="display: none;"> *</strong></label>
-									<textarea name="obsHistorico" id="obsHistorico" style="resize: vertical" onkeyup="manipulateDOM.expandTextarea(this.id)" class="form-control" rows="3" data-size="big" placeholder=""></textarea>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 15px;">
+					<div class="form-field" data-type="radio" data-show-properties="" data-field-name="pergunta2">
+						<div class="form-input">
+							<div class="form-group">
+								<label>2- Você irá utilizar em seu trabalho o que aprendeu no treinamento?</label>&nbsp;
+								<strong>*</strong>
+								<div class="radio-options">
+									<div class="radio-inline">
+										<label class="label-for-radio">
+											<input name="pergunta2" id="pergunta2" type="radio" value="sempre"> Sempre (100 a 76%) </label>
+									</div>
+									<div class="radio-inline">
+										<label class="label-for-radio">
+											<input name="pergunta2" id="pergunta2" type="radio" value="quase_sempre"> Quase sempre (75 a 51%)</label>
+									</div>
+									<div class="radio-inline">
+										<label class="label-for-radio">
+											<input name="pergunta2" id="pergunta2" type="radio" value="as_vezes"> As vezes (50 a 26%)</label>
+									</div>
+									<div class="radio-inline">
+										<label class="label-for-radio">
+											<input name="pergunta2" id="pergunta2" type="radio" value="nunca"> Nunca (25 a 0%)</label>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<br><br>
-						<h2>Última atualização</h2>
-						<div class="row">
-							<div class="col-md-12">
-								<textarea class="txthistory"  cols="300" data-size="big" id="ultimaAtualizacao" name="ultimaAtualizacao" onclick="manipulateDOM.expandTextareaHistorico('ultimaAtualizacao')" readonly="readonly" rows="3" style="cursor: pointer" type="textarea"></textarea>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<p>
+						<b>3- Sobre a estrutura do treinamento, avalie os itens:</b>
+					</p>
+					<table class="table table-bordered table-hover table-condensed table-estrutura-treinamento" style="width: 100%;">
+						<thead>
+							<tr class="tableHeadRow">
+								<th width="40%" class="text-center"></th>
+								<th width="15%" class="text-center">Ótimo (100 a 76%)</th>
+								<th width="15%" class="text-center">Bom (75 a 51%)</th>
+								<th width="15%" class="text-center">Regular (50 a 26%)</th>
+								<th width="15%" class="text-center">Fraco (25 a 0%)</th>
+							</tr>
+						</thead>
+						<tbody class="tableBodyRow">
+							<tr class="form-field">
+								<td width="40%">
+									<label class="label-for-radio">Organização</label>
+								</td>
+								<td width="15%">
+									<div class="form-input">
+										<label class="label-for-radio">
+											<input name="pergunta3_organizacao" id="pergunta3_organizacao" type="radio" value="otimo">
+										</label>
+									</div>
+								</td>
+								<td width="15%">
+									<div class="form-input">
+										<label class="label-for-radio">
+											<input name="pergunta3_organizacao" id="pergunta3_organizacao" type="radio" value="bom">
+										</label>
+									</div>
+								</td>
+								<td width="15%">
+									<div class="form-input">
+										<label class="label-for-radio">
+											<input name="pergunta3_organizacao" id="pergunta3_organizacao" type="radio" value="regular">
+										</label>
+									</div>
+								</td>
+								<td width="15%">
+									<div class="form-input">
+										<label class="label-for-radio">
+											<input name="pergunta3_organizacao" id="pergunta3_organizacao" type="radio" value="fraco">
+										</label>
+									</div>
+								</td>
+							</tr>
+
+							<tr class="form-field">
+								<td width="40%">
+									<label class="label-for-radio">Carga horária</label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta3_cargaHoraria" id="pergunta3_cargaHoraria" type="radio" value="otimo"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta3_cargaHoraria" id="pergunta3_cargaHoraria" type="radio" value="bom"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta3_cargaHoraria" id="pergunta3_cargaHoraria" type="radio" value="regular"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta3_cargaHoraria" id="pergunta3_cargaHoraria" type="radio" value="fraco"> </label>
+								</td>
+							</tr>
+
+							<tr class="form-field">
+								<td width="40%">
+									<label class="label-for-radio">Material didático (apostilas, apresentações, etc)</label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta3_material" id="pergunta3_material" type="radio" value="otimo"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta3_material" id="pergunta3_material" type="radio" value="bom"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta3_material" id="pergunta3_material" type="radio" value="regular"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta3_material" id="pergunta3_material" type="radio" value="fraco"> </label>
+								</td>
+							</tr>
+
+							<tr class="form-field">
+								<td width="40%">
+									<label class="label-for-radio">Local</label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta3_local" id="pergunta3_local" type="radio" value="otimo"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta3_local" id="pergunta3_local" type="radio" value="bom"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta3_local" id="pergunta3_local" type="radio" value="regular"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta3_local" id="pergunta3_local" type="radio" value="ruim"> </label>
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<p>
+						<b>4- Em relação ao(s) instrutor(es):</b>
+					</p>
+					<table class="table table-bordered table-hover table-condensed table-estrutura-treinamento" style="width: 100%;">
+						<thead>
+							<tr>
+								<th width="40%" class="text-center"></th>
+								<th width="15%" class="text-center">Ótimo (100 a 76%)</th>
+								<th width="15%" class="text-center">Bom (75 a 51%)</th>
+								<th width="15%" class="text-center">Regular (50 a 26%)</th>
+								<th width="15%" class="text-center">Fraco (25 a 0%)</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="form-field">
+								<td width="40%">
+									<label class="label-for-radio">Comunicação e objetividade</label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta4_comunicacao" id="pergunta4_comunicacao" type="radio" value="otimo"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta4_comunicacao" id="pergunta4_comunicacao" type="radio" value="bom"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta4_comunicacao" id="pergunta4_comunicacao" type="radio" value="regular"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta4_comunicacao" id="pergunta4_comunicacao" type="radio" value="fraco"> </label>
+								</td>
+							</tr>
+							<tr class="form-field">
+								<td width="40%">
+									<label class="label-for-radio">Domínio e conhecimento do conteúdo</label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta4_dominio" id="pergunta4_dominio" type="radio" value="otimo"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta4_dominio" id="pergunta4_dominio" type="radio" value="bom"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta4_dominio" id="pergunta4_dominio" type="radio" value="regular"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta4_dominio" id="pergunta4_dominio" type="radio" value="fraco"> </label>
+								</td>
+							</tr>
+
+							<tr class="form-field">
+								<td width="40%">
+									<label class="label-for-radio">Relacionamento com o grupo</label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta4_relacionamento" id="pergunta4_relacionamento" type="radio" value="otimo"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta4_relacionamento" id="pergunta4_relacionamento" type="radio" value="bom"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta4_relacionamento" id="pergunta4_relacionamento" type="radio" value="regular"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta4_relacionamento" id="pergunta4_relacionamento" type="radio" value="fraco"> </label>
+								</td>
+							</tr>
+
+							<tr class="form-field">
+								<td width="40%">
+									<label class="label-for-radio">Didática (técnica de ensino)</label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta4_didatica" id="pergunta4_didatica" type="radio" value="otimo"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta4_didatica" id="pergunta4_didatica" type="radio" value="bom"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta4_didatica" id="pergunta4_didatica" type="radio" value="regular"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta4_didatica" id="pergunta4_didatica" type="radio" value="fraco"> </label>
+								</td>
+							</tr>
+
+							<tr class="form-field">
+								<td width="40%">
+									<label class="label-for-radio">Habilidade em responder perguntas</label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta4_habilidade" id="pergunta4_habilidade" type="radio" value="otimo"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta4_habilidade" id="pergunta4_habilidade" type="radio" value="bom"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta4_habilidade" id="pergunta4_habilidade" type="radio" value="regular"> </label>
+								</td>
+								<td width="15%">
+									<label class="label-for-radio">
+										<input name="pergunta4_habilidade" id="pergunta4_habilidade" type="radio" value="ruim"> </label>
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-field" data-type="textarea" data-show-properties="" data-field-name="pergunta5">
+						<div class="form-input">
+							<div class="form-group">
+								<label>5- Quais sugestões você poderia oferecer para nossa utilização nos próximos treinamentos?
+									<strong>*</strong>
+								</label>
+								<textarea name="pergunta5" id="pergunta5" style="resize: vertical" onkeyup="manipulateDOM.expandTextarea(this.id)" class="form-control"
+								    rows="3" data-size="big" placeholder=""></textarea>
 							</div>
 						</div>
-						<hr><br>
-						<textarea class="txthistory" cols="300" data-size="big" id="historico" name="historico" onclick="manipulateDOM.expandTextareaHistorico('historico')" readonly="readonly" rows="10" style="overflow-y: auto; cursor: pointer; display: none;" type="textarea"></textarea>
-						<button class="btn btn-primary" id="btnhistorico2" name="botaoHistorico2" onclick="manipulateDOM.mostraHistorico();" type="button">
-							Histórico
-						</button>
-						<br><br><br>
 					</div>
 				</div>
-				<!-- FIM HISTORICO -->
-			</form>
-		</div>	
-		<!-- VALIDAÇÕES -->
-		<script type="text/javascript" src="validacao.js"></script>
-		<script type="text/javascript" src="formValidate.js"></script>
-		<!-- MODULES -->
-		<script type="text/javascript" src="src/manipulateDOM.js"></script>
-		<script type="text/javascript" src="src/print.js"></script>
-		<script type="text/javascript" src="src/lifecycle.js"></script>
-		<!-- APP -->
-		<script type="text/javascript" src="app.js"></script>
-		
-		<!-- MIN.JS 
+			</div>
+
+
+			<div class="row" style="margin-top: 30px;">
+				<div class="aprovarAvaliacaoContainer col-md-4">
+					<div class="form-field" data-type="radio" data-show-properties="" data-field-name="aprovarAvaliacao">
+						<div class="form-input">
+							<div class="form-group">
+								<label>Avaliação aprovada?</label>&nbsp;
+								<strong>*</strong>
+								<div class="radio-options">
+									<div class="radio-inline">
+										<label class="label-for-radio">
+											<input name="aprovarAvaliacao" id="aprovarAvaliacao" type="radio" value="Sim"> Sim </label>
+									</div>
+									<div class="radio-inline">
+										<label class="label-for-radio">
+											<input name="aprovarAvaliacao" id="aprovarAvaliacao" type="radio" value="Não"> Não</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- FIM - Form -->
+			<!-- HISTORICO -->
+			<div class="row obsHistoricoContainer" style="margin-top: 30px;">
+				<div class="col-md-12">
+					<div class="form-field" data-type="textarea" data-show-properties="" data-field-name="obsHistorico">
+						<div class="form-input">
+							<div class="form-group">
+								<label>Observações
+									<strong style="display: none;"> *</strong>
+								</label>
+								<textarea name="obsHistorico" id="obsHistorico" style="resize: vertical" onkeyup="manipulateDOM.expandTextarea(this.id)"
+								    class="form-control" rows="3" data-size="big" placeholder=""></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<br>
+					<br>
+					<h2>Última atualização</h2>
+					<div class="row">
+						<div class="col-md-12">
+							<textarea class="txthistory" cols="300" data-size="big" id="ultimaAtualizacao" name="ultimaAtualizacao" onclick="manipulateDOM.expandTextareaHistorico('ultimaAtualizacao')"
+							    readonly="readonly" rows="3" style="cursor: pointer" type="textarea"></textarea>
+						</div>
+					</div>
+					<hr>
+					<br>
+					<textarea class="txthistory" cols="300" data-size="big" id="historico" name="historico" onclick="manipulateDOM.expandTextareaHistorico('historico')"
+					    readonly="readonly" rows="10" style="overflow-y: auto; cursor: pointer; display: none;" type="textarea"></textarea>
+					<button class="btn btn-primary" id="btnhistorico2" name="botaoHistorico2" onclick="manipulateDOM.mostraHistorico();" type="button">
+						Histórico
+					</button>
+					<br>
+					<br>
+					<br>
+				</div>
+			</div>
+			<!-- FIM HISTORICO -->
+
+
+
+
+		</form>
+	</div>
+	<!-- VALIDAÇÕES -->
+	<script type="text/javascript" src="validacao.js"></script>
+	<script type="text/javascript" src="formValidate.js"></script>
+	<!-- MODULES -->
+	<script type="text/javascript" src="src/manipulateDOM.js"></script>
+	<script type="text/javascript" src="src/print.js"></script>
+	<script type="text/javascript" src="src/lifecycle.js"></script>
+	<!-- APP -->
+	<script type="text/javascript" src="app.js"></script>
+
+	<!-- MIN.JS 
 		<script type="text/javascript" src="dist/all.min.js"></script>
 		-->
-	</body>
+</body>
+
 </html>

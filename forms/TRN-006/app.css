@@ -2,3 +2,13 @@
     font-weight: normal !important;
     cursor: pointer;
 }
+
+.table-estrutura-treinamento td {
+    text-align: center;
+    vertical-align: middle; 
+}
+
+.table-estrutura-treinamento td:first-child {
+    text-align: left;
+    vertical-align: middle; 
+}

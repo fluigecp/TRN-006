@@ -13,4 +13,19 @@ function enableFields(form) {
         form.setEnabled('cargaHoraria', false, true);
         form.setEnabled('classificacaoCurso', false, true);
     }
+    
+    if ( activity != 26 ) {
+        form.setEnabled('pergunta1', false, true);
+        form.setEnabled('pergunta2', false, true);
+        form.setEnabled('pergunta3_organizacao', false, true);
+        form.setEnabled('pergunta3_cargaHoraria', false, true);
+        form.setEnabled('pergunta3_material', false, true);
+        form.setEnabled('pergunta3_local', false, true);
+        form.setEnabled('pergunta4_comunicacao', false, true);
+        form.setEnabled('pergunta4_dominio', false, true);
+        form.setEnabled('pergunta4_relacionamento', false, true);
+        form.setEnabled('pergunta4_didatica', false, true);
+        form.setEnabled('pergunta4_habilidade', false, true);
+        form.setEnabled('pergunta5', false, true);
+    }
 }
