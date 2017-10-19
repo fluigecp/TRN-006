@@ -39,7 +39,6 @@ function validaCampos(atividade, proximaAtividade) {
 		addHasFree("pergunta4_relacionamento");
 		addHasFree("pergunta4_didatica");
 		addHasFree("pergunta4_habilidade");
-		addHasFree("pergunta5");
 	}
 	/** Fim Life Cycle Workflow */
 }
