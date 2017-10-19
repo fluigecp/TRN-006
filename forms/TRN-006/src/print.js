@@ -195,20 +195,22 @@ var printModule = (function(){
             '       <div class="row">'+
                 '       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 15px;">'+
                 '           <p><b>1 - Na sua opinião, o treinamento recebido atendeu suas expectativas?</b></p>'+
-                '           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">Todas (100 a 76%)</label></div>'+
-                '           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">A maioria (75 a 51%)</label></div>'+
-                '           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">A minoria (50 a 26%)</label></div>'+
-                '           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">Não atendeu (25 a 0%)</label></div>'+
+                '           <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><label class="checkbox-inline"><input type="checkbox" value="">1</label></div>'+
+                '           <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><label class="checkbox-inline"><input type="checkbox" value="">2</label></div>'+
+                '           <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><label class="checkbox-inline"><input type="checkbox" value="">3</label></div>'+
+                '           <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><label class="checkbox-inline"><input type="checkbox" value="">4</label></div>'+
+                '           <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><label class="checkbox-inline"><input type="checkbox" value="">5</label></div>'+
                 '       </div>'+
             '       </div>'+
 
             '       <div class="row">'+
                 '       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 15px;">'+
                 '           <p><b>2- Você irá utilizar em seu trabalho o que aprendeu no treinamento?</b></p>'+
-                '           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">Sempre (100 a 76%)</label></div>'+
-                '           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">Quase sempre (75 a 51%)</label></div>'+
-                '           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">As vezes (50 a 26%)</label></div>'+
-                '           <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><label class="checkbox-inline"><input type="checkbox" value="">Nunca (25 a 0%)</label></div>'+
+                '           <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><label class="checkbox-inline"><input type="checkbox" value="">1</label></div>'+
+                '           <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><label class="checkbox-inline"><input type="checkbox" value="">2</label></div>'+
+                '           <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><label class="checkbox-inline"><input type="checkbox" value="">3</label></div>'+
+                '           <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><label class="checkbox-inline"><input type="checkbox" value="">4</label></div>'+
+                '           <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><label class="checkbox-inline"><input type="checkbox" value="">5</label></div>'+
                 '       </div>'+
             '       </div>'+
 
@@ -219,10 +221,11 @@ var printModule = (function(){
                 '                <thead>'+
                 '                    <tr>'+
                 '                        <th width="40%" class="text-center"></th>'+
-                '                        <th width="15%" class="text-center" style="'+style+'">Ótimo (100 a 76%)</th>'+
-                '                        <th width="15%" class="text-center" style="'+style+'">Bom (75 a 51%)</th>'+
-                '                        <th width="15%" class="text-center" style="'+style+'">Regular (50 a 26%)</th>'+
-                '                        <th width="15%" class="text-center" style="'+style+'">Fraco (25 a 0%)</th>'+
+                '                        <th width="12%" class="text-center" style="'+style+'">1</th>'+
+                '                        <th width="12%" class="text-center" style="'+style+'">2</th>'+
+                '                        <th width="12%" class="text-center" style="'+style+'">3</th>'+
+                '                        <th width="12%" class="text-center" style="'+style+'">4</th>'+
+                '                        <th width="12%" class="text-center" style="'+style+'">5</th>'+
                 '                    </tr>'+
                 '                </thead>'+
                 '                <tbody>'+
@@ -230,16 +233,19 @@ var printModule = (function(){
                 '                        <td width="40%">'+
                 '                            <span>Organização</span>'+
                 '                        </td> '+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
+                '                            <span></span>'+
+                '                        </td>'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
                 '                    </tr>'+
@@ -248,16 +254,19 @@ var printModule = (function(){
                 '                        <td width="40%">'+
                 '                            <span>Carga horária</span>'+
                 '                        </td> '+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
+                '                            <span></span>'+
+                '                        </td>'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
                 '                    </tr>'+
@@ -266,16 +275,19 @@ var printModule = (function(){
                 '                        <td width="40%">'+
                 '                            <span>Material didático (apostilas, apresentações, etc)</span>'+
                 '                        </td> '+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
+                '                            <span></span>'+
+                '                        </td>'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
                 '                    </tr>'+
@@ -284,16 +296,19 @@ var printModule = (function(){
                 '                        <td width="40%">'+
                 '                            <span>Local</span>'+
                 '                        </td> '+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
+                '                            <span></span>'+
+                '                        </td>'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
                 '                    </tr>'+
@@ -310,10 +325,11 @@ var printModule = (function(){
                 '                <thead>'+
                 '                    <tr>'+
                 '                        <th width="40%" class="text-center"></th>'+
-                '                        <th width="15%" class="text-center" style="'+style+'">Ótimo (100 a 76%)</th>'+
-                '                        <th width="15%" class="text-center" style="'+style+'">Bom (75 a 51%)</th>'+
-                '                        <th width="15%" class="text-center" style="'+style+'">Regular (50 a 26%)</th>'+
-                '                        <th width="15%" class="text-center" style="'+style+'">Fraco (25 a 0%)</th>'+
+                '                        <th width="12%" class="text-center" style="'+style+'">1</th>'+
+                '                        <th width="12%" class="text-center" style="'+style+'">2</th>'+
+                '                        <th width="12%" class="text-center" style="'+style+'">3</th>'+
+                '                        <th width="12%" class="text-center" style="'+style+'">4</th>'+
+                '                        <th width="12%" class="text-center" style="'+style+'">5</th>'+
                 '                    </tr>'+
                 '                </thead>'+
                 '                <tbody>'+
@@ -321,16 +337,19 @@ var printModule = (function(){
                 '                        <td width="40%">'+
                 '                            <span>Comunicação e objetividade</span>'+
                 '                        </td> '+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
+                '                            <span></span>'+
+                '                        </td>'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
                 '                    </tr>'+
@@ -339,16 +358,19 @@ var printModule = (function(){
                 '                        <td width="40%">'+
                 '                            <span>Domínio e conhecimento do conteúdo</span>'+
                 '                        </td> '+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
+                '                            <span></span>'+
+                '                        </td>'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
                 '                    </tr>'+
@@ -357,16 +379,19 @@ var printModule = (function(){
                 '                        <td width="40%">'+
                 '                            <span>Relacionamento com o grupo</span>'+
                 '                        </td> '+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
+                '                            <span></span>'+
+                '                        </td>'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
                 '                    </tr>'+
@@ -375,16 +400,19 @@ var printModule = (function(){
                 '                        <td width="40%">'+
                 '                            <span>Didática (técnica de ensino)</span>'+
                 '                        </td> '+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
+                '                            <span></span>'+
+                '                        </td>'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
                 '                    </tr>'+
@@ -393,16 +421,19 @@ var printModule = (function(){
                 '                        <td width="40%">'+
                 '                            <span>Habilidade em responder perguntas</span>'+
                 '                        </td> '+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
-                '                        <td width="15%">'+
+                '                        <td width="12%">'+
+                '                            <span></span>'+
+                '                        </td>'+
+                '                        <td width="12%">'+
                 '                            <span></span>'+
                 '                        </td>'+
                 '                    </tr>'+
