@@ -10,8 +10,8 @@ function beforeTaskSave(colleagueId, nextSequenceId, userList) {
     }
 
     // verificando anexo
-    if (atividade == 5) {
-        if (!getAttachments(5, 1, "|pdf|png|jpg|jpeg| ")) {
+    if (atividade == 26) {
+        if (!getAttachments(26, 1, "|pdf|png|jpg|jpeg| ")) {
             throw (" Anexar: \nCertificado.");
         }
     }

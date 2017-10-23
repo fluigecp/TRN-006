@@ -20,3 +20,9 @@
         $(lifecycle.init);
 
     }(window.jQuery, window, document));
+
+    // ZOOM FIELDS CONTROL
+    function setSelectedZoomItem(selectedItem) {
+        manipulateDOM.zoomFields.eventZoom(selectedItem);
+    }
+    

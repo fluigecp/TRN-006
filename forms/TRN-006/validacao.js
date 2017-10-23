@@ -1,7 +1,7 @@
 function validaCampos(atividade, proximaAtividade) {
 	/** Life Cycle Workflow */
 	
-	if ( atividade == 0 || atividade == 4 ) {
+	if ( atividade == 0 || atividade == 4 || atividade == 26 || atividade == 31 ) {
 		//addHasFree('fieldName');
 		//addHasFreeTable('fieldType', 'fieldName', 1);
 		addHasFree("nomeParticipante");
@@ -12,6 +12,10 @@ function validaCampos(atividade, proximaAtividade) {
 		addHasFree("instituicao");
 		addHasFree("dataRealizacao");
 		addHasFree("cargaHoraria");
+		addHasFree("avaliadorTreinamento");
+		if ( atividade == 31 ){
+			addHasFree("usuarioParticipou");
+		}
 	}
 
 	if ( atividade == 8 ) {
@@ -19,14 +23,6 @@ function validaCampos(atividade, proximaAtividade) {
 	}
 
 	if ( atividade == 26 ) {
-		addHasFree("nomeParticipante");
-		addHasFree("matricula");
-		addHasFree("area");
-		addHasFree("cursoTreinamento");
-		addHasFree("classificacaoCurso");
-		addHasFree("instituicao");
-		addHasFree("dataRealizacao");
-		addHasFree("cargaHoraria");
 
 		addHasFree("pergunta1");
 		addHasFree("pergunta2");

@@ -42,6 +42,15 @@ var manipulateDOM = (function () {
             }
         }
     };
+
+    var zoomFields = {
+        eventZoom: function (selectedItem) {
+            if (selectedItem.inputName == 'avaliadorTreinamento') {
+                $("#avaliadorMat").val(selectedItem.colleagueId);
+            }
+
+        }
+    }
     /**
     * @description expande textarea do histórico
     * @param id id do campo
@@ -63,6 +72,7 @@ var manipulateDOM = (function () {
     return {
         actions4Listeners: actions4Listeners,
         expandTextareaHistorico: expandTextareaHistorico,
-        mostraHistorico: mostraHistorico
+        mostraHistorico: mostraHistorico,
+        zoomFields: zoomFields
     }
 })();

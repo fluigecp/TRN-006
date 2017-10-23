@@ -3,7 +3,7 @@ function enableFields(form) {
 
     /** Life Cycle */
 
-    if (activity == 5 || activity == 8 || activity == 26) {
+    if ( activity == 8 || activity == 26 ) {
         form.setEnabled('nomeParticipante', false, true);
         form.setEnabled('matricula', false, true);
         form.setEnabled('area', false, true);
@@ -12,6 +12,7 @@ function enableFields(form) {
         form.setEnabled('dataRealizacao', false, true);
         form.setEnabled('cargaHoraria', false, true);
         form.setEnabled('classificacaoCurso', false, true);
+        form.setEnabled('avaliadorTreinamento', false, true);
     }
     
     if ( activity != 26 ) {

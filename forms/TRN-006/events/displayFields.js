@@ -49,6 +49,10 @@ function displayFields(form, customHTML) {
 		ocultaClasse("aprovarAvaliacaoContainer");
 	}
 
+	if (activity != 31) {
+		ocultaClasse("verificarParticipacaoContainer");
+	}
+
 	if ( activity == 0 || activity == 4 ) {
 		ocultaClasse("pergunta-avaliacao");
 	}
