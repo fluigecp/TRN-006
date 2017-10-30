@@ -57,8 +57,8 @@ var manipulateDOM = (function () {
 
     var zoomFields = {
         eventZoom: function (selectedItem) {
-            if (selectedItem.inputName == 'avaliadorTreinamento') {
-                $("#avaliadorMat").val(selectedItem.colleagueId);
+            if (selectedItem.inputName == 'aprovadorTreinamento') {
+                $("#aprovadorMat").val(selectedItem.colleagueId);
             }
 
         }

@@ -34,6 +34,7 @@
 			<input type="hidden" name="matResponsavelArea" id="matResponsavelArea" />
 			<input type="hidden" name="numSolicTreinamento" id="numSolicTreinamento" />
 			<input type="hidden" name="avaliadorMat" id="avaliadorMat" />
+			<input type="hidden" name="aprovadorMat" id="aprovadorMat" />
 			<input type="hidden" name="aberturaAutomatica" id="aberturaAutomatica" />
 
 			<!-- ANALYTICS -->
@@ -200,6 +201,27 @@
 								<label for="cargaHoraria">Carga horária(hrs)</label>
 								<strong>*</strong>
 								<input type="text" id="cargaHoraria" name="cargaHoraria" class="form-control" mask="0000">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="aprovadorTreinamento">
+						<div class="form-input">
+							<div class="form-group">
+									<label for="aprovadorTreinamento">Aprovador
+										</label> <strong>*</strong>
+							
+										<input name="aprovadorTreinamento" id="aprovadorTreinamento" class="form-control" type="zoom" data-zoom="{
+											'displayKey':'colleagueName',
+											'datasetId':'colleague',
+											'fields':[
+												{'field':'colleagueId', 'label':'Matrícula', 'standard':'true'},
+												{'field':'colleagueName', 'label':'Nome'}
+												]
+										}">
 							</div>
 						</div>
 					</div>

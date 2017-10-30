@@ -107,8 +107,8 @@
       <deadlineTime>0</deadlineTime>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
-      <engineAllocationId>Pool Grupo</engineAllocationId>
-      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Group&gt;SGQ_Recursos_Humanos&lt;/Group&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <engineAllocationId>Campo Formulário</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;aprovadorMat&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
       <selectColleague>0</selectColleague>
       <initialState>false</initialState>
       <notifyAuthorityDelay>true</notifyAuthorityDelay>
@@ -123,8 +123,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>870</positionX>
-      <positionY>440</positionY>
+      <positionX>860</positionX>
+      <positionY>663</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -203,8 +203,8 @@
         <version>1</version>
         <sequence>31</sequence>
       </processStatePK>
-      <stateName>Atribuir avaliador</stateName>
-      <stateDescription>Atribuir avaliador</stateDescription>
+      <stateName>Atribuir avaliador e aprovador</stateName>
+      <stateDescription>Atribuir avaliador e aprovador</stateDescription>
       <instruction></instruction>
       <deadlineTime>0</deadlineTime>
       <joint>false</joint>
@@ -226,7 +226,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>380</positionX>
-      <positionY>440</positionY>
+      <positionY>433</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -274,8 +274,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1050</positionX>
-      <positionY>656</positionY>
+      <positionX>1040</positionX>
+      <positionY>872</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -326,7 +326,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>1050</positionX>
-      <positionY>880</positionY>
+      <positionY>1110</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -376,8 +376,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1126</positionX>
-      <positionY>720</positionY>
+      <positionX>1120</positionX>
+      <positionY>922</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -409,8 +409,8 @@
       <subProcessId></subProcessId>
       <formFolder>0</formFolder>
       <automatic>true</automatic>
-      <positionX>1070</positionX>
-      <positionY>424</positionY>
+      <positionX>1063</positionX>
+      <positionY>647</positionY>
       <inhibitTransfer>false</inhibitTransfer>
       <stateType>1</stateType>
       <bpmnType>120</bpmnType>
@@ -545,8 +545,8 @@
       <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1230</positionX>
-      <positionY>680</positionY>
+      <positionX>1300</positionX>
+      <positionY>890</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -1149,11 +1149,11 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
       </swimLanePK>
     </SwimLane>
     <SwimLane>
-      <color>DFDFDF</color>
+      <color>C0C7CC</color>
       <height>211</height>
       <width>1431</width>
       <positionX>30</positionX>
-      <positionY>590</positionY>
+      <positionY>802</positionY>
       <stateName>Fluig</stateName>
       <type>2</type>
       <parentSequence>0</parentSequence>
@@ -1165,11 +1165,11 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
       </swimLanePK>
     </SwimLane>
     <SwimLane>
-      <color>C0C7CC</color>
+      <color>DFDFDF</color>
       <height>231</height>
       <width>1431</width>
       <positionX>30</positionX>
-      <positionY>800</positionY>
+      <positionY>1010</positionY>
       <stateName>Processos</stateName>
       <type>2</type>
       <parentSequence>0</parentSequence>
@@ -1178,6 +1178,38 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
         <processId>TRN-006</processId>
         <version>1</version>
         <sequence>4</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>DFDFDF</color>
+      <height>211</height>
+      <width>1431</width>
+      <positionX>55</positionX>
+      <positionY>175</positionY>
+      <stateName>Avaliador</stateName>
+      <type>2</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>1</version>
+        <sequence>5</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>DFDFDF</color>
+      <height>214</height>
+      <width>1431</width>
+      <positionX>30</positionX>
+      <positionY>589</positionY>
+      <stateName>Aprovador</stateName>
+      <type>2</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>1</version>
+        <sequence>6</sequence>
       </swimLanePK>
     </SwimLane>
   </list>
@@ -1192,7 +1224,7 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
         <linkSequence>28</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
-      <positionX>1099</positionX>
+      <positionX>1093</positionX>
       <positionY>195</positionY>
     </ProcessLinkBend>
     <ProcessLinkBend>
@@ -1225,7 +1257,7 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
         <linkSequence>40</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
-      <positionX>922</positionX>
+      <positionX>913</positionX>
       <positionY>275</positionY>
     </ProcessLinkBend>
     <ProcessLinkBend>
@@ -1236,8 +1268,8 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
         <linkSequence>46</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
-      <positionX>1195</positionX>
-      <positionY>734</positionY>
+      <positionX>1207</positionX>
+      <positionY>936</positionY>
     </ProcessLinkBend>
     <ProcessLinkBend>
       <processLinkBendPK>
@@ -1247,8 +1279,8 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
         <linkSequence>46</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
-      <positionX>1195</positionX>
-      <positionY>908</positionY>
+      <positionX>1207</positionX>
+      <positionY>1137</positionY>
     </ProcessLinkBend>
     <ProcessLinkBend>
       <processLinkBendPK>
@@ -1258,8 +1290,8 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
         <linkSequence>47</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
-      <positionX>899</positionX>
-      <positionY>907</positionY>
+      <positionX>920</positionX>
+      <positionY>1137</positionY>
     </ProcessLinkBend>
     <ProcessLinkBend>
       <processLinkBendPK>
@@ -1269,8 +1301,8 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
         <linkSequence>47</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
-      <positionX>899</positionX>
-      <positionY>697</positionY>
+      <positionX>920</positionX>
+      <positionY>906</positionY>
     </ProcessLinkBend>
   </list>
   <list/>
