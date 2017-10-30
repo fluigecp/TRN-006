@@ -13,6 +13,7 @@ function enableFields(form) {
         form.setEnabled('cargaHoraria', false, true);
         form.setEnabled('classificacaoCurso', false, true);
         form.setEnabled('avaliadorTreinamento', false, true);
+        form.setEnabled('aprovadorTreinamento', false, true);
     }
     
     if ( activity != 26 ) {

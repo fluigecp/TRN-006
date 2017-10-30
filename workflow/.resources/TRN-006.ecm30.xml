@@ -1182,22 +1182,6 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
     </SwimLane>
     <SwimLane>
       <color>DFDFDF</color>
-      <height>211</height>
-      <width>1431</width>
-      <positionX>55</positionX>
-      <positionY>175</positionY>
-      <stateName>Avaliador</stateName>
-      <type>2</type>
-      <parentSequence>0</parentSequence>
-      <swimLanePK>
-        <companyId>1</companyId>
-        <processId>TRN-006</processId>
-        <version>1</version>
-        <sequence>5</sequence>
-      </swimLanePK>
-    </SwimLane>
-    <SwimLane>
-      <color>DFDFDF</color>
       <height>214</height>
       <width>1431</width>
       <positionX>30</positionX>
@@ -1209,7 +1193,7 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <version>1</version>
-        <sequence>6</sequence>
+        <sequence>5</sequence>
       </swimLanePK>
     </SwimLane>
   </list>

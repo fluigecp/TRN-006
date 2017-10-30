@@ -23,8 +23,8 @@
         
         /** Início - Life Cycle */
 
-        if ( activity == 0 || activity == 4 ) {
-            
+        if ( activity == 0 || activity == 4 || activity == 31) {
+            manipulateDOM.enablePopOvers();
         }
 
         if ( activity == 26 ) {

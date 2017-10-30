@@ -46,21 +46,38 @@ var manipulateDOM = (function () {
     var expandTextarea = function (id) {
         var element = document.getElementById(id);
         if (element.scrollHeight != null) {
-            var altura = element.scrollHeight + 'px';
+            var altura = element.scrollHeight + "px";
             $(element).animate({
-                overflow: 'hidden',
+                overflow: "hidden",
                 height: 0,
                 height: altura
             });
         }
     };
 
+    var enablePopOvers = function () {
+        FLUIGC.popover('.bs-docs-popover-hover', {
+            trigger: 'hover',
+            placement: 'auto'
+        });
+    };
+
     var zoomFields = {
         eventZoom: function (selectedItem) {
-            if (selectedItem.inputName == 'aprovadorTreinamento') {
+            if (selectedItem.inputName == "aprovadorTreinamento") {
                 $("#aprovadorMat").val(selectedItem.colleagueId);
             }
 
+            if (selectedItem.inputName == "avaliadorTreinamento") {
+                if ( $("#aberturaAutomatica") != "Sim") {
+                    var matricula = $("#matricula").val();
+                    if ( servicesModule.searchUserMat(matricula) ){
+                        $("#avaliadorMat").val(matricula);
+                    } else {
+                        $("#avaliadorMat").val(selectedItem.colleagueId);
+                    }
+                }
+            }
         }
     }
     /**
@@ -86,6 +103,7 @@ var manipulateDOM = (function () {
         expandTextareaHistorico: expandTextareaHistorico,
         mostraHistorico: mostraHistorico,
         zoomFields: zoomFields,
-        expandTextarea: expandTextarea
+        expandTextarea: expandTextarea,
+        enablePopOvers: enablePopOvers
     }
 })();
