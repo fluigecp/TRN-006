@@ -43,6 +43,18 @@ var manipulateDOM = (function () {
         }
     };
 
+    var expandTextarea = function (id) {
+        var element = document.getElementById(id);
+        if (element.scrollHeight != null) {
+            var altura = element.scrollHeight + 'px';
+            $(element).animate({
+                overflow: 'hidden',
+                height: 0,
+                height: altura
+            });
+        }
+    };
+
     var zoomFields = {
         eventZoom: function (selectedItem) {
             if (selectedItem.inputName == 'avaliadorTreinamento') {
@@ -73,6 +85,7 @@ var manipulateDOM = (function () {
         actions4Listeners: actions4Listeners,
         expandTextareaHistorico: expandTextareaHistorico,
         mostraHistorico: mostraHistorico,
-        zoomFields: zoomFields
+        zoomFields: zoomFields,
+        expandTextarea: expandTextarea
     }
 })();

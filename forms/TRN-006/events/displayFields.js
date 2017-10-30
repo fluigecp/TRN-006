@@ -45,6 +45,12 @@ function displayFields(form, customHTML) {
 		ocultaId("btnShowTreinamento");
 	}
 
+	if ( activity == 26 ) {
+		if ( getValue("aberturaAutomatica") != "Sim" ) {
+			ocultaId("btnShowTreinamento");
+		}
+	}
+
 	if (activity != 8) {
 		ocultaClasse("aprovarAvaliacaoContainer");
 	}

@@ -83,7 +83,7 @@
 			<!-- FIM FORMCONTROLERS -->
 			<!-- Form -->
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-4">
 					<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="nomeParticipante">
 						<div class="form-input">
 							<div class="form-group">
@@ -105,13 +105,20 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-6">
 					<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="area">
 						<div class="form-input">
 							<div class="form-group">
 								<label for="area">Área</label>
 								<strong>*</strong>
-								<input type="text" id="area" name="area" class="form-control">
+								<input name="area" id="area" class="form-control" type="zoom" data-zoom="{
+									'displayKey':'segmentoExecutivo',
+									'datasetId':'cadastro_areas_orcamento',
+									'fields':[
+										{'field':'areaOrcamento', 'label':'Área'},
+										{'field':'segmentoExecutivo', 'label':'Segmento', 'standard':'true'}
+										]
+								}">
 							</div>
 						</div>
 					</div>
@@ -692,6 +699,7 @@
 	<script type="text/javascript" src="validacao.js"></script>
 	<script type="text/javascript" src="formValidate.js"></script>
 	<!-- MODULES -->
+	<script type="text/javascript" src="src/services.js"></script>
 	<script type="text/javascript" src="src/manipulateDOM.js"></script>
 	<script type="text/javascript" src="src/print.js"></script>
 	<script type="text/javascript" src="src/lifecycle.js"></script>
