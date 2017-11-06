@@ -76,6 +76,7 @@ var printModule = (function(){
         '  						<span><b>RECURSOS HUMANOS</b></span>'+
         '						<br>'+
         '						<span><b>TREINAMENTO E DESENVOLVIMENTO</b></span>'+
+        '						<span><b>Solicitação: </b></span><span>'+getProcess()+'</span>'+
         '                   </div>'+
         '				</div>'+
         '				<div class="row">'+
