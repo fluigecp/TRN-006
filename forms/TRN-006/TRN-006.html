@@ -35,6 +35,7 @@
 			<input type="hidden" name="avaliadorMat" id="avaliadorMat" />
 			<input type="hidden" name="aprovadorMat" id="aprovadorMat" />
 			<input type="hidden" name="aberturaAutomatica" id="aberturaAutomatica" />
+			<input type="hidden" name="dataAprovacao" id="dataAprovacao" />
 
 			<!-- ANALYTICS -->
 			<input type="hidden" name="custom_0" id="custom_0">
@@ -160,7 +161,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-8">
+				<div class="col-md-7">
 						<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="avaliadorTreinamento">
 							<div class="form-input">
 								<div class="form-group">
@@ -182,14 +183,27 @@
 							</div>
 						</div>
 				</div>
-				<div class="col-md-2">
-					<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="dataRealizacao">
+				<div class="col-md-3">
+<!-- 					<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="dataRealizacao">
 						<div class="form-input">
 							<div class="form-group">
 								<label for="dataRealizacao">Data de realização</label>
-								<strong>*</strong>
+								<strong>*</strong> -->
 								<!-- <input type="text" id="dataRealizacao" name="dataRealizacao" data-date-hour="date" class="form-control" mask="00/00/0000" readonly> -->
-								<input type="text" id="dataRealizacao" name="dataRealizacao" class="form-control">
+<!-- 								<input type="text" id="dataRealizacao" name="dataRealizacao" class="form-control">
+							</div>
+						</div>
+					</div> -->
+					<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="dataRealizacao">
+						<div class="form-input">
+							<div class="form-group">
+								<label for="dataRealizacao">Data de realização <strong>*</strong></label>
+								<div class="input-group">
+									<input type="text" id="dataRealizacao" name="dataRealizacao" data-date-hour="date" class="form-control" mask="00/00/0000">
+									<span class="input-group-addon sp-clear btn-danger" style="border-radius: 4px; cursor:pointer;" value="">
+										<span class="fluigicon-calendar-remove fluigicon sp-clear">&nbsp;Limpar</span>
+									</span>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -724,6 +738,7 @@
 	<script type="text/javascript" src="validacao.js"></script>
 	<script type="text/javascript" src="formValidate.js"></script>
 	<!-- MODULES -->
+	<script type="text/javascript" src="src/dateFunctions.js"></script>
 	<script type="text/javascript" src="src/services.js"></script>
 	<script type="text/javascript" src="src/manipulateDOM.js"></script>
 	<script type="text/javascript" src="src/print.js"></script>
