@@ -20,11 +20,14 @@
     var control = function () {
         // GLOBAL LISTENERS 
         $(".expand").on("click ", manipulateDOM.actions4Listeners.expandTextAreaListener);
+
         
         /** Início - Life Cycle */
 
         if ( activity == 0 || activity == 4 || activity == 31) {
             manipulateDOM.enablePopOvers();
+            manipulateDOM.initCalendar("input[data-date-hour]");
+            //manipulateDOM.initMasks();
         }
 
         if ( activity == 26 ) {
