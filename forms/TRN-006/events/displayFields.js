@@ -62,4 +62,7 @@ function displayFields(form, customHTML) {
 	if ( activity == 0 || activity == 4 ) {
 		ocultaClasse("pergunta-avaliacao");
 	}
+	if ( modo == "VIEW" ) {
+		form.setShowDisabledFields(false);
+	}
 }
