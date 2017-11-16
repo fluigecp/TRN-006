@@ -4,16 +4,18 @@ function enableFields(form) {
     /** Life Cycle */
 
     if ( activity == 8 || activity == 26 ) {
-        form.setEnabled('nomeParticipante', false, true);
-        form.setEnabled('matricula', false, true);
-        form.setEnabled('area', false, true);
-        form.setEnabled('cursoTreinamento', false, true);
-        form.setEnabled('instituicao', false, true);
-        form.setEnabled('dataRealizacao', false, true);
-        form.setEnabled('cargaHoraria', false, true);
-        form.setEnabled('classificacaoCurso', false, true);
         form.setEnabled('avaliadorTreinamento', false, true);
         form.setEnabled('aprovadorTreinamento', false, true);
+        if ( activity != 26 ) {
+            form.setEnabled('dataRealizacao', false, true);
+            form.setEnabled('nomeParticipante', false, true);
+            form.setEnabled('matricula', false, true);
+            form.setEnabled('area', false, true);
+            form.setEnabled('cursoTreinamento', false, true);
+            form.setEnabled('instituicao', false, true);
+            form.setEnabled('cargaHoraria', false, true);
+            form.setEnabled('classificacaoCurso', false, true);
+        }
     }
     
     if ( activity != 26 ) {

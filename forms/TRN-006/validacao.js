@@ -1,7 +1,7 @@
 function validaCampos(atividade, proximaAtividade) {
 	/** Life Cycle Workflow */
 	
-	if ( atividade == 0 || atividade == 4 || atividade == 26 || atividade == 31 ) {
+	if ( atividade == 0 || atividade == 4 || atividade == 26 ) {
 		//addHasFree('fieldName');
 		//addHasFreeTable('fieldType', 'fieldName', 1);
 		addHasFree("nomeParticipante");
@@ -14,13 +14,21 @@ function validaCampos(atividade, proximaAtividade) {
 		addHasFree("cargaHoraria");
 		addHasFree("avaliadorTreinamento");
 		addHasFree("aprovadorTreinamento");
-		if ( atividade == 31 ){
-			addHasFree("usuarioParticipou");
-		}
+
 	}
 
 	if ( atividade == 8 ) {
 		addHasFree("aprovarAvaliacao");
+		if ( getValue('aprovarAvaliacao') == "Não" || getValue('aprovarAvaliacao') == "Cancelar" ){
+			addHasFree('obsHistorico');
+		}
+	}
+
+	if ( atividade == 56 ) {
+		addHasFree("aprovarAvaliacaoRH");
+		if ( getValue('aprovarAvaliacaoRH') == "Não" || getValue('aprovarAvaliacaoRH') == "Cancelar" ){
+			addHasFree('obsHistorico');
+		}
 	}
 
 	if ( atividade == 26 ) {
@@ -36,6 +44,12 @@ function validaCampos(atividade, proximaAtividade) {
 		addHasFree("pergunta4_relacionamento");
 		addHasFree("pergunta4_didatica");
 		addHasFree("pergunta4_habilidade");
+	}
+
+	if ( atividade == 31 ){
+		addHasFree("usuarioParticipou");
+		addHasFree("avaliadorTreinamento");
+		addHasFree("aprovadorTreinamento");
 	}
 	/** Fim Life Cycle Workflow */
 }

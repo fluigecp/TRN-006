@@ -43,6 +43,7 @@ function displayFields(form, customHTML) {
 	if (activity != 26) {
 		ocultaId("btnPrint");
 		ocultaId("btnShowTreinamento");
+		ocultaClasse("pergunta-avaliacao");
 	}
 
 	if ( activity == 26 ) {
@@ -53,6 +54,10 @@ function displayFields(form, customHTML) {
 
 	if (activity != 8) {
 		ocultaClasse("aprovarAvaliacaoContainer");
+	}
+	
+	if (activity != 56) {
+		ocultaClasse("aprovarAvaliacaoRHContainer");
 	}
 
 	if (activity != 31) {

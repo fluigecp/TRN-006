@@ -33,14 +33,14 @@ var printModule = (function(){
     var getData = function () {
         var formObj, nomeParticipante, matricula, departamento, nomeTreinamento, instituicao,
             dataRealizacao, cargaHoraria, classificacaoCurso;
-        nomeParticipante = modo == "VIEW" ? $("span[name*=nomeParticipante]").html() : $("input[name*=nomeParticipante]").val();
-        matricula = modo == "VIEW" ? $("span[name*=matricula]").html() : $("input[name*=matricula]").val();
-        departamento = modo == "VIEW" ? $("span[name*=area]").html() : $("input[name*=area]").val();
-        nomeTreinamento = modo == "VIEW" ? $("span[name*=cursoTreinamento]").html() : $("input[name*=cursoTreinamento]").val();
-        instituicao = modo == "VIEW" ? $("span[name*=instituicao]").html() : $("input[name*=instituicao]").val();
-        dataRealizacao = modo == "VIEW" ? $("span[name*=dataRealizacao]").html() : $("input[name*=dataRealizacao]").val();
-        cargaHoraria = modo == "VIEW" ? $("span[name*=cargaHoraria]").html() : $("input[name*=cargaHoraria]").val();
-        classificacaoCurso = modo == "VIEW" ? $("span[name*=classificacaoCurso]").html() : $("input[name*=classificacaoCurso]").val();
+        nomeParticipante = modo == "VIEW" ? $("[name*=nomeParticipante]").html() : $("[name*=nomeParticipante]").val();
+        matricula = modo == "VIEW" ? $("[name*=matricula]").html() : $("[name*=matricula]").val();
+        departamento = modo == "VIEW" ? $("[name*=area]").html() : $("[name*=area]").val();
+        nomeTreinamento = modo == "VIEW" ? $("[name*=cursoTreinamento]").html() : $("[name*=cursoTreinamento]").val();
+        instituicao = modo == "VIEW" ? $("[name*=instituicao]").html() : $("[name*=instituicao]").val();
+        dataRealizacao = modo == "VIEW" ? $("[name*=dataRealizacao]").html() : $("[name*=dataRealizacao]").val();
+        cargaHoraria = modo == "VIEW" ? $("[name*=cargaHoraria]").html() : $("[name*=cargaHoraria]").val();
+        classificacaoCurso = modo == "VIEW" ? $("[name*=classificacaoCurso]").html() : $("[name*=classificacaoCurso]").val();
         formObj = {
             "nomeParticipante": nomeParticipante,
             "matricula": matricula,
