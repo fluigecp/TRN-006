@@ -27,7 +27,10 @@
         if ( activity == 0 || activity == 4 || activity == 31) {
             manipulateDOM.enablePopOvers();
             manipulateDOM.initCalendar("input[data-date-hour]");
-            //manipulateDOM.initMasks();
+            if ( activity == 31 ) {
+                setTimeout( manipulateDOM.actions4Listeners.checkIfParticipanteHasFluigListener, 3000 );
+            }
+            $("#matricula").on("blur", manipulateDOM.actions4Listeners.checkIfParticipanteHasFluigListener);
         }
 
         if ( activity == 26 ) {

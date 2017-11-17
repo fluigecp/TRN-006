@@ -26,7 +26,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>Avaliar Treinamento - Reação</processId>
-      <version>38</version>
+      <version>41</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>0</formId>
@@ -597,6 +597,31 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <version>1</version>
+        <sequence>62</sequence>
+      </processStatePK>
+      <stateName>Avaliador é o aprovador?</stateName>
+      <stateDescription>Avaliador é o aprovador?</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>763</positionX>
+      <positionY>224</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>1</version>
         <sequence>37</sequence>
       </processStatePK>
       <stateName>Fim com cancelamento de processo</stateName>
@@ -693,7 +718,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>1</expressionOrder>
-        <version>38</version>
+        <version>41</version>
         <sequence>10</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovarAvaliacao&quot;) == &quot;Sim&quot;</condition>
@@ -704,7 +729,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>2</expressionOrder>
-        <version>38</version>
+        <version>41</version>
         <sequence>10</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovarAvaliacao&quot;) != &quot;Sim&quot;</condition>
@@ -715,7 +740,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>1</expressionOrder>
-        <version>38</version>
+        <version>41</version>
         <sequence>29</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aberturaAutomatica&quot;) == &quot;Sim&quot;</condition>
@@ -727,7 +752,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>2</expressionOrder>
-        <version>38</version>
+        <version>41</version>
         <sequence>29</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aberturaAutomatica&quot;) != &quot;Sim&quot;</condition>
@@ -738,7 +763,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>1</expressionOrder>
-        <version>38</version>
+        <version>41</version>
         <sequence>35</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;usuarioParticipou&quot;) == &quot;Sim&quot;</condition>
@@ -749,7 +774,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>2</expressionOrder>
-        <version>38</version>
+        <version>41</version>
         <sequence>35</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;usuarioParticipou&quot;) == &quot;Não&quot;</condition>
@@ -760,7 +785,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>1</expressionOrder>
-        <version>38</version>
+        <version>41</version>
         <sequence>58</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovarAvaliacaoRH&quot;) == &quot;Sim&quot;</condition>
@@ -771,11 +796,33 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>2</expressionOrder>
-        <version>38</version>
+        <version>41</version>
         <sequence>58</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovarAvaliacao&quot;) != &quot;Sim&quot;</condition>
       <destinationSequenceId>26</destinationSequenceId>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>41</version>
+        <sequence>62</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;avaliadorTreinamento&quot;) == hAPI.getCardValue(&quot;aprovadorTreinamento&quot;)</condition>
+      <destinationSequenceId>56</destinationSequenceId>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>41</version>
+        <sequence>62</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;avaliadorTreinamento&quot;) != hAPI.getCardValue(&quot;aprovadorTreinamento&quot;)</condition>
+      <destinationSequenceId>8</destinationSequenceId>
     </ConditionProcessState>
   </list>
   <list>
@@ -912,22 +959,6 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <version>1</version>
-        <linkSequence>40</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>26</initialStateSequence>
-      <finalStateSequence>8</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>TRN-006</processId>
-        <version>1</version>
         <linkSequence>46</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
@@ -1046,6 +1077,54 @@
       <returnPermited>false</returnPermited>
       <initialStateSequence>58</initialStateSequence>
       <finalStateSequence>26</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>1</version>
+        <linkSequence>63</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>26</initialStateSequence>
+      <finalStateSequence>62</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>1</version>
+        <linkSequence>64</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>62</initialStateSequence>
+      <finalStateSequence>8</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>1</version>
+        <linkSequence>65</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>62</initialStateSequence>
+      <finalStateSequence>56</finalStateSequence>
       <returnLabel></returnLabel>
       <name></name>
       <automaticLink>false</automaticLink>
@@ -1342,7 +1421,7 @@ function calculateDays(initialDate, finalDate) {
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <propertyId>loginUserWS</propertyId>
-        <version>38</version>
+        <version>41</version>
       </advancedProcessPropertiesPK>
       <propertieValue>servico</propertieValue>
     </AdvancedProcessProperties>
@@ -1351,7 +1430,7 @@ function calculateDays(initialDate, finalDate) {
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <propertyId>matUserWS</propertyId>
-        <version>38</version>
+        <version>41</version>
       </advancedProcessPropertiesPK>
       <propertieValue>0000</propertieValue>
     </AdvancedProcessProperties>
@@ -1360,7 +1439,7 @@ function calculateDays(initialDate, finalDate) {
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <propertyId>passwdUserWS</propertyId>
-        <version>38</version>
+        <version>41</version>
       </advancedProcessPropertiesPK>
       <propertieValue>fcea920f7412b5da7be0cf42b8c93759</propertieValue>
     </AdvancedProcessProperties>
@@ -1454,7 +1533,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>38</version>
+        <version>41</version>
         <linkSequence>28</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1465,7 +1544,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>38</version>
+        <version>41</version>
         <linkSequence>28</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1476,7 +1555,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>38</version>
+        <version>41</version>
         <linkSequence>30</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1487,18 +1566,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>38</version>
-        <linkSequence>40</linkSequence>
-        <bendSequence>1</bendSequence>
-      </processLinkBendPK>
-      <positionX>793</positionX>
-      <positionY>275</positionY>
-    </ProcessLinkBend>
-    <ProcessLinkBend>
-      <processLinkBendPK>
-        <companyId>1</companyId>
-        <processId>TRN-006</processId>
-        <version>38</version>
+        <version>41</version>
         <linkSequence>46</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1509,7 +1577,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>38</version>
+        <version>41</version>
         <linkSequence>46</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1520,7 +1588,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>38</version>
+        <version>41</version>
         <linkSequence>47</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1531,7 +1599,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>38</version>
+        <version>41</version>
         <linkSequence>47</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1542,7 +1610,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>38</version>
+        <version>41</version>
         <linkSequence>55</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1553,7 +1621,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>38</version>
+        <version>41</version>
         <linkSequence>55</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1564,7 +1632,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>38</version>
+        <version>41</version>
         <linkSequence>57</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1575,7 +1643,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>38</version>
+        <version>41</version>
         <linkSequence>57</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1586,7 +1654,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>38</version>
+        <version>41</version>
         <linkSequence>61</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1597,7 +1665,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>38</version>
+        <version>41</version>
         <linkSequence>61</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1608,12 +1676,67 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>38</version>
+        <version>41</version>
         <linkSequence>61</linkSequence>
         <bendSequence>3</bendSequence>
       </processLinkBendPK>
       <positionX>612</positionX>
       <positionY>196</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>41</version>
+        <linkSequence>65</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>933</positionX>
+      <positionY>275</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>41</version>
+        <linkSequence>65</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>933</positionX>
+      <positionY>235</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>41</version>
+        <linkSequence>65</linkSequence>
+        <bendSequence>3</bendSequence>
+      </processLinkBendPK>
+      <positionX>1014</positionX>
+      <positionY>235</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>41</version>
+        <linkSequence>65</linkSequence>
+        <bendSequence>4</bendSequence>
+      </processLinkBendPK>
+      <positionX>1014</positionX>
+      <positionY>274</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>41</version>
+        <linkSequence>65</linkSequence>
+        <bendSequence>5</bendSequence>
+      </processLinkBendPK>
+      <positionX>1159</positionX>
+      <positionY>275</positionY>
     </ProcessLinkBend>
   </list>
   <list>
@@ -1621,7 +1744,7 @@ function calculateDays(initialDate, finalDate) {
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>38</version>
+        <version>41</version>
         <stateSequence>53</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
@@ -1637,7 +1760,7 @@ function calculateDays(initialDate, finalDate) {
       <extendedPropertyFieldPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>38</version>
+        <version>41</version>
         <stateSequence>0</stateSequence>
         <propertyName>loginUserWS</propertyName>
       </extendedPropertyFieldPK>
@@ -1650,7 +1773,7 @@ function calculateDays(initialDate, finalDate) {
       <extendedPropertyFieldPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>38</version>
+        <version>41</version>
         <stateSequence>0</stateSequence>
         <propertyName>matUserWS</propertyName>
       </extendedPropertyFieldPK>
@@ -1663,7 +1786,7 @@ function calculateDays(initialDate, finalDate) {
       <extendedPropertyFieldPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>38</version>
+        <version>41</version>
         <stateSequence>0</stateSequence>
         <propertyName>passwdUserWS</propertyName>
       </extendedPropertyFieldPK>
