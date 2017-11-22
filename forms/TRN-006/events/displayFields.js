@@ -47,7 +47,7 @@ function displayFields(form, customHTML) {
 	}
 
 	if ( activity == 26 ) {
-		if ( getValue("aberturaAutomatica") != "Sim" ) {
+		if ( form.getValue("aberturaAutomatica") != "Sim" ) {
 			ocultaId("btnShowTreinamento");
 		}
 	}
