@@ -121,9 +121,6 @@ var manipulateDOM = (function () {
         },
         
         setZoomData: function(instance, value){
-            console.log("instance: ",instance);
-            console.log("instance2: ",window[instance]);
-            console.log("value: ",value);
             window[instance].setValue(value);
         },
 

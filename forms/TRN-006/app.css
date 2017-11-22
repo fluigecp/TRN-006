@@ -12,3 +12,10 @@
     text-align: left;
     vertical-align: middle; 
 }
+
+@media screen and (max-width: 792px) and (min-width: 300px){
+    .radio-inline {
+        display: block;
+    }
+
+}
