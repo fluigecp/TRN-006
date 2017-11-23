@@ -2,6 +2,7 @@ function inputFields(form){
     var numProcess = getValue("WKNumProces");
     var activity = parseInt(getValue('WKNumState'));
     form.setValue("numProcess", numProcess);
+    form.setValue("campoDescritor", form.getValue("nomeParticipante") + " - " + form.getValue("cursoTreinamento") );
     if ( activity == 8 ) {
         var aprovada = form.getValue("aprovarAvaliacao");
         if ( aprovada == "Sim" ) {
