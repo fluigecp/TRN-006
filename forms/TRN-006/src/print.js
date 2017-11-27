@@ -32,13 +32,14 @@ var printModule = (function(){
 
     var getData = function () {
         var formObj, nomeParticipante, matricula, departamento, nomeTreinamento, instituicao,
-            dataRealizacao, cargaHoraria, classificacaoCurso;
+            dataInicio, dataFim, cargaHoraria, classificacaoCurso;
         nomeParticipante = modo == "VIEW" ? $("[name*=nomeParticipante]").html() : $("[name*=nomeParticipante]").val();
         matricula = modo == "VIEW" ? $("[name*=matricula]").html() : $("[name*=matricula]").val();
         departamento = modo == "VIEW" ? $("[name*=area]").html() : $("[name*=area]").val();
         nomeTreinamento = modo == "VIEW" ? $("[name*=cursoTreinamento]").html() : $("[name*=cursoTreinamento]").val();
         instituicao = modo == "VIEW" ? $("[name*=instituicao]").html() : $("[name*=instituicao]").val();
-        dataRealizacao = modo == "VIEW" ? $("[name*=dataRealizacao]").html() : $("[name*=dataRealizacao]").val();
+        dataInicio = modo == "VIEW" ? $("[name*=dataInicio]").html() : $("[name*=dataInicio]").val();
+        dataFim = modo == "VIEW" ? $("[name*=dataTermino]").html() : $("[name*=dataTermino]").val();
         cargaHoraria = modo == "VIEW" ? $("[name*=cargaHoraria]").html() : $("[name*=cargaHoraria]").val();
         classificacaoCurso = modo == "VIEW" ? $("[name*=classificacaoCurso]").html() : $("[name*=classificacaoCurso]").val();
         formObj = {
@@ -47,10 +48,13 @@ var printModule = (function(){
             "departamento": departamento,
             "nomeTreinamento": nomeTreinamento,
             "instituicao": instituicao,
-            "dataRealizacao": dataRealizacao,
+            "dataInicio": dataInicio,
+            "dataFim": dataFim,
             "cargaHoraria": cargaHoraria,
             "classificacaoCurso": classificacaoCurso
         };
+        formObj.dataInicio = formObj.dataInicio == "" ? "__/__/____" : formObj.dataInicio;
+        formObj.dataFim = formObj.dataFim == "" ? "__/__/____" : formObj.dataFim;
         return formObj;
     };
 
@@ -174,7 +178,7 @@ var printModule = (function(){
                 '                <tbody>'+
                 '                    <tr>'+
                 '                        <td width="70%">'+
-                '                            <span>'+list.dataRealizacao+'</span>'+
+                '                            <span>'+list.dataInicio + ' à ' + list.dataFim + '</span>'+
                 '                        </td> '+
                 '                        <td width="30%">'+
                 '                            <span>'+list.cargaHoraria+'</span>'+
@@ -189,7 +193,7 @@ var printModule = (function(){
                 '       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">'+
                 '           <p>Este instrumento tem como objetivo coletar informações sobre o treinamento realizado,'+ 
                 '           a fim de aprimorar nosso trabalho.<br/>' +
-                '           Responda todas as questões e assinale com um "X" na sua escolha.  Sua opinião é muito importante para nós!</p>'+
+                '           Avalie as questões de 1 a 5, sendo 5 seu maior grau de satisfação.  Sua opinião é muito importante para nós!</p>'+
                 '       </div>'+
             '       </div>'+
 
@@ -446,7 +450,14 @@ var printModule = (function(){
 
             '       <div class="row">'+
                 '       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 10px;">'+
-                '           <p><b>5- Quais sugestões você poderia oferecer para nossa utilização nos próximos treinamentos?</b></p>'+
+                '           <p><b>5- Quais suas considerações e/ou sugestões sobre esse treinamento?</b></p>'+
+                '       </div>'+
+                '       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 10px;">'+
+                '           __________________________________________________________________________________________'+
+                '           __________________________________________________________________________________________'+
+                '           __________________________________________________________________________________________'+
+                '           __________________________________________________________________________________________'+
+                '           __________________________________________________________________________________________'+
                 '       </div>'+
             '       </div>';
             dvDados.innerHTML = html;
