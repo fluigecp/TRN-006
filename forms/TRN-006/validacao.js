@@ -14,7 +14,7 @@ function validaCampos(atividade, proximaAtividade) {
 		addHasFree("dataTermino");
 		addHasFree("cargaHoraria");
 		addHasFree("avaliadorTreinamento");
-		addHasFree("aprovadorTreinamento");
+		//addHasFree("aprovadorTreinamento");
 
 	}
 
@@ -50,7 +50,7 @@ function validaCampos(atividade, proximaAtividade) {
 	if ( atividade == 31 ){
 		addHasFree("usuarioParticipou");
 		addHasFree("avaliadorTreinamento");
-		addHasFree("aprovadorTreinamento");
+		//addHasFree("aprovadorTreinamento");
 	}
 	/** Fim Life Cycle Workflow */
 }

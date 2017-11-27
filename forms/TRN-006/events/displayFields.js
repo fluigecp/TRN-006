@@ -40,6 +40,8 @@ function displayFields(form, customHTML) {
 		customHTML.append('</script>');
 	}
 
+	ocultaClasse("aprovadorTreinamentoContainer");
+	
 	if (activity != 26 && activity != 56 ) {
 		if ( activity != 26 ) {
 			ocultaId("btnPrint");
