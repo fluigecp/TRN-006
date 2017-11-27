@@ -53,7 +53,7 @@ function servicetask43(attempt, message) {
 		log.warn("%%%%%% colleagueIds");
 
 		var fieldsEficacia = ["nomeCurso", "nomeParticipante", "matParticipante", "usuarioParticipou", "numSolicTreinamento", "solicAvaliacaoReacao",
-							"avaliadorMat", "aberturaAutomatica", "data1", "data2"];
+							"avaliadorMat", "aberturaAutomatica", "dataInicio", "dataTermino"];
 		var fieldsReacao = [];
 		fieldsReacao.push(hAPI.getCardValue("cursoTreinamento") + "");
 		fieldsReacao.push(hAPI.getCardValue("nomeParticipante") + "");
