@@ -40,9 +40,11 @@ function displayFields(form, customHTML) {
 		customHTML.append('</script>');
 	}
 
-	if (activity != 26) {
-		ocultaId("btnPrint");
-		ocultaId("btnShowTreinamento");
+	if (activity != 26 && activity != 56 ) {
+		if ( activity != 26 ) {
+			ocultaId("btnPrint");
+			ocultaId("btnShowTreinamento");
+		}
 		ocultaClasse("pergunta-avaliacao");
 	}
 

@@ -34,9 +34,11 @@
         }
 
         if ( activity == 26 ) {
+            manipulateDOM.initCalendar("input[data-date-hour]");
             $("#btnPrint").on("click", manipulateDOM.actions4Listeners.printAvaliacaoListener);
             $("#btnShowTreinamento").on("click", manipulateDOM.actions4Listeners.showTreinamentoListener);
         }
+        
         
         /** Modo VIEW  */
 

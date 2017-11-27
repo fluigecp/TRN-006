@@ -10,7 +10,8 @@ function validaCampos(atividade, proximaAtividade) {
 		addHasFree("cursoTreinamento");
 		addHasFree("classificacaoCurso");
 		addHasFree("instituicao");
-		addHasFree("dataRealizacao");
+		addHasFree("dataInicio");
+		addHasFree("dataTermino");
 		addHasFree("cargaHoraria");
 		addHasFree("avaliadorTreinamento");
 		addHasFree("aprovadorTreinamento");
