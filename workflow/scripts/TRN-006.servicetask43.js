@@ -62,9 +62,9 @@ function servicetask43(attempt, message) {
 		fieldsReacao.push(hAPI.getCardValue("numSolicTreinamento") + "");
 		fieldsReacao.push(hAPI.getCardValue("numProcess") + "");
 		fieldsReacao.push(hAPI.getCardValue("avaliadorMat") + "");
+		fieldsReacao.push("Sim");
 		fieldsReacao.push(hAPI.getCardValue("dataInicio") + "");
 		fieldsReacao.push(hAPI.getCardValue("dataTermino") + "");
-		fieldsReacao.push("Sim");
 		var cardData = servico.instantiate("net.java.dev.jaxb.array.StringArrayArray");
 		for (var x = 0; x < fieldsEficacia.length; x++) {
 			var objField = servico.instantiate("net.java.dev.jaxb.array.StringArray");
