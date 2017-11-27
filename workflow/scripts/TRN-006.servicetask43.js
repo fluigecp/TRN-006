@@ -52,7 +52,8 @@ function servicetask43(attempt, message) {
 		colleagueIds.getItem().add('System:Auto');
 		log.warn("%%%%%% colleagueIds");
 
-		var fieldsEficacia = ["nomeCurso", "nomeParticipante", "matParticipante", "usuarioParticipou", "numSolicTreinamento", "solicAvaliacaoReacao","avaliadorMat", "aberturaAutomatica"];
+		var fieldsEficacia = ["nomeCurso", "nomeParticipante", "matParticipante", "usuarioParticipou", "numSolicTreinamento", "solicAvaliacaoReacao",
+							"avaliadorMat", "aberturaAutomatica", "data1", "data2"];
 		var fieldsReacao = [];
 		fieldsReacao.push(hAPI.getCardValue("cursoTreinamento") + "");
 		fieldsReacao.push(hAPI.getCardValue("nomeParticipante") + "");
@@ -61,6 +62,8 @@ function servicetask43(attempt, message) {
 		fieldsReacao.push(hAPI.getCardValue("numSolicTreinamento") + "");
 		fieldsReacao.push(hAPI.getCardValue("numProcess") + "");
 		fieldsReacao.push(hAPI.getCardValue("avaliadorMat") + "");
+		fieldsReacao.push(hAPI.getCardValue("dataInicio") + "");
+		fieldsReacao.push(hAPI.getCardValue("dataTermino") + "");
 		fieldsReacao.push("Sim");
 		var cardData = servico.instantiate("net.java.dev.jaxb.array.StringArrayArray");
 		for (var x = 0; x < fieldsEficacia.length; x++) {

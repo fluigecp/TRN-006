@@ -26,7 +26,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>Avaliar Treinamento - Reação</processId>
-      <version>42</version>
+      <version>44</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>0</formId>
@@ -718,7 +718,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>1</expressionOrder>
-        <version>42</version>
+        <version>44</version>
         <sequence>10</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovarAvaliacao&quot;) == &quot;Sim&quot;</condition>
@@ -729,7 +729,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>2</expressionOrder>
-        <version>42</version>
+        <version>44</version>
         <sequence>10</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovarAvaliacao&quot;) != &quot;Sim&quot;</condition>
@@ -740,7 +740,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>1</expressionOrder>
-        <version>42</version>
+        <version>44</version>
         <sequence>29</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aberturaAutomatica&quot;) == &quot;Sim&quot;</condition>
@@ -752,7 +752,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>2</expressionOrder>
-        <version>42</version>
+        <version>44</version>
         <sequence>29</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aberturaAutomatica&quot;) != &quot;Sim&quot;</condition>
@@ -763,7 +763,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>1</expressionOrder>
-        <version>42</version>
+        <version>44</version>
         <sequence>35</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;usuarioParticipou&quot;) == &quot;Sim&quot;</condition>
@@ -774,7 +774,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>2</expressionOrder>
-        <version>42</version>
+        <version>44</version>
         <sequence>35</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;usuarioParticipou&quot;) == &quot;Não&quot;</condition>
@@ -785,7 +785,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>1</expressionOrder>
-        <version>42</version>
+        <version>44</version>
         <sequence>58</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovarAvaliacaoRH&quot;) == &quot;Sim&quot;</condition>
@@ -796,7 +796,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>2</expressionOrder>
-        <version>42</version>
+        <version>44</version>
         <sequence>58</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovarAvaliacao&quot;) != &quot;Sim&quot;</condition>
@@ -807,7 +807,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>1</expressionOrder>
-        <version>42</version>
+        <version>44</version>
         <sequence>62</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;avaliadorTreinamento&quot;) == hAPI.getCardValue(&quot;aprovadorTreinamento&quot;)</condition>
@@ -818,7 +818,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>2</expressionOrder>
-        <version>42</version>
+        <version>44</version>
         <sequence>62</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;avaliadorTreinamento&quot;) != hAPI.getCardValue(&quot;aprovadorTreinamento&quot;)</condition>
@@ -1347,7 +1347,8 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
 		colleagueIds.getItem().add(&apos;System:Auto&apos;);
 		log.warn(&quot;%%%%%% colleagueIds&quot;);
 
-		var fieldsEficacia = [&quot;nomeCurso&quot;, &quot;nomeParticipante&quot;, &quot;matParticipante&quot;, &quot;usuarioParticipou&quot;, &quot;numSolicTreinamento&quot;, &quot;solicAvaliacaoReacao&quot;,&quot;avaliadorMat&quot;, &quot;aberturaAutomatica&quot;];
+		var fieldsEficacia = [&quot;nomeCurso&quot;, &quot;nomeParticipante&quot;, &quot;matParticipante&quot;, &quot;usuarioParticipou&quot;, &quot;numSolicTreinamento&quot;, &quot;solicAvaliacaoReacao&quot;,
+							&quot;avaliadorMat&quot;, &quot;aberturaAutomatica&quot;, &quot;data1&quot;, &quot;data2&quot;];
 		var fieldsReacao = [];
 		fieldsReacao.push(hAPI.getCardValue(&quot;cursoTreinamento&quot;) + &quot;&quot;);
 		fieldsReacao.push(hAPI.getCardValue(&quot;nomeParticipante&quot;) + &quot;&quot;);
@@ -1356,6 +1357,8 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
 		fieldsReacao.push(hAPI.getCardValue(&quot;numSolicTreinamento&quot;) + &quot;&quot;);
 		fieldsReacao.push(hAPI.getCardValue(&quot;numProcess&quot;) + &quot;&quot;);
 		fieldsReacao.push(hAPI.getCardValue(&quot;avaliadorMat&quot;) + &quot;&quot;);
+		fieldsReacao.push(hAPI.getCardValue(&quot;dataInicio&quot;) + &quot;&quot;);
+		fieldsReacao.push(hAPI.getCardValue(&quot;dataTermino&quot;) + &quot;&quot;);
 		fieldsReacao.push(&quot;Sim&quot;);
 		var cardData = servico.instantiate(&quot;net.java.dev.jaxb.array.StringArrayArray&quot;);
 		for (var x = 0; x &lt; fieldsEficacia.length; x++) {
@@ -1421,7 +1424,7 @@ function calculateDays(initialDate, finalDate) {
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <propertyId>loginUserWS</propertyId>
-        <version>42</version>
+        <version>44</version>
       </advancedProcessPropertiesPK>
       <propertieValue>servico</propertieValue>
     </AdvancedProcessProperties>
@@ -1430,7 +1433,7 @@ function calculateDays(initialDate, finalDate) {
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <propertyId>matUserWS</propertyId>
-        <version>42</version>
+        <version>44</version>
       </advancedProcessPropertiesPK>
       <propertieValue>0000</propertieValue>
     </AdvancedProcessProperties>
@@ -1439,7 +1442,7 @@ function calculateDays(initialDate, finalDate) {
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <propertyId>passwdUserWS</propertyId>
-        <version>42</version>
+        <version>44</version>
       </advancedProcessPropertiesPK>
       <propertieValue>fcea920f7412b5da7be0cf42b8c93759</propertieValue>
     </AdvancedProcessProperties>
@@ -1533,7 +1536,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>42</version>
+        <version>44</version>
         <linkSequence>28</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1544,7 +1547,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>42</version>
+        <version>44</version>
         <linkSequence>28</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1555,7 +1558,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>42</version>
+        <version>44</version>
         <linkSequence>30</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1566,7 +1569,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>42</version>
+        <version>44</version>
         <linkSequence>46</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1577,7 +1580,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>42</version>
+        <version>44</version>
         <linkSequence>46</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1588,7 +1591,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>42</version>
+        <version>44</version>
         <linkSequence>47</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1599,7 +1602,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>42</version>
+        <version>44</version>
         <linkSequence>47</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1610,7 +1613,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>42</version>
+        <version>44</version>
         <linkSequence>55</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1621,7 +1624,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>42</version>
+        <version>44</version>
         <linkSequence>55</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1632,7 +1635,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>42</version>
+        <version>44</version>
         <linkSequence>57</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1643,7 +1646,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>42</version>
+        <version>44</version>
         <linkSequence>57</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1654,7 +1657,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>42</version>
+        <version>44</version>
         <linkSequence>61</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1665,7 +1668,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>42</version>
+        <version>44</version>
         <linkSequence>61</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1676,7 +1679,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>42</version>
+        <version>44</version>
         <linkSequence>61</linkSequence>
         <bendSequence>3</bendSequence>
       </processLinkBendPK>
@@ -1687,7 +1690,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>42</version>
+        <version>44</version>
         <linkSequence>65</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1698,7 +1701,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>42</version>
+        <version>44</version>
         <linkSequence>65</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1709,7 +1712,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>42</version>
+        <version>44</version>
         <linkSequence>65</linkSequence>
         <bendSequence>3</bendSequence>
       </processLinkBendPK>
@@ -1720,7 +1723,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>42</version>
+        <version>44</version>
         <linkSequence>65</linkSequence>
         <bendSequence>4</bendSequence>
       </processLinkBendPK>
@@ -1731,7 +1734,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>42</version>
+        <version>44</version>
         <linkSequence>65</linkSequence>
         <bendSequence>5</bendSequence>
       </processLinkBendPK>
@@ -1744,7 +1747,7 @@ function calculateDays(initialDate, finalDate) {
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>42</version>
+        <version>44</version>
         <stateSequence>53</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
@@ -1760,7 +1763,7 @@ function calculateDays(initialDate, finalDate) {
       <extendedPropertyFieldPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>42</version>
+        <version>44</version>
         <stateSequence>0</stateSequence>
         <propertyName>loginUserWS</propertyName>
       </extendedPropertyFieldPK>
@@ -1773,7 +1776,7 @@ function calculateDays(initialDate, finalDate) {
       <extendedPropertyFieldPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>42</version>
+        <version>44</version>
         <stateSequence>0</stateSequence>
         <propertyName>matUserWS</propertyName>
       </extendedPropertyFieldPK>
@@ -1786,7 +1789,7 @@ function calculateDays(initialDate, finalDate) {
       <extendedPropertyFieldPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>42</version>
+        <version>44</version>
         <stateSequence>0</stateSequence>
         <propertyName>passwdUserWS</propertyName>
       </extendedPropertyFieldPK>
