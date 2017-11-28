@@ -33,8 +33,10 @@
             $("#matricula").on("blur", manipulateDOM.actions4Listeners.checkIfParticipanteHasFluigListener);
         }
 
-        if ( activity == 26 ) {
-            manipulateDOM.initCalendar("input[data-date-hour]");
+        if ( activity == 26 || activity == 56 ) {
+            if ( activity != 56 ) {
+                manipulateDOM.initCalendar("input[data-date-hour]");
+            }
             $("#btnPrint").on("click", manipulateDOM.actions4Listeners.printAvaliacaoListener);
             $("#btnShowTreinamento").on("click", manipulateDOM.actions4Listeners.showTreinamentoListener);
         }
