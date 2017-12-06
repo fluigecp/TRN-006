@@ -26,7 +26,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>Avaliar Treinamento - Reação</processId>
-      <version>47</version>
+      <version>50</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>0</formId>
@@ -223,8 +223,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1400</positionX>
-      <positionY>660</positionY>
+      <positionX>1580</positionX>
+      <positionY>653</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -274,8 +274,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1400</positionX>
-      <positionY>887</positionY>
+      <positionX>1580</positionX>
+      <positionY>890</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -409,6 +409,8 @@
       <deadlineTime>0</deadlineTime>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Pool Grupo</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Group&gt;Processos&lt;/Group&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
       <selectColleague>0</selectColleague>
       <initialState>false</initialState>
       <notifyAuthorityDelay>true</notifyAuthorityDelay>
@@ -474,8 +476,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1480</positionX>
-      <positionY>710</positionY>
+      <positionX>1660</positionX>
+      <positionY>703</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -521,8 +523,8 @@
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1225</positionX>
-      <positionY>458</positionY>
+      <positionX>1460</positionX>
+      <positionY>670</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -737,8 +739,8 @@
       <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
-      <positionX>1620</positionX>
-      <positionY>678</positionY>
+      <positionX>1750</positionX>
+      <positionY>670</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -762,7 +764,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>1</expressionOrder>
-        <version>47</version>
+        <version>50</version>
         <sequence>29</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aberturaAutomatica&quot;) == &quot;Sim&quot;</condition>
@@ -774,7 +776,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>2</expressionOrder>
-        <version>47</version>
+        <version>50</version>
         <sequence>29</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aberturaAutomatica&quot;) != &quot;Sim&quot;</condition>
@@ -785,7 +787,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>1</expressionOrder>
-        <version>47</version>
+        <version>50</version>
         <sequence>35</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;usuarioParticipou&quot;) == &quot;Sim&quot;</condition>
@@ -796,7 +798,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>2</expressionOrder>
-        <version>47</version>
+        <version>50</version>
         <sequence>35</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;usuarioParticipou&quot;) == &quot;Não&quot;</condition>
@@ -807,18 +809,18 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>1</expressionOrder>
-        <version>47</version>
+        <version>50</version>
         <sequence>58</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovarAvaliacaoRH&quot;) == &quot;Sim&quot;</condition>
-      <destinationSequenceId>53</destinationSequenceId>
+      <destinationSequenceId>64</destinationSequenceId>
     </ConditionProcessState>
     <ConditionProcessState>
       <conditionProcessStatePK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>2</expressionOrder>
-        <version>47</version>
+        <version>50</version>
         <sequence>58</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovarAvaliacao&quot;) != &quot;Sim&quot;</condition>
@@ -927,22 +929,6 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <version>1</version>
-        <linkSequence>46</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>44</initialStateSequence>
-      <finalStateSequence>45</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>TRN-006</processId>
-        <version>1</version>
         <linkSequence>47</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
@@ -991,22 +977,6 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <version>1</version>
-        <linkSequence>60</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>58</initialStateSequence>
-      <finalStateSequence>53</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>TRN-006</processId>
-        <version>1</version>
         <linkSequence>61</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
@@ -1029,22 +999,6 @@
       <returnPermited>false</returnPermited>
       <initialStateSequence>26</initialStateSequence>
       <finalStateSequence>56</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>TRN-006</processId>
-        <version>1</version>
-        <linkSequence>63</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>53</initialStateSequence>
-      <finalStateSequence>64</finalStateSequence>
       <returnLabel></returnLabel>
       <name></name>
       <automaticLink>false</automaticLink>
@@ -1087,11 +1041,59 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <version>1</version>
-        <linkSequence>69</linkSequence>
+        <linkSequence>70</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>44</initialStateSequence>
+      <finalStateSequence>45</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>1</version>
+        <linkSequence>71</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>58</initialStateSequence>
+      <finalStateSequence>64</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>1</version>
+        <linkSequence>72</linkSequence>
       </processLinkPK>
       <actionLabel></actionLabel>
       <returnPermited>false</returnPermited>
       <initialStateSequence>64</initialStateSequence>
+      <finalStateSequence>53</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>1</version>
+        <linkSequence>73</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>53</initialStateSequence>
       <finalStateSequence>43</finalStateSequence>
       <returnLabel></returnLabel>
       <name></name>
@@ -1262,15 +1264,152 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
         <version>1</version>
       </workflowProcessEventPK>
       <eventDescription>function servicetask64(attempt, message) {
- try {
-	 var Service = ServiceManager.getService(&apos;ECMCardService&apos;);
-	 var serviceHelper = Service.getBean();
-  //var serviceLocator = serviceHelper.instantiate(&apos;classe.locator&apos;);
- } catch(error) { 
-	log.error(error);
-	throw error;
- }
-}</eventDescription>
+	try {
+		var Service = ServiceManager.getService(&apos;ECMCardService&apos;);
+		log.warn(&apos;%%%%%% Service: &apos; + Service);
+
+		var serviceHelper = Service.getBean();
+		log.warn(&apos;%%%%%% serviceHelper: &apos; + serviceHelper);
+
+		var serviceInstance = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.ECMCardServiceService&quot;);
+		log.warn(&apos;%%%%%% serviceInstance: &apos; + serviceInstance);
+
+		var cardFieldDtoArray = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.CardFieldDtoArray&quot;);
+		log.warn(&apos;%%%%%% cardFieldDtoArray: &apos; + cardFieldDtoArray);
+
+		var portServico = serviceInstance.getCardServicePort();
+		log.warn(&apos;%%%%%% portServico: &apos; + portServico);
+
+		var user = hAPI.getAdvancedProperty(&quot;loginUserWS&quot;);
+		log.warn(&apos;%%%%%% user: &apos; + user);
+
+		var password = hAPI.getAdvancedProperty(&quot;passwdUserWS&quot;);
+		log.warn(&apos;%%%%%% password: &apos; + password);
+
+		var empresa = parseInt(getValue(&quot;WKCompany&quot;));
+		log.warn(&apos;%%%%%% empresa: &apos; + empresa + &apos; TypeOf: &apos; + typeof empresa);
+
+		// INICIANDO A IMPLEMENTAÇÃO DA INTEGRAÇÃO COM A FICHA DO PARTICIPANTE
+
+		// Obtém os dados do participante no humanus
+		var humanusData = getParticipanteHumanusData(hAPI.getCardValue(&quot;matricula&quot;));
+		log.warn(&apos;%%%%%% humanusData: &apos; + humanusData);
+
+		// verifica se o participante possui ficha de treinamentos
+		var ficha = checkIfHasFicha(hAPI.getCardValue(&quot;matricula&quot;));
+
+		// Verifica o ano que o treinamento avaliado foi aplicado
+		var anoTreinamento = hAPI.getCardValue(&quot;dataInicio&quot;);
+		anoTreinamento = anoTreinamento.substr(anoTreinamento.length - 4);
+		
+		// Verifica media da avaliação;
+		var mediaAvaliacao = getMediaAvaliacao();
+		// Array que armazena os valores de cada campo de participante
+		var arrayCardValuesAvaliacao = [
+			hAPI.getCardValue(&quot;numSolicTreinamento&quot;),
+			hAPI.getCardValue(&quot;cursoTreinamento&quot;),
+			anoTreinamento,
+			hAPI.getCardValue(&quot;dataInicio&quot;),
+			hAPI.getCardValue(&quot;dataTermino&quot;),
+			mediaAvaliacao			
+		]
+		// se houver, atualiza a ficha. 
+		if (ficha != null) {
+			var documentid = ficha.getValue(0, &quot;documentid&quot;);
+			var avaliacoesCount = getAvaliacoesReacaoCount(documentid);
+			var arrayCardFieldsAvaliacao = [];
+			arrayCardFieldsAvaliacao.push(&quot;numero_solicitacao_tb2___&quot; + avaliacoesCount + 1);
+			arrayCardFieldsAvaliacao.push(&quot;titulo_do_treinamento_tb2___&quot; + avaliacoesCount + 1);
+			arrayCardFieldsAvaliacao.push(&quot;ano_realizacao_tb2___&quot; + avaliacoesCount + 1);
+			arrayCardFieldsAvaliacao.push(&quot;data_inicio_tb2___&quot; + avaliacoesCount + 1);
+			arrayCardFieldsAvaliacao.push(&quot;data_termino_tb2___&quot; + avaliacoesCount + 1);
+			arrayCardFieldsAvaliacao.push(&quot;avaliacao_media_tb2___&quot; + avaliacoesCount + 1);
+			// objeto que irá armazenar todos os campos e os respectivos valores (update)
+			var cardFieldDtoArray = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.CardFieldDtoArray&quot;);
+							
+			for (var i = 0; i &lt; arrayCardFieldsAvaliacao.length; i++) {
+				var cardFieldDto = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.CardFieldDto&quot;);
+				//atribuindo a chave do campo
+				cardFieldDto.setField(arrayCardFieldsAvaliacao[i]);
+				//atribuindo valor ao campo
+				cardFieldDto.setValue(arrayCardValuesAvaliacao[i]);
+				// adicionando no objeto de valores - update
+				cardFieldDtoArray.getItem().add(cardFieldDto);
+			}
+
+			// objeto array que irá armazenar objetos CardFieldDto
+			log.warn(&apos;%%%%%% atualizando ficha &apos;);
+			portServico.updateCardData(empresa, user, password, documentid, cardFieldDtoArray);
+			log.warn(&apos;%%%%%% ficha atualizada &apos;);
+		} 
+
+	} catch (error) {
+		log.error(error);
+		throw error;
+	}
+}
+
+/**
+ * Verifica se o participante possui ficha de treinamento.
+ * @param {int} mat - Matricula do participante
+ * @returns obj Dataset, caso tenha ficha, null caso não tenha.
+ */
+function checkIfHasFicha(mat) {
+	var c1 = DatasetFactory.createConstraint(&quot;metadata#active&quot;, true, true, ConstraintType.MUST);
+	var c2 = DatasetFactory.createConstraint(&quot;matricula&quot;, mat, mat, ConstraintType.MUST);
+	var fichaReg = DatasetFactory.getDataset(&quot;participante_x_treinamento&quot;, null, [c1, c2], null);
+	if (fichaReg.rowsCount &gt; 0) {
+		return fichaReg;
+	}
+	return null;
+}
+/**
+ * Retorna os dados do participante
+ * @param {int} mat  - Matricula do participante
+ * @returns - Obj Dataset, caso a matrícula seja encontrada na base de dados, null caso a matricula não seja encontrada.
+ */
+function getParticipanteHumanusData(mat) {
+	var c1 = DatasetFactory.createConstraint(&quot;matricula&quot;, mat, mat, ConstraintType.MUST);
+	var humanusData = DatasetFactory.getDataset(&quot;wsFuncionarios&quot;, null, [c1], null);
+	if (humanusData.rowsCount &gt; 0) {
+		return humanusData;
+	}
+	return null;
+}
+
+/**
+ * Retorna a quantidade de avaliações de reação existentes na ficha do participante
+ * @param {int} documentid - id da ficha de treinamento
+ * @returns - quantidade de avaliações de reação registrados.
+ */
+function getAvaliacoesReacaoCount(documentid) {
+	var c1 = DatasetFactory.createConstraint(&quot;metadata#active&quot;, true, true, ConstraintType.MUST);
+	var c2 = DatasetFactory.createConstraint(&quot;documentid&quot;, documentid, documentid, ConstraintType.MUST);
+	var tablename = DatasetFactory.createConstraint(&quot;tablename&quot;, &quot;avaliacoes_reacao&quot;, &quot;avaliacoes_reacao&quot;, ConstraintType.MUST);
+	var fichaParticipante = DatasetFactory.getDataset(&quot;participante_x_treinamento&quot;, null, [c1, c2, tablename], null);
+	return fichaParticipante.rowsCount;
+}
+
+/**
+ * Calcula a media da avaliação.
+ * @returns - média da avaliação do participante
+ */
+function getMediaAvaliacao(){
+	var somatoria = 
+				parseFloat(hAPI.getCardValue(&quot;custom_10&quot;)) + 
+				parseFloat(hAPI.getCardValue(&quot;custom_11&quot;)) + 
+				parseFloat(hAPI.getCardValue(&quot;custom_12&quot;)) + 
+				parseFloat(hAPI.getCardValue(&quot;custom_13&quot;)) + 
+				parseFloat(hAPI.getCardValue(&quot;custom_14&quot;)) + 
+				parseFloat(hAPI.getCardValue(&quot;custom_15&quot;)) + 
+				parseFloat(hAPI.getCardValue(&quot;custom_16&quot;)) + 
+				parseFloat(hAPI.getCardValue(&quot;custom_17&quot;)) + 
+				parseFloat(hAPI.getCardValue(&quot;custom_18&quot;)) + 
+				parseFloat(hAPI.getCardValue(&quot;custom_19&quot;)) + 
+				parseFloat(hAPI.getCardValue(&quot;custom_20&quot;)); 
+	return somatoria / 11;
+}
+</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
@@ -1410,7 +1549,7 @@ function calculateDays(initialDate, finalDate) {
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <propertyId>loginUserWS</propertyId>
-        <version>47</version>
+        <version>50</version>
       </advancedProcessPropertiesPK>
       <propertieValue>servico</propertieValue>
     </AdvancedProcessProperties>
@@ -1419,7 +1558,7 @@ function calculateDays(initialDate, finalDate) {
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <propertyId>matUserWS</propertyId>
-        <version>47</version>
+        <version>50</version>
       </advancedProcessPropertiesPK>
       <propertieValue>0000</propertieValue>
     </AdvancedProcessProperties>
@@ -1428,7 +1567,7 @@ function calculateDays(initialDate, finalDate) {
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <propertyId>passwdUserWS</propertyId>
-        <version>47</version>
+        <version>50</version>
       </advancedProcessPropertiesPK>
       <propertieValue>fcea920f7412b5da7be0cf42b8c93759</propertieValue>
     </AdvancedProcessProperties>
@@ -1437,7 +1576,7 @@ function calculateDays(initialDate, finalDate) {
     <SwimLane>
       <color>DFDFDF</color>
       <height>211</height>
-      <width>1791</width>
+      <width>1871</width>
       <positionX>30</positionX>
       <positionY>150</positionY>
       <stateName>Avaliador</stateName>
@@ -1453,7 +1592,7 @@ function calculateDays(initialDate, finalDate) {
     <SwimLane>
       <color>C0C7CC</color>
       <height>231</height>
-      <width>1791</width>
+      <width>1871</width>
       <positionX>30</positionX>
       <positionY>360</positionY>
       <stateName>Recursos Humanos</stateName>
@@ -1469,7 +1608,7 @@ function calculateDays(initialDate, finalDate) {
     <SwimLane>
       <color>DFDFDF</color>
       <height>211</height>
-      <width>1791</width>
+      <width>1871</width>
       <positionX>30</positionX>
       <positionY>590</positionY>
       <stateName>Fluig</stateName>
@@ -1485,7 +1624,7 @@ function calculateDays(initialDate, finalDate) {
     <SwimLane>
       <color>C0C7CC</color>
       <height>231</height>
-      <width>1791</width>
+      <width>1871</width>
       <positionX>30</positionX>
       <positionY>800</positionY>
       <stateName>Processos</stateName>
@@ -1506,7 +1645,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>47</version>
+        <version>50</version>
         <linkSequence>30</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1517,29 +1656,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>47</version>
-        <linkSequence>46</linkSequence>
-        <bendSequence>1</bendSequence>
-      </processLinkBendPK>
-      <positionX>1571</positionX>
-      <positionY>724</positionY>
-    </ProcessLinkBend>
-    <ProcessLinkBend>
-      <processLinkBendPK>
-        <companyId>1</companyId>
-        <processId>TRN-006</processId>
-        <version>47</version>
-        <linkSequence>46</linkSequence>
-        <bendSequence>2</bendSequence>
-      </processLinkBendPK>
-      <positionX>1571</positionX>
-      <positionY>914</positionY>
-    </ProcessLinkBend>
-    <ProcessLinkBend>
-      <processLinkBendPK>
-        <companyId>1</companyId>
-        <processId>TRN-006</processId>
-        <version>47</version>
+        <version>50</version>
         <linkSequence>61</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1550,7 +1667,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>47</version>
+        <version>50</version>
         <linkSequence>61</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1561,7 +1678,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>47</version>
+        <version>50</version>
         <linkSequence>61</linkSequence>
         <bendSequence>3</bendSequence>
       </processLinkBendPK>
@@ -1572,7 +1689,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>47</version>
+        <version>50</version>
         <linkSequence>62</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1583,7 +1700,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>47</version>
+        <version>50</version>
         <linkSequence>67</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1594,12 +1711,45 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>47</version>
+        <version>50</version>
         <linkSequence>67</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
       <positionX>1359</positionX>
       <positionY>917</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>50</version>
+        <linkSequence>70</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>1757</positionX>
+      <positionY>717</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>50</version>
+        <linkSequence>70</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>1757</positionX>
+      <positionY>918</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>TRN-006</processId>
+        <version>50</version>
+        <linkSequence>71</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>1245</positionX>
+      <positionY>475</positionY>
     </ProcessLinkBend>
   </list>
   <list>
@@ -1607,7 +1757,7 @@ function calculateDays(initialDate, finalDate) {
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>47</version>
+        <version>50</version>
         <stateSequence>53</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
@@ -1623,7 +1773,7 @@ function calculateDays(initialDate, finalDate) {
       <extendedPropertyFieldPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>47</version>
+        <version>50</version>
         <stateSequence>0</stateSequence>
         <propertyName>loginUserWS</propertyName>
       </extendedPropertyFieldPK>
@@ -1636,7 +1786,7 @@ function calculateDays(initialDate, finalDate) {
       <extendedPropertyFieldPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>47</version>
+        <version>50</version>
         <stateSequence>0</stateSequence>
         <propertyName>matUserWS</propertyName>
       </extendedPropertyFieldPK>
@@ -1649,7 +1799,7 @@ function calculateDays(initialDate, finalDate) {
       <extendedPropertyFieldPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>47</version>
+        <version>50</version>
         <stateSequence>0</stateSequence>
         <propertyName>passwdUserWS</propertyName>
       </extendedPropertyFieldPK>
