@@ -35,17 +35,16 @@ function servicetask64(attempt, message) {
 
 		/** 
 		 * Verifica o ano que o treinamento avaliado foi aplicado
-		 * TODO: Implementar substring corretamente para atribuir apenas o ano
 		*/
 
 		var anoTreinamento = hAPI.getCardValue("dataInicio");
-		anoTreinamento = anoTreinamento.substr(anoTreinamento.length - 4);
+		anoTreinamento = anoTreinamento.substr(anoTreinamento.indexOf("/", 3) + 1);
 		
 		// Verifica media da avaliação;
 		var mediaAvaliacao = getMediaAvaliacao();
 		// Array que armazena os valores de cada campo de participante
 		var arrayCardValuesAvaliacao = [
-			hAPI.getCardValue("numSolicTreinamento"),
+			hAPI.getCardValue("numProcess"),
 			hAPI.getCardValue("cursoTreinamento"),
 			anoTreinamento,
 			hAPI.getCardValue("dataInicio"),
