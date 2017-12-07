@@ -146,5 +146,6 @@ function getMediaAvaliacao(){
 				parseFloat(hAPI.getCardValue("custom_18")) + 
 				parseFloat(hAPI.getCardValue("custom_19")) + 
 				parseFloat(hAPI.getCardValue("custom_20")); 
-	return somatoria / 11;
+	var media = somatoria / 11
+	return media.toFixed(2);
 }
