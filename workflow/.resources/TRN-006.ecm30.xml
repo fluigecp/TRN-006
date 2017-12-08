@@ -26,7 +26,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>Avaliar Treinamento - Reação</processId>
-      <version>60</version>
+      <version>61</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>0</formId>
@@ -764,7 +764,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>1</expressionOrder>
-        <version>60</version>
+        <version>61</version>
         <sequence>29</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aberturaAutomatica&quot;) == &quot;Sim&quot;</condition>
@@ -776,7 +776,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>2</expressionOrder>
-        <version>60</version>
+        <version>61</version>
         <sequence>29</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aberturaAutomatica&quot;) != &quot;Sim&quot;</condition>
@@ -787,7 +787,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>1</expressionOrder>
-        <version>60</version>
+        <version>61</version>
         <sequence>35</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;usuarioParticipou&quot;) == &quot;Sim&quot;</condition>
@@ -798,7 +798,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>2</expressionOrder>
-        <version>60</version>
+        <version>61</version>
         <sequence>35</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;usuarioParticipou&quot;) == &quot;Não&quot;</condition>
@@ -809,7 +809,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>1</expressionOrder>
-        <version>60</version>
+        <version>61</version>
         <sequence>58</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovarAvaliacaoRH&quot;) == &quot;Sim&quot;</condition>
@@ -820,7 +820,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>2</expressionOrder>
-        <version>60</version>
+        <version>61</version>
         <sequence>58</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovarAvaliacao&quot;) != &quot;Sim&quot;</condition>
@@ -1265,6 +1265,9 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
       </workflowProcessEventPK>
       <eventDescription>function servicetask64(attempt, message) {&#xd;
 	try {&#xd;
+		var numSolicitacao = hAPI.getCardValue(&quot;numProcess&quot;);&#xd;
+		log.warn(&apos;%%%%%% numSolicitacao: &apos; + numSolicitacao);&#xd;
+&#xd;
 		var Service = ServiceManager.getService(&apos;ECMCardService&apos;);&#xd;
 		log.warn(&apos;%%%%%% Service: &apos; + Service);&#xd;
 &#xd;
@@ -1300,7 +1303,6 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
 &#xd;
 		/** &#xd;
 		 * Verifica o ano que o treinamento avaliado foi aplicado&#xd;
-		 * TODO: Implementar substring corretamente para atribuir apenas o ano&#xd;
 		*/&#xd;
 &#xd;
 		var anoTreinamento = hAPI.getCardValue(&quot;dataInicio&quot;);&#xd;
@@ -1310,7 +1312,7 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
 		var mediaAvaliacao = getMediaAvaliacao();&#xd;
 		// Array que armazena os valores de cada campo de participante&#xd;
 		var arrayCardValuesAvaliacao = [&#xd;
-			hAPI.getCardValue(&quot;numProcess&quot;),&#xd;
+			numSolicitacao,&#xd;
 			hAPI.getCardValue(&quot;cursoTreinamento&quot;),&#xd;
 			anoTreinamento,&#xd;
 			hAPI.getCardValue(&quot;dataInicio&quot;),&#xd;
@@ -1341,10 +1343,12 @@ function getAttachments(activity, numAnexos, formato) {&#xd;
 				cardFieldDtoArray.getItem().add(cardFieldDto);&#xd;
 			}&#xd;
 &#xd;
-			// objeto array que irá armazenar objetos CardFieldDto&#xd;
-			log.warn(&apos;%%%%%% atualizando ficha &apos;);&#xd;
-			portServico.updateCardData(empresa, user, password, documentid, cardFieldDtoArray);&#xd;
-			log.warn(&apos;%%%%%% ficha atualizada &apos;);&#xd;
+			// updating ficha&#xd;
+			if ( !checkIfAvaliacaoIsAlreadyRegistered(documentid, numSolicitacao) ) {&#xd;
+				log.warn(&apos;%%%%%% atualizando ficha &apos;);&#xd;
+				portServico.updateCardData(empresa, user, password, documentid, cardFieldDtoArray);&#xd;
+				log.warn(&apos;%%%%%% ficha atualizada &apos;);&#xd;
+			}&#xd;
 		} &#xd;
 &#xd;
 	} catch (error) {&#xd;
@@ -1414,7 +1418,26 @@ function getMediaAvaliacao(){&#xd;
 	var media = somatoria / 11&#xd;
 	return media.toFixed(2);&#xd;
 }&#xd;
-</eventDescription>
+&#xd;
+/**&#xd;
+ * @description Verifica se a avaliação já foi inserido na table de avaliação de reação do participante.&#xd;
+ * @param {number} docId - documentid da Ficha do participante&#xd;
+ * @param {number} numSolic - Número da solicitação da avaliação de reação&#xd;
+ * @returns - Boolean - true caso já exista, false caso ainda não exista.&#xd;
+ * &#xd;
+ */&#xd;
+function checkIfAvaliacaoIsAlreadyRegistered(docId, numSolic){&#xd;
+	var c1 = DatasetFactory.createConstraint(&quot;metadata#active&quot;, true, true, ConstraintType.MUST);&#xd;
+	var c2 = DatasetFactory.createConstraint(&quot;documentid&quot;, docId, docId, ConstraintType.MUST);&#xd;
+	var tablename = DatasetFactory.createConstraint(&quot;tablename&quot;, &quot;avaliacoes_reacao&quot;, &quot;avaliacoes_reacao&quot;, ConstraintType.MUST);&#xd;
+	var fichaParticipante = DatasetFactory.getDataset(&quot;participante_x_treinamento&quot;, null, [c1, c2, tablename], null);&#xd;
+	for (var i = 0; i &lt; fichaParticipante.rowsCount; i++) {&#xd;
+		if ( fichaParticipante.getValue(i, &quot;numero_solicitacao_tb2&quot;) == numSolic ) {&#xd;
+			return true;&#xd;
+		}&#xd;
+	}&#xd;
+	return false;&#xd;
+}</eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
       <workflowProcessEventPK>
@@ -1554,7 +1577,7 @@ function calculateDays(initialDate, finalDate) {
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <propertyId>loginUserWS</propertyId>
-        <version>60</version>
+        <version>61</version>
       </advancedProcessPropertiesPK>
       <propertieValue>servico</propertieValue>
     </AdvancedProcessProperties>
@@ -1563,7 +1586,7 @@ function calculateDays(initialDate, finalDate) {
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <propertyId>matUserWS</propertyId>
-        <version>60</version>
+        <version>61</version>
       </advancedProcessPropertiesPK>
       <propertieValue>0000</propertieValue>
     </AdvancedProcessProperties>
@@ -1572,7 +1595,7 @@ function calculateDays(initialDate, finalDate) {
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <propertyId>passwdUserWS</propertyId>
-        <version>60</version>
+        <version>61</version>
       </advancedProcessPropertiesPK>
       <propertieValue>fcea920f7412b5da7be0cf42b8c93759</propertieValue>
     </AdvancedProcessProperties>
@@ -1650,7 +1673,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>60</version>
+        <version>61</version>
         <linkSequence>30</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1661,7 +1684,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>60</version>
+        <version>61</version>
         <linkSequence>61</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1672,7 +1695,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>60</version>
+        <version>61</version>
         <linkSequence>61</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1683,7 +1706,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>60</version>
+        <version>61</version>
         <linkSequence>61</linkSequence>
         <bendSequence>3</bendSequence>
       </processLinkBendPK>
@@ -1694,7 +1717,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>60</version>
+        <version>61</version>
         <linkSequence>62</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1705,7 +1728,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>60</version>
+        <version>61</version>
         <linkSequence>67</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1716,7 +1739,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>60</version>
+        <version>61</version>
         <linkSequence>67</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1727,7 +1750,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>60</version>
+        <version>61</version>
         <linkSequence>70</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1738,7 +1761,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>60</version>
+        <version>61</version>
         <linkSequence>70</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -1749,7 +1772,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>60</version>
+        <version>61</version>
         <linkSequence>71</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1762,7 +1785,7 @@ function calculateDays(initialDate, finalDate) {
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>60</version>
+        <version>61</version>
         <stateSequence>53</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
@@ -1778,7 +1801,7 @@ function calculateDays(initialDate, finalDate) {
       <extendedPropertyFieldPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>60</version>
+        <version>61</version>
         <stateSequence>0</stateSequence>
         <propertyName>loginUserWS</propertyName>
       </extendedPropertyFieldPK>
@@ -1791,7 +1814,7 @@ function calculateDays(initialDate, finalDate) {
       <extendedPropertyFieldPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>60</version>
+        <version>61</version>
         <stateSequence>0</stateSequence>
         <propertyName>matUserWS</propertyName>
       </extendedPropertyFieldPK>
@@ -1804,7 +1827,7 @@ function calculateDays(initialDate, finalDate) {
       <extendedPropertyFieldPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>60</version>
+        <version>61</version>
         <stateSequence>0</stateSequence>
         <propertyName>passwdUserWS</propertyName>
       </extendedPropertyFieldPK>

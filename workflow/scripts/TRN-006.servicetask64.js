@@ -1,5 +1,8 @@
 function servicetask64(attempt, message) {
 	try {
+		var numSolicitacao = hAPI.getCardValue("numProcess");
+		log.warn('%%%%%% numSolicitacao: ' + numSolicitacao);
+
 		var Service = ServiceManager.getService('ECMCardService');
 		log.warn('%%%%%% Service: ' + Service);
 
@@ -44,7 +47,7 @@ function servicetask64(attempt, message) {
 		var mediaAvaliacao = getMediaAvaliacao();
 		// Array que armazena os valores de cada campo de participante
 		var arrayCardValuesAvaliacao = [
-			hAPI.getCardValue("numProcess"),
+			numSolicitacao,
 			hAPI.getCardValue("cursoTreinamento"),
 			anoTreinamento,
 			hAPI.getCardValue("dataInicio"),
@@ -75,10 +78,12 @@ function servicetask64(attempt, message) {
 				cardFieldDtoArray.getItem().add(cardFieldDto);
 			}
 
-			// objeto array que irá armazenar objetos CardFieldDto
-			log.warn('%%%%%% atualizando ficha ');
-			portServico.updateCardData(empresa, user, password, documentid, cardFieldDtoArray);
-			log.warn('%%%%%% ficha atualizada ');
+			// updating ficha
+			if ( !checkIfAvaliacaoIsAlreadyRegistered(documentid, numSolicitacao) ) {
+				log.warn('%%%%%% atualizando ficha ');
+				portServico.updateCardData(empresa, user, password, documentid, cardFieldDtoArray);
+				log.warn('%%%%%% ficha atualizada ');
+			}
 		} 
 
 	} catch (error) {
@@ -147,4 +152,24 @@ function getMediaAvaliacao(){
 				parseFloat(hAPI.getCardValue("custom_20")); 
 	var media = somatoria / 11
 	return media.toFixed(2);
+}
+
+/**
+ * @description Verifica se a avaliação já foi inserido na table de avaliação de reação do participante.
+ * @param {number} docId - documentid da Ficha do participante
+ * @param {number} numSolic - Número da solicitação da avaliação de reação
+ * @returns - Boolean - true caso já exista, false caso ainda não exista.
+ * 
+ */
+function checkIfAvaliacaoIsAlreadyRegistered(docId, numSolic){
+	var c1 = DatasetFactory.createConstraint("metadata#active", true, true, ConstraintType.MUST);
+	var c2 = DatasetFactory.createConstraint("documentid", docId, docId, ConstraintType.MUST);
+	var tablename = DatasetFactory.createConstraint("tablename", "avaliacoes_reacao", "avaliacoes_reacao", ConstraintType.MUST);
+	var fichaParticipante = DatasetFactory.getDataset("participante_x_treinamento", null, [c1, c2, tablename], null);
+	for (var i = 0; i < fichaParticipante.rowsCount; i++) {
+		if ( fichaParticipante.getValue(i, "numero_solicitacao_tb2") == numSolic ) {
+			return true;
+		}
+	}
+	return false;
 }
