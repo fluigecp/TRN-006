@@ -26,7 +26,7 @@
     <processDefinitionVersionPK>
       <companyId>1</companyId>
       <processId>Avaliar Treinamento - Reação</processId>
-      <version>64</version>
+      <version>65</version>
     </processDefinitionVersionPK>
     <versionDescription></versionDescription>
     <formId>0</formId>
@@ -510,6 +510,8 @@
       <deadlineTime>0</deadlineTime>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId>Pool Grupo</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Group&gt;Processos&lt;/Group&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
       <selectColleague>0</selectColleague>
       <initialState>false</initialState>
       <notifyAuthorityDelay>true</notifyAuthorityDelay>
@@ -910,7 +912,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>1</expressionOrder>
-        <version>64</version>
+        <version>65</version>
         <sequence>29</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aberturaAutomatica&quot;) == &quot;Sim&quot;</condition>
@@ -922,7 +924,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>2</expressionOrder>
-        <version>64</version>
+        <version>65</version>
         <sequence>29</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aberturaAutomatica&quot;) != &quot;Sim&quot;</condition>
@@ -933,7 +935,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>1</expressionOrder>
-        <version>64</version>
+        <version>65</version>
         <sequence>35</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;usuarioParticipou&quot;) == &quot;Sim&quot;</condition>
@@ -944,7 +946,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>2</expressionOrder>
-        <version>64</version>
+        <version>65</version>
         <sequence>35</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;usuarioParticipou&quot;) == &quot;Não&quot;</condition>
@@ -955,7 +957,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>1</expressionOrder>
-        <version>64</version>
+        <version>65</version>
         <sequence>58</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovarAvaliacaoRH&quot;) == &quot;Sim&quot;</condition>
@@ -966,7 +968,7 @@
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <expressionOrder>2</expressionOrder>
-        <version>64</version>
+        <version>65</version>
         <sequence>58</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;aprovarAvaliacao&quot;) != &quot;Sim&quot;</condition>
@@ -1730,233 +1732,246 @@ function checkIfAvaliacaoIsAlreadyRegistered(docId, numSolic){&#xd;
         <processId>TRN-006</processId>
         <version>1</version>
       </workflowProcessEventPK>
-      <eventDescription>function servicetask74(attempt, message) {
-	try {
-		var Service = ServiceManager.getService(&apos;ECMCardService&apos;);
-		log.warn(&apos;%%%%%% Service: &apos; + Service);
-
-		var serviceHelper = Service.getBean();
-		log.warn(&apos;%%%%%% serviceHelper: &apos; + serviceHelper);
-
-		var serviceInstance = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.ECMCardServiceService&quot;);
-		log.warn(&apos;%%%%%% serviceInstance: &apos; + serviceInstance);
-
-		var cardFieldDtoArray = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.CardFieldDtoArray&quot;);
-		log.warn(&apos;%%%%%% cardFieldDtoArray: &apos; + cardFieldDtoArray);
-
-		var portServico = serviceInstance.getCardServicePort();
-		log.warn(&apos;%%%%%% portServico: &apos; + portServico);
-
-		var user = hAPI.getAdvancedProperty(&quot;loginUserWS&quot;);
-		log.warn(&apos;%%%%%% user: &apos; + user);
-
-		var password = hAPI.getAdvancedProperty(&quot;passwdUserWS&quot;);
-		log.warn(&apos;%%%%%% password: &apos; + password);
-
-		var empresa = parseInt(getValue(&quot;WKCompany&quot;));
-		log.warn(&apos;%%%%%% empresa: &apos; + empresa + &apos; TypeOf: &apos; + typeof empresa);
-
-		// Array com o nome de todos os campos a serem populados na ficha(participante e treinamento, respectivamente).
-		var fieldsFichaParticipante = [&apos;matricula&apos;, &apos;participante&apos;, &apos;lotacao&apos;, &apos;departamento&apos;, &apos;campoDescritor&apos;];
-		log.warn(&apos;%%%%%% fieldsFichaParticipante: &apos; + fieldsFichaParticipante);
-
-		var cardFieldDto = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.CardFieldDto&quot;);
-		log.warn(&apos;%%%%%% cardFieldDto: &apos; + cardFieldDto);
-
-		var matricula = hAPI.getCardValue(&quot;matricula&quot;);
-		log.warn(&apos;%%%%%% MATRICULA DO PARTICIPANTE: &apos; + matricula);
-
-		var numSolicitacaoTreinamento = hAPI.getCardValue(&quot;numSolicTreinamento&quot;);
-
-		// verifica se o participante possui ficha de treinamentos
-		var ficha = checkIfHasFicha(matricula);
-		log.warn(&apos;%%%%%% ficha: &apos; + ficha);
-
-		// Obtém os dados do participante no humanus
-		var humanusData = getParticipanteHumanusData(matricula);
-		log.warn(&apos;%%%%%% humanusData: &apos; + humanusData);
-
-		var fieldsFichaTreinamento = getArrayFieldNameTreinamento(ficha);
-		// objeto que irá conter os fields e os metadados referentes ao documento (create)
-		var cardDto = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.CardDto&quot;); // container com os dados de formulário e metadados
-		cardDto.setVersion(1000); //metadado que representa a versão do formulário      
-		cardDto.setParentDocumentId(28592); // metadado que representa a pasta referente ao formulário
-
-		// objeto que irá armazenar todos os campos e os respectivos valores (update)
-		var cardFieldDtoArray = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.CardFieldDtoArray&quot;);
-
-		// get lotacao Info
-		var lotacaoInfo = getLotacaoInfo(parseInt(humanusData.getValue(0, &quot;lotacao&quot;)));
-		// get departamento
-		var departamento = lotacaoInfo == &quot;&quot; ? lotacaoInfo : lotacaoInfo.getValue(0, &quot;departamento&quot;);
-
-		// Array que armazena os valores de cada campo de participante
-		var arrayCardValuesParticipante = [
-			parseInt(humanusData.getValue(0, &quot;matricula&quot;)),
-			humanusData.getValue(0, &quot;nome&quot;),
-			parseInt(humanusData.getValue(0, &quot;lotacao&quot;)),
-			departamento,
-			humanusData.getValue(0, &quot;nome&quot;)
-		];
-		log.warn(&apos;%%%%%% arrayCardValuesParticipante: &apos; + arrayCardValuesParticipante);
-
-		var planejamentoAnual = hAPI.getCardValue(&quot;processIdOrigin&quot;) != &quot;TRN-002&quot; ? &quot;Não&quot; : &quot;Sim&quot;;
-
-		// Array que armazena os valores de cada campo de treinamento
-		var arrayCardValuesTreinamento = [
-			numSolicitacaoTreinamento,
-			hAPI.getCardValue(&quot;cursoTreinamento&quot;),
-			hAPI.getCardValue(&quot;classificacaoCurso&quot;),
-			planejamentoAnual,
-			hAPI.getCardValue(&quot;instituicao&quot;),
-			hAPI.getCardValue(&quot;justificativaTreinamento&quot;),
-			hAPI.getCardValue(&quot;cargaHoraria&quot;),
-			hAPI.getCardValue(&quot;anoTreinamento&quot;)
-		];
-
-		// execução do laço que irá popular o cardFieldDtoArray com os valores do participante
-		for (var y = 0; y &lt; fieldsFichaParticipante.length; y++) {
-			// instanciando um cardFieldDto para representar um campo do formulário(chave e valor)
-			var cardFieldDto = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.CardFieldDto&quot;);
-			//atribuindo a chave do campo
-			cardFieldDto.setField(fieldsFichaParticipante[y]);
-			//atribuindo valor ao campo
-			cardFieldDto.setValue(arrayCardValuesParticipante[y]);
-			// adicionando no objeto de valores - update
-			cardFieldDtoArray.getItem().add(cardFieldDto);
-			// adicionando no cardDto - create
-			cardDto.getCardData().add(cardFieldDto);
-		}
-
-		for (var z = 0; z &lt; fieldsFichaTreinamento.length; z++) {
-			// lógica para atribuir todos os valores de treinamento na tabela pai-filho de treinamentos do formulário.
-			// instanciando um cardFieldDto para representar um campo do formulário(chave e valor)
-			var cardFieldDto = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.CardFieldDto&quot;);
-			//atribuindo a chave do campo
-			cardFieldDto.setField(fieldsFichaTreinamento[z]);
-			//atribuindo valor ao campo
-			cardFieldDto.setValue(arrayCardValuesTreinamento[z]);
-			// adicionando no objeto de valores - update
-			cardFieldDtoArray.getItem().add(cardFieldDto);
-			// adicionando no cardDto - create
-			cardDto.getCardData().add(cardFieldDto);
-		}
-		// se houver, atualiza a ficha. 
-		if (ficha != null) {
-			// objeto array que irá armazenar objetos CardFieldDto
-			log.warn(&apos;%%%%%% atualizando ficha &apos;);
-			var docIdParticipante = ficha.getValue(0, &quot;documentid&quot;);
-			if (planejamentoAnual == &quot;Não&quot;) {
-				// Verifica se o treinamento já foi cadastrado anteriormente. Caso não, ele adiciona o treinamento.
-				if (!checkIfTreinamentoIsAlreadyRegistered(docIdParticipante, numSolicitacaoTreinamento) ) {
-					portServico.updateCardData(empresa, user, password, ficha.getValue(0, &quot;documentid&quot;), cardFieldDtoArray);
-					log.warn(&apos;%%%%%% ficha atualizada &apos;);
-				}
-			} else { // Se for planejamentoAnual, um mesmo participante pode ter participado de mais de um treinamento do mesmo planejamento anual.
-				portServico.updateCardData(empresa, user, password, ficha.getValue(0, &quot;documentid&quot;), cardFieldDtoArray);
-				log.warn(&apos;%%%%%% ficha atualizada &apos;);
-			}
-		} else { // cria a ficha
-			log.warn(&apos;%%%%%% criando ficha &apos;);
-			var cardDtoArray = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.CardDtoArray&quot;);
-			cardDtoArray.getItem().add(cardDto);
-			portServico.create(empresa, user, password, cardDtoArray);
-			log.warn(&apos;%%%%%% ficha criada &apos;);
-		}
-
-
-	} catch (error) {
-		log.error(error);
-		throw error;
-	}
-}
-
-/**
- * Verifica se o participante possui ficha de treinamento.
- * @param {int} mat - Matricula do participante
- * @returns obj Dataset, caso tenha ficha, null caso não tenha.
- */
-function checkIfHasFicha(mat) {
-	var c1 = DatasetFactory.createConstraint(&quot;metadata#active&quot;, true, true, ConstraintType.MUST);
-	var c2 = DatasetFactory.createConstraint(&quot;matricula&quot;, mat, mat, ConstraintType.MUST);
-	var fichaReg = DatasetFactory.getDataset(&quot;participante_x_treinamento&quot;, null, [c1, c2], null);
-	if (fichaReg.rowsCount &gt; 0) {
-		return fichaReg;
-	}
-	return null;
-}
-/**
- * Retorna os dados do participante
- * @param {int} mat  - Matricula do participante
- * @returns - Obj Dataset, caso a matrícula seja encontrada na base de dados, null caso a matricula não seja encontrada.
- */
-function getParticipanteHumanusData(mat) {
-	var c1 = DatasetFactory.createConstraint(&quot;matricula&quot;, mat, mat, ConstraintType.MUST);
-	var humanusData = DatasetFactory.getDataset(&quot;wsFuncionarios&quot;, null, [c1], null);
-	if (humanusData.rowsCount &gt; 0) {
-		return humanusData;
-	}
-	return null;
-}
-/**
- * Retorna os dados da lotação
- * @param {int} lotacao - código da lotação
- * @returns - Objeto Dataset com os dados da lotação, caso não exista, retorna &quot;&quot;.
- */
-function getLotacaoInfo(lotacao) {
-	var c1 = DatasetFactory.createConstraint(&quot;metadata#active&quot;, true, true, ConstraintType.MUST);
-	var c2 = DatasetFactory.createConstraint(&quot;codLotacao&quot;, lotacao, lotacao, ConstraintType.MUST);
-	var lotacaoData = DatasetFactory.getDataset(&quot;cadastro_lotacao&quot;, null, [c1, c2], null);
-	if (lotacaoData.rowsCount &gt; 0) {
-		return lotacaoData;
-	}
-	return &quot;&quot;;
-}
-
-/**
- * Retorna um array com o nome de todos os campos a serem utilizados para preencher a
- *  tabela pai-filho de treinamentos na posição correta.
- * @param {Object} ficha - Objeto com os dados da ficha do participante.
- * @returns Array com os nomes dos para adição na tabela.
- */
-function getArrayFieldNameTreinamento(ficha) {
-	var fieldsFichaTreinamento;
-	if (ficha != null) {
-		var i = getTreinamentosCount(ficha.getValue(0, &quot;documentid&quot;)) + 1;
-		fieldsFichaTreinamento = [&apos;numero_solicitacao_tb1___&apos; + i, &apos;titulo_do_treinamento_tb1___&apos; + i, &apos;classificacao_treinamento_tb1___&apos; + i,
-			&apos;planejamento_anual_tb1___&apos; + i, &apos;instituicao_treinamento_tb1___&apos; + i, &apos;justificativa_treinamento_tb1___&apos; + i,
-			&apos;carga_horaria_tb1___&apos; + i, &apos;ano_realizacao_tb1___&apos; + i
-		];
-	} else {
-		fieldsFichaTreinamento = [&apos;numero_solicitacao_tb1___1&apos;, &apos;titulo_do_treinamento_tb1___1&apos;, &apos;classificacao_treinamento_tb1___1&apos;,
-			&apos;planejamento_anual_tb1___1&apos;, &apos;instituicao_treinamento_tb1___1&apos;, &apos;justificativa_treinamento_tb1___1&apos;,
-			&apos;carga_horaria_tb1___1&apos;, &apos;ano_realizacao_tb1___1&apos;
-		];
-	}
-	log.warn(&apos;%%%%%% fieldsFichaTreinamento: &apos; + fieldsFichaTreinamento);
-	return fieldsFichaTreinamento;
-}
-
-/**
- * 
- * @description Verifica se o treinamento já foi inserido na table de treinamentos do participante.
- * @param {number} docId - documentid da Ficha do participante
- * @param {number} numSolic - Número da solicitação do treinamento
- * @returns - Boolean - true caso já exista, false caso ainda não exista.
- * 
- */
-function checkIfTreinamentoIsAlreadyRegistered(docId, numSolic) {
-	var c1 = DatasetFactory.createConstraint(&quot;metadata#active&quot;, true, true, ConstraintType.MUST);
-	var c2 = DatasetFactory.createConstraint(&quot;documentid&quot;, docId, docId, ConstraintType.MUST);
-	var tablename = DatasetFactory.createConstraint(&quot;tablename&quot;, &quot;treinamentos_realizados&quot;, &quot;treinamentos_realizados&quot;, ConstraintType.MUST);
-	var fichaParticipante = DatasetFactory.getDataset(&quot;participante_x_treinamento&quot;, null, [c1, c2, tablename], null);
-	for (var i = 0; i &lt; fichaParticipante.rowsCount; i++) {
-		if (fichaParticipante.getValue(i, &quot;numero_solicitacao_tb1&quot;) == numSolic) {
-			return true;
-		}
-	}
-	return false;
-}
+      <eventDescription>function servicetask74(attempt, message) {&#xd;
+	try {&#xd;
+		var Service = ServiceManager.getService(&apos;ECMCardService&apos;);&#xd;
+		log.warn(&apos;%%%%%% Service: &apos; + Service);&#xd;
+&#xd;
+		var serviceHelper = Service.getBean();&#xd;
+		log.warn(&apos;%%%%%% serviceHelper: &apos; + serviceHelper);&#xd;
+&#xd;
+		var serviceInstance = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.ECMCardServiceService&quot;);&#xd;
+		log.warn(&apos;%%%%%% serviceInstance: &apos; + serviceInstance);&#xd;
+&#xd;
+		var cardFieldDtoArray = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.CardFieldDtoArray&quot;);&#xd;
+		log.warn(&apos;%%%%%% cardFieldDtoArray: &apos; + cardFieldDtoArray);&#xd;
+&#xd;
+		var portServico = serviceInstance.getCardServicePort();&#xd;
+		log.warn(&apos;%%%%%% portServico: &apos; + portServico);&#xd;
+&#xd;
+		var user = hAPI.getAdvancedProperty(&quot;loginUserWS&quot;);&#xd;
+		log.warn(&apos;%%%%%% user: &apos; + user);&#xd;
+&#xd;
+		var password = hAPI.getAdvancedProperty(&quot;passwdUserWS&quot;);&#xd;
+		log.warn(&apos;%%%%%% password: &apos; + password);&#xd;
+&#xd;
+		var empresa = parseInt(getValue(&quot;WKCompany&quot;));&#xd;
+		log.warn(&apos;%%%%%% empresa: &apos; + empresa + &apos; TypeOf: &apos; + typeof empresa);&#xd;
+&#xd;
+		// Array com o nome de todos os campos a serem populados na ficha(participante e treinamento, respectivamente).&#xd;
+		var fieldsFichaParticipante = [&apos;matricula&apos;, &apos;participante&apos;, &apos;lotacao&apos;, &apos;departamento&apos;, &apos;campoDescritor&apos;];&#xd;
+		log.warn(&apos;%%%%%% fieldsFichaParticipante: &apos; + fieldsFichaParticipante);&#xd;
+&#xd;
+		var cardFieldDto = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.CardFieldDto&quot;);&#xd;
+		log.warn(&apos;%%%%%% cardFieldDto: &apos; + cardFieldDto);&#xd;
+&#xd;
+		var matricula = hAPI.getCardValue(&quot;matricula&quot;);&#xd;
+		log.warn(&apos;%%%%%% MATRICULA DO PARTICIPANTE: &apos; + matricula);&#xd;
+&#xd;
+		var numSolicitacaoTreinamento = hAPI.getCardValue(&quot;numSolicTreinamento&quot;);&#xd;
+&#xd;
+		// verifica se o participante possui ficha de treinamentos&#xd;
+		var ficha = checkIfHasFicha(matricula);&#xd;
+		log.warn(&apos;%%%%%% ficha: &apos; + ficha);&#xd;
+&#xd;
+		// Obtém os dados do participante no humanus&#xd;
+		var humanusData = getParticipanteHumanusData(matricula);&#xd;
+		log.warn(&apos;%%%%%% humanusData: &apos; + humanusData);&#xd;
+&#xd;
+		var fieldsFichaTreinamento = getArrayFieldNameTreinamento(ficha);&#xd;
+		// objeto que irá conter os fields e os metadados referentes ao documento (create)&#xd;
+		var cardDto = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.CardDto&quot;); // container com os dados de formulário e metadados&#xd;
+		cardDto.setVersion(1000); //metadado que representa a versão do formulário      &#xd;
+		cardDto.setParentDocumentId(28592); // metadado que representa a pasta referente ao formulário&#xd;
+&#xd;
+		// objeto que irá armazenar todos os campos e os respectivos valores (update)&#xd;
+		var cardFieldDtoArray = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.CardFieldDtoArray&quot;);&#xd;
+&#xd;
+		// get lotacao Info&#xd;
+		var lotacaoInfo = getLotacaoInfo(parseInt(humanusData.getValue(0, &quot;lotacao&quot;)));&#xd;
+		// get departamento&#xd;
+		var departamento = lotacaoInfo == &quot;&quot; ? lotacaoInfo : lotacaoInfo.getValue(0, &quot;departamento&quot;);&#xd;
+&#xd;
+		// Array que armazena os valores de cada campo de participante&#xd;
+		var arrayCardValuesParticipante = [&#xd;
+			parseInt(humanusData.getValue(0, &quot;matricula&quot;)),&#xd;
+			humanusData.getValue(0, &quot;nome&quot;),&#xd;
+			parseInt(humanusData.getValue(0, &quot;lotacao&quot;)),&#xd;
+			departamento,&#xd;
+			humanusData.getValue(0, &quot;nome&quot;)&#xd;
+		];&#xd;
+		log.warn(&apos;%%%%%% arrayCardValuesParticipante: &apos; + arrayCardValuesParticipante);&#xd;
+&#xd;
+		var planejamentoAnual = hAPI.getCardValue(&quot;processIdOrigin&quot;) != &quot;TRN-002&quot; ? &quot;Não&quot; : &quot;Sim&quot;;&#xd;
+&#xd;
+		// Array que armazena os valores de cada campo de treinamento&#xd;
+		var arrayCardValuesTreinamento = [&#xd;
+			numSolicitacaoTreinamento,&#xd;
+			hAPI.getCardValue(&quot;cursoTreinamento&quot;),&#xd;
+			hAPI.getCardValue(&quot;classificacaoCurso&quot;),&#xd;
+			planejamentoAnual,&#xd;
+			hAPI.getCardValue(&quot;instituicao&quot;),&#xd;
+			hAPI.getCardValue(&quot;justificativaTreinamento&quot;),&#xd;
+			hAPI.getCardValue(&quot;cargaHoraria&quot;),&#xd;
+			hAPI.getCardValue(&quot;anoTreinamento&quot;)&#xd;
+		];&#xd;
+&#xd;
+		// execução do laço que irá popular o cardFieldDtoArray com os valores do participante&#xd;
+		for (var y = 0; y &lt; fieldsFichaParticipante.length; y++) {&#xd;
+			// instanciando um cardFieldDto para representar um campo do formulário(chave e valor)&#xd;
+			var cardFieldDto = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.CardFieldDto&quot;);&#xd;
+			//atribuindo a chave do campo&#xd;
+			cardFieldDto.setField(fieldsFichaParticipante[y]);&#xd;
+			//atribuindo valor ao campo&#xd;
+			cardFieldDto.setValue(arrayCardValuesParticipante[y]);&#xd;
+			// adicionando no objeto de valores - update&#xd;
+			cardFieldDtoArray.getItem().add(cardFieldDto);&#xd;
+			// adicionando no cardDto - create&#xd;
+			cardDto.getCardData().add(cardFieldDto);&#xd;
+		}&#xd;
+&#xd;
+		for (var z = 0; z &lt; fieldsFichaTreinamento.length; z++) {&#xd;
+			// lógica para atribuir todos os valores de treinamento na tabela pai-filho de treinamentos do formulário.&#xd;
+			// instanciando um cardFieldDto para representar um campo do formulário(chave e valor)&#xd;
+			var cardFieldDto = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.CardFieldDto&quot;);&#xd;
+			//atribuindo a chave do campo&#xd;
+			cardFieldDto.setField(fieldsFichaTreinamento[z]);&#xd;
+			//atribuindo valor ao campo&#xd;
+			cardFieldDto.setValue(arrayCardValuesTreinamento[z]);&#xd;
+			// adicionando no objeto de valores - update&#xd;
+			cardFieldDtoArray.getItem().add(cardFieldDto);&#xd;
+			// adicionando no cardDto - create&#xd;
+			cardDto.getCardData().add(cardFieldDto);&#xd;
+		}&#xd;
+		// se houver, atualiza a ficha. &#xd;
+		if (ficha != null) {&#xd;
+			// objeto array que irá armazenar objetos CardFieldDto&#xd;
+			log.warn(&apos;%%%%%% atualizando ficha &apos;);&#xd;
+			var docIdParticipante = ficha.getValue(0, &quot;documentid&quot;);&#xd;
+			if (planejamentoAnual == &quot;Não&quot;) {&#xd;
+				// Verifica se o treinamento já foi cadastrado anteriormente. Caso não, ele adiciona o treinamento.&#xd;
+				if (!checkIfTreinamentoIsAlreadyRegistered(docIdParticipante, numSolicitacaoTreinamento) ) {&#xd;
+					portServico.updateCardData(empresa, user, password, ficha.getValue(0, &quot;documentid&quot;), cardFieldDtoArray);&#xd;
+					log.warn(&apos;%%%%%% ficha atualizada &apos;);&#xd;
+				}&#xd;
+			} else { // Se for planejamentoAnual, um mesmo participante pode ter participado de mais de um treinamento do mesmo planejamento anual.&#xd;
+				portServico.updateCardData(empresa, user, password, ficha.getValue(0, &quot;documentid&quot;), cardFieldDtoArray);&#xd;
+				log.warn(&apos;%%%%%% ficha atualizada &apos;);&#xd;
+			}&#xd;
+		} else { // cria a ficha&#xd;
+			log.warn(&apos;%%%%%% criando ficha &apos;);&#xd;
+			var cardDtoArray = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.CardDtoArray&quot;);&#xd;
+			cardDtoArray.getItem().add(cardDto);&#xd;
+			portServico.create(empresa, user, password, cardDtoArray);&#xd;
+			log.warn(&apos;%%%%%% ficha criada &apos;);&#xd;
+		}&#xd;
+&#xd;
+&#xd;
+	} catch (error) {&#xd;
+		log.error(error);&#xd;
+		throw error;&#xd;
+	}&#xd;
+}&#xd;
+&#xd;
+/**&#xd;
+ * Verifica se o participante possui ficha de treinamento.&#xd;
+ * @param {int} mat - Matricula do participante&#xd;
+ * @returns obj Dataset, caso tenha ficha, null caso não tenha.&#xd;
+ */&#xd;
+function checkIfHasFicha(mat) {&#xd;
+	var c1 = DatasetFactory.createConstraint(&quot;metadata#active&quot;, true, true, ConstraintType.MUST);&#xd;
+	var c2 = DatasetFactory.createConstraint(&quot;matricula&quot;, mat, mat, ConstraintType.MUST);&#xd;
+	var fichaReg = DatasetFactory.getDataset(&quot;participante_x_treinamento&quot;, null, [c1, c2], null);&#xd;
+	if (fichaReg.rowsCount &gt; 0) {&#xd;
+		return fichaReg;&#xd;
+	}&#xd;
+	return null;&#xd;
+}&#xd;
+/**&#xd;
+ * Retorna os dados do participante&#xd;
+ * @param {int} mat  - Matricula do participante&#xd;
+ * @returns - Obj Dataset, caso a matrícula seja encontrada na base de dados, null caso a matricula não seja encontrada.&#xd;
+ */&#xd;
+function getParticipanteHumanusData(mat) {&#xd;
+	var c1 = DatasetFactory.createConstraint(&quot;matricula&quot;, mat, mat, ConstraintType.MUST);&#xd;
+	var humanusData = DatasetFactory.getDataset(&quot;wsFuncionarios&quot;, null, [c1], null);&#xd;
+	if (humanusData.rowsCount &gt; 0) {&#xd;
+		return humanusData;&#xd;
+	}&#xd;
+	return null;&#xd;
+}&#xd;
+/**&#xd;
+ * Retorna os dados da lotação&#xd;
+ * @param {int} lotacao - código da lotação&#xd;
+ * @returns - Objeto Dataset com os dados da lotação, caso não exista, retorna &quot;&quot;.&#xd;
+ */&#xd;
+function getLotacaoInfo(lotacao) {&#xd;
+	var c1 = DatasetFactory.createConstraint(&quot;metadata#active&quot;, true, true, ConstraintType.MUST);&#xd;
+	var c2 = DatasetFactory.createConstraint(&quot;codLotacao&quot;, lotacao, lotacao, ConstraintType.MUST);&#xd;
+	var lotacaoData = DatasetFactory.getDataset(&quot;cadastro_lotacao&quot;, null, [c1, c2], null);&#xd;
+	if (lotacaoData.rowsCount &gt; 0) {&#xd;
+		return lotacaoData;&#xd;
+	}&#xd;
+	return &quot;&quot;;&#xd;
+}&#xd;
+&#xd;
+/**&#xd;
+ * Retorna um array com o nome de todos os campos a serem utilizados para preencher a&#xd;
+ *  tabela pai-filho de treinamentos na posição correta.&#xd;
+ * @param {Object} ficha - Objeto com os dados da ficha do participante.&#xd;
+ * @returns Array com os nomes dos para adição na tabela.&#xd;
+ */&#xd;
+function getArrayFieldNameTreinamento(ficha) {&#xd;
+	var fieldsFichaTreinamento;&#xd;
+	if (ficha != null) {&#xd;
+		var i = getTreinamentosCount(ficha.getValue(0, &quot;documentid&quot;)) + 1;&#xd;
+		fieldsFichaTreinamento = [&apos;numero_solicitacao_tb1___&apos; + i, &apos;titulo_do_treinamento_tb1___&apos; + i, &apos;classificacao_treinamento_tb1___&apos; + i,&#xd;
+			&apos;planejamento_anual_tb1___&apos; + i, &apos;instituicao_treinamento_tb1___&apos; + i, &apos;justificativa_treinamento_tb1___&apos; + i,&#xd;
+			&apos;carga_horaria_tb1___&apos; + i, &apos;ano_realizacao_tb1___&apos; + i&#xd;
+		];&#xd;
+	} else {&#xd;
+		fieldsFichaTreinamento = [&apos;numero_solicitacao_tb1___1&apos;, &apos;titulo_do_treinamento_tb1___1&apos;, &apos;classificacao_treinamento_tb1___1&apos;,&#xd;
+			&apos;planejamento_anual_tb1___1&apos;, &apos;instituicao_treinamento_tb1___1&apos;, &apos;justificativa_treinamento_tb1___1&apos;,&#xd;
+			&apos;carga_horaria_tb1___1&apos;, &apos;ano_realizacao_tb1___1&apos;&#xd;
+		];&#xd;
+	}&#xd;
+	log.warn(&apos;%%%%%% fieldsFichaTreinamento: &apos; + fieldsFichaTreinamento);&#xd;
+	return fieldsFichaTreinamento;&#xd;
+}&#xd;
+&#xd;
+/**&#xd;
+ * &#xd;
+ * @description Verifica se o treinamento já foi inserido na table de treinamentos do participante.&#xd;
+ * @param {number} docId - documentid da Ficha do participante&#xd;
+ * @param {number} numSolic - Número da solicitação do treinamento&#xd;
+ * @returns - Boolean - true caso já exista, false caso ainda não exista.&#xd;
+ * &#xd;
+ */&#xd;
+function checkIfTreinamentoIsAlreadyRegistered(docId, numSolic) {&#xd;
+	var c1 = DatasetFactory.createConstraint(&quot;metadata#active&quot;, true, true, ConstraintType.MUST);&#xd;
+	var c2 = DatasetFactory.createConstraint(&quot;documentid&quot;, docId, docId, ConstraintType.MUST);&#xd;
+	var tablename = DatasetFactory.createConstraint(&quot;tablename&quot;, &quot;treinamentos_realizados&quot;, &quot;treinamentos_realizados&quot;, ConstraintType.MUST);&#xd;
+	var fichaParticipante = DatasetFactory.getDataset(&quot;participante_x_treinamento&quot;, null, [c1, c2, tablename], null);&#xd;
+	for (var i = 0; i &lt; fichaParticipante.rowsCount; i++) {&#xd;
+		if (fichaParticipante.getValue(i, &quot;numero_solicitacao_tb1&quot;) == numSolic) {&#xd;
+			return true;&#xd;
+		}&#xd;
+	}&#xd;
+	return false;&#xd;
+}&#xd;
+&#xd;
+/**&#xd;
+ * Retorna a quantidade de treinamentos existentes na ficha do participante&#xd;
+ * @param {int} documentid - id da ficha de treinamento&#xd;
+ * @returns - quantidade de treinamentos registrados.&#xd;
+ */&#xd;
+function getTreinamentosCount(documentid) {&#xd;
+	var c1 = DatasetFactory.createConstraint(&quot;metadata#active&quot;, true, true, ConstraintType.MUST);&#xd;
+	var c2 = DatasetFactory.createConstraint(&quot;documentid&quot;, documentid, documentid, ConstraintType.MUST);&#xd;
+	var tablename = DatasetFactory.createConstraint(&quot;tablename&quot;, &quot;treinamentos_realizados&quot;, &quot;treinamentos_realizados&quot;, ConstraintType.MUST);&#xd;
+	var fichaParticipante = DatasetFactory.getDataset(&quot;participante_x_treinamento&quot;, null, [c1, c2, tablename], null);&#xd;
+	return fichaParticipante.rowsCount;&#xd;
+}&#xd;
 </eventDescription>
     </WorkflowProcessEvent>
     <WorkflowProcessEvent>
@@ -2007,7 +2022,7 @@ function calculateDays(initialDate, finalDate) {
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <propertyId>loginUserWS</propertyId>
-        <version>64</version>
+        <version>65</version>
       </advancedProcessPropertiesPK>
       <propertieValue>servico</propertieValue>
     </AdvancedProcessProperties>
@@ -2016,7 +2031,7 @@ function calculateDays(initialDate, finalDate) {
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <propertyId>matUserWS</propertyId>
-        <version>64</version>
+        <version>65</version>
       </advancedProcessPropertiesPK>
       <propertieValue>0000</propertieValue>
     </AdvancedProcessProperties>
@@ -2025,7 +2040,7 @@ function calculateDays(initialDate, finalDate) {
         <companyId>1</companyId>
         <processId>TRN-006</processId>
         <propertyId>passwdUserWS</propertyId>
-        <version>64</version>
+        <version>65</version>
       </advancedProcessPropertiesPK>
       <propertieValue>fcea920f7412b5da7be0cf42b8c93759</propertieValue>
     </AdvancedProcessProperties>
@@ -2103,7 +2118,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>64</version>
+        <version>65</version>
         <linkSequence>30</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2114,7 +2129,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>64</version>
+        <version>65</version>
         <linkSequence>61</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2125,7 +2140,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>64</version>
+        <version>65</version>
         <linkSequence>61</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -2136,7 +2151,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>64</version>
+        <version>65</version>
         <linkSequence>61</linkSequence>
         <bendSequence>3</bendSequence>
       </processLinkBendPK>
@@ -2147,7 +2162,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>64</version>
+        <version>65</version>
         <linkSequence>62</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2158,7 +2173,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>64</version>
+        <version>65</version>
         <linkSequence>67</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2169,7 +2184,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>64</version>
+        <version>65</version>
         <linkSequence>67</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -2180,7 +2195,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>64</version>
+        <version>65</version>
         <linkSequence>70</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2191,7 +2206,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>64</version>
+        <version>65</version>
         <linkSequence>70</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -2202,7 +2217,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>64</version>
+        <version>65</version>
         <linkSequence>79</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -2213,7 +2228,7 @@ function calculateDays(initialDate, finalDate) {
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>64</version>
+        <version>65</version>
         <linkSequence>79</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
@@ -2226,7 +2241,7 @@ function calculateDays(initialDate, finalDate) {
       <processStateTriggerPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>64</version>
+        <version>65</version>
         <stateSequence>53</stateSequence>
         <triggerSequence>0</triggerSequence>
       </processStateTriggerPK>
@@ -2242,7 +2257,7 @@ function calculateDays(initialDate, finalDate) {
       <extendedPropertyFieldPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>64</version>
+        <version>65</version>
         <stateSequence>0</stateSequence>
         <propertyName>loginUserWS</propertyName>
       </extendedPropertyFieldPK>
@@ -2255,7 +2270,7 @@ function calculateDays(initialDate, finalDate) {
       <extendedPropertyFieldPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>64</version>
+        <version>65</version>
         <stateSequence>0</stateSequence>
         <propertyName>matUserWS</propertyName>
       </extendedPropertyFieldPK>
@@ -2268,7 +2283,7 @@ function calculateDays(initialDate, finalDate) {
       <extendedPropertyFieldPK>
         <companyId>1</companyId>
         <processId>TRN-006</processId>
-        <version>64</version>
+        <version>65</version>
         <stateSequence>0</stateSequence>
         <propertyName>passwdUserWS</propertyName>
       </extendedPropertyFieldPK>

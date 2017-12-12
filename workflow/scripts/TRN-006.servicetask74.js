@@ -225,3 +225,16 @@ function checkIfTreinamentoIsAlreadyRegistered(docId, numSolic) {
 	}
 	return false;
 }
+
+/**
+ * Retorna a quantidade de treinamentos existentes na ficha do participante
+ * @param {int} documentid - id da ficha de treinamento
+ * @returns - quantidade de treinamentos registrados.
+ */
+function getTreinamentosCount(documentid) {
+	var c1 = DatasetFactory.createConstraint("metadata#active", true, true, ConstraintType.MUST);
+	var c2 = DatasetFactory.createConstraint("documentid", documentid, documentid, ConstraintType.MUST);
+	var tablename = DatasetFactory.createConstraint("tablename", "treinamentos_realizados", "treinamentos_realizados", ConstraintType.MUST);
+	var fichaParticipante = DatasetFactory.getDataset("participante_x_treinamento", null, [c1, c2, tablename], null);
+	return fichaParticipante.rowsCount;
+}
