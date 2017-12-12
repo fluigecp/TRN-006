@@ -33,7 +33,7 @@
             $("#matricula").on("blur", manipulateDOM.actions4Listeners.checkIfParticipanteHasFluigListener);
         }
 
-        if ( activity == 26 || activity == 56 ) {
+        if ( activity == 26 || activity == 56 || activity == 49 ) {
             if ( activity != 56 ) {
                 manipulateDOM.initCalendar("input[data-date-hour]");
             }

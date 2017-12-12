@@ -42,7 +42,7 @@ function displayFields(form, customHTML) {
 
 	ocultaClasse("aprovadorTreinamentoContainer");
 	
-	if (activity != 26 && activity != 56 ) {
+	if (activity != 26 && activity != 56 && activity != 53 && activity != 49) {
 		if ( activity != 26 ) {
 			ocultaId("btnPrint");
 			ocultaId("btnShowTreinamento");
@@ -73,5 +73,6 @@ function displayFields(form, customHTML) {
 	}
 	if ( modo == "VIEW" ) {
 		form.setShowDisabledFields(false);
+		ocultaClasse("btn-danger");
 	}
 }
