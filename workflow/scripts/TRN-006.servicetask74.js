@@ -114,8 +114,13 @@ function servicetask74(attempt, message) {
 			// objeto array que irá armazenar objetos CardFieldDto
 			log.warn('%%%%%% atualizando ficha ');
 			var docIdParticipante = ficha.getValue(0, "documentid");
-			// Verifica se o treinamento já foi cadastrado anteriormente. Caso não, ele adiciona o treinamento.
-			if (!checkIfTreinamentoIsAlreadyRegistered(docIdParticipante, numSolicitacaoTreinamento)) {
+			if (planejamentoAnual == "Não") {
+				// Verifica se o treinamento já foi cadastrado anteriormente. Caso não, ele adiciona o treinamento.
+				if (!checkIfTreinamentoIsAlreadyRegistered(docIdParticipante, numSolicitacaoTreinamento) ) {
+					portServico.updateCardData(empresa, user, password, ficha.getValue(0, "documentid"), cardFieldDtoArray);
+					log.warn('%%%%%% ficha atualizada ');
+				}
+			} else { // Se for planejamentoAnual, um mesmo participante pode ter participado de mais de um treinamento do mesmo planejamento anual.
 				portServico.updateCardData(empresa, user, password, ficha.getValue(0, "documentid"), cardFieldDtoArray);
 				log.warn('%%%%%% ficha atualizada ');
 			}
