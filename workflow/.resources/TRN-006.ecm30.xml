@@ -1732,9 +1732,31 @@ function checkIfAvaliacaoIsAlreadyRegistered(docId, numSolic){&#xd;
       </workflowProcessEventPK>
       <eventDescription>function servicetask74(attempt, message) {
  try {
-	 var Service = ServiceManager.getService(&apos;ECMCardService&apos;);
-	 var serviceHelper = Service.getBean();
-  //var serviceLocator = serviceHelper.instantiate(&apos;classe.locator&apos;);
+	var Service = ServiceManager.getService(&apos;ECMCardService&apos;);
+	log.warn(&apos;%%%%%% Service: &apos; + Service);
+
+	var serviceHelper = Service.getBean();
+	log.warn(&apos;%%%%%% serviceHelper: &apos; + serviceHelper);
+
+	var serviceInstance = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.ECMCardServiceService&quot;);
+	log.warn(&apos;%%%%%% serviceInstance: &apos; + serviceInstance);
+
+	var cardFieldDtoArray = serviceHelper.instantiate(&quot;com.totvs.technology.ecm.dm.ws.CardFieldDtoArray&quot;);
+	log.warn(&apos;%%%%%% cardFieldDtoArray: &apos; + cardFieldDtoArray);
+
+	var portServico = serviceInstance.getCardServicePort();
+	log.warn(&apos;%%%%%% portServico: &apos; + portServico);
+
+	var user = hAPI.getAdvancedProperty(&quot;loginUserWS&quot;);
+	log.warn(&apos;%%%%%% user: &apos; + user);
+
+	var password = hAPI.getAdvancedProperty(&quot;passwdUserWS&quot;);
+	log.warn(&apos;%%%%%% password: &apos; + password);
+
+	var empresa = parseInt(getValue(&quot;WKCompany&quot;));
+	log.warn(&apos;%%%%%% empresa: &apos; + empresa + &apos; TypeOf: &apos; + typeof empresa);
+
+	
  } catch(error) { 
 	log.error(error);
 	throw error;
@@ -2076,7 +2098,7 @@ function calculateDays(initialDate, finalDate) {
       <processId>TRN-006</processId>
       <version>1</version>
       <sequence>64</sequence>
-      <attempts>1</attempts>
+      <attempts>0</attempts>
       <sucessFullMessage>Integração executada com sucesso</sucessFullMessage>
       <serviceName>ECMCardService</serviceName>
     </ProcessStateService>

@@ -310,34 +310,34 @@
       </children>
     </children>
     <children xsi:type="pi:ContainerShape" visible="true" active="true">
-      <graphicsAlgorithm xsi:type="al:Rectangle" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="105" height="84" x="1060" y="653"/>
+      <graphicsAlgorithm xsi:type="al:Rectangle" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="106" height="84" x="1060" y="653"/>
       <link businessObjects="servicetask74"/>
       <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.17" incomingConnections="/0/@connections.16 /0/@connections.19"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.18/@graphicsAlgorithm" relativeWidth="1.0" relativeHeight="0.51">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
       </anchors>
       <children visible="true">
-        <graphicsAlgorithm xsi:type="al:RoundedRectangle" lineWidth="1" transparency="0.0" width="105" height="84" style="/0/@styles.161" cornerHeight="5" cornerWidth="5"/>
+        <graphicsAlgorithm xsi:type="al:RoundedRectangle" lineWidth="1" transparency="0.0" width="106" height="84" style="/0/@styles.161" cornerHeight="5" cornerWidth="5"/>
       </children>
       <children visible="true">
-        <graphicsAlgorithm xsi:type="al:MultiText" lineWidth="1" filled="false" lineVisible="true" transparency="0.0" width="95" height="74" x="5" y="5" style="/0/@styles.162" font="/0/@fonts.1" horizontalAlignment="ALIGNMENT_CENTER" value="Atualizar hist&#xf3;rico de treinamentos"/>
+        <graphicsAlgorithm xsi:type="al:MultiText" lineWidth="1" filled="false" lineVisible="true" transparency="0.0" width="96" height="74" x="5" y="5" style="/0/@styles.162" font="/0/@fonts.1" horizontalAlignment="ALIGNMENT_CENTER" value="Atualizar hist&#xf3;rico de treinamentos"/>
       </children>
       <children visible="true">
         <graphicsAlgorithm xsi:type="al:Image" lineWidth="1" transparency="0.0" width="16" height="16" x="5" y="5" id="com.totvs.tds.ecm.designer.task.service" stretchH="false" stretchV="false" proportional="false"/>
       </children>
     </children>
     <children xsi:type="pi:ContainerShape" visible="true" active="true">
-      <graphicsAlgorithm xsi:type="al:Rectangle" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="105" height="56" x="1060" y="887"/>
+      <graphicsAlgorithm xsi:type="al:Rectangle" lineWidth="1" filled="false" lineVisible="false" transparency="0.0" width="106" height="56" x="1060" y="887"/>
       <link businessObjects="task77"/>
       <anchors xsi:type="pi:ChopboxAnchor" outgoingConnections="/0/@connections.19" incomingConnections="/0/@connections.18"/>
       <anchors xsi:type="pi:BoxRelativeAnchor" visible="true" active="true" referencedGraphicsAlgorithm="/0/@children.19/@graphicsAlgorithm" relativeWidth="1.0" relativeHeight="0.51">
         <graphicsAlgorithm xsi:type="al:Ellipse" filled="false" lineVisible="false"/>
       </anchors>
       <children visible="true">
-        <graphicsAlgorithm xsi:type="al:RoundedRectangle" lineWidth="1" transparency="0.0" width="105" height="56" style="/0/@styles.165" cornerHeight="5" cornerWidth="5"/>
+        <graphicsAlgorithm xsi:type="al:RoundedRectangle" lineWidth="1" transparency="0.0" width="106" height="56" style="/0/@styles.165" cornerHeight="5" cornerWidth="5"/>
       </children>
       <children visible="true">
-        <graphicsAlgorithm xsi:type="al:MultiText" lineWidth="1" filled="false" lineVisible="true" transparency="0.0" width="95" height="46" x="5" y="5" style="/0/@styles.166" font="/0/@fonts.1" horizontalAlignment="ALIGNMENT_CENTER" value="Tratar erro"/>
+        <graphicsAlgorithm xsi:type="al:MultiText" lineWidth="1" filled="false" lineVisible="true" transparency="0.0" width="96" height="46" x="5" y="5" style="/0/@styles.166" font="/0/@fonts.1" horizontalAlignment="ALIGNMENT_CENTER" value="Tratar erro"/>
       </children>
     </children>
     <children xsi:type="pi:ContainerShape" visible="true" active="true">
@@ -4961,7 +4961,7 @@
   <bpmn2:SequenceFlow id="flow59" name="" sourceRef="task56" targetRef="exclusivegateway58" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
   <bpmn2:SequenceFlow id="flow61" name="" sourceRef="exclusivegateway58" targetRef="task26" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
   <bpmn2:SequenceFlow id="flow62" name="" sourceRef="task26" targetRef="task56" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
-  <bpmn2:BpmnTask id="servicetask64" name="Atualizar hist&#xf3;rico de avalia&#xe7;&#xf5;es" incoming="flow68 flow76" outgoing="flow72" type="82" managerMechanism="" loopType="0" authNotify="true" serviceName="ECMCardService" scriptFileName="TRN-006.servicetask64.js" expediente="" esforcoCalculo="0" attachedEvents="intermediateerror65" executionType="1" executionSucessfulMessage="Integra&#xe7;&#xe3;o executada com sucesso"/>
+  <bpmn2:BpmnTask id="servicetask64" name="Atualizar hist&#xf3;rico de avalia&#xe7;&#xf5;es" incoming="flow68 flow76" outgoing="flow72" type="82" managerMechanism="" loopType="0" authNotify="true" serviceName="ECMCardService" scriptFileName="TRN-006.servicetask64.js" expediente="" esforcoCalculo="0" attachedEvents="intermediateerror65" executionType="1" executionAttempts="0" executionSucessfulMessage="Integra&#xe7;&#xe3;o executada com sucesso"/>
   <bpmn2:BpmnIntermediateEvent id="intermediateerror65" name="Intermedi&#xe1;rio" outgoing="flow67" type="43" sequenceAttached="64" signalId="0" parentTask="servicetask64"/>
   <bpmn2:BpmnTask id="task66" name="Tratar erro" incoming="flow67" outgoing="flow68" type="80" managerMechanism="Pool Grupo" managerAssignmentControllerString="&lt;org.eclipse.bpmn2.impl.AssignmentControllerPoolGroup>&#xA;  &lt;groupId>Processos&lt;/groupId>&#xA;  &lt;mechanismName>Pool Grupo&lt;/mechanismName>&#xA;&lt;/org.eclipse.bpmn2.impl.AssignmentControllerPoolGroup>" loopType="0" authNotify="true" expediente="" esforcoCalculo="0" executionAttempts="0"/>
   <bpmn2:SequenceFlow id="flow67" name="" sourceRef="intermediateerror65" targetRef="task66" atividadeFluxo="" atividadeRetorno="" extendedFields="&lt;list/>"/>
