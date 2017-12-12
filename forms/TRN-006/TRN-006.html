@@ -35,6 +35,9 @@
 			<input type="hidden" name="avaliadorMat" id="avaliadorMat" />
 			<input type="hidden" name="aprovadorMat" id="aprovadorMat" />
 			<input type="hidden" name="aberturaAutomatica" id="aberturaAutomatica" />
+			<input type="hidden" name="justificativaTreinamento" id="justificativaTreinamento" />
+			<input type="hidden" name="anoTreinamento" id="anoTreinamento" />
+			<input type="hidden" name="processIdOrigin" id="processIdOrigin" />
 			<input type="hidden" name="dataAprovacao" id="dataAprovacao" />
 
 			<!-- ANALYTICS -->
@@ -162,12 +165,16 @@
 			</div>
 			<div class="row">
 				<div class="col-md-4 col-xs-12">
-						<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="avaliadorTreinamento">
-							<div class="form-input">
-								<div class="form-group">
-										<label for="avaliadorTreinamento">Avaliador <span class="fluigicon fluigicon-sm bs-docs-popover-hover fluigicon-exclamation-sign"
-											data-toggle="popover" title="" data-content="Caso o participante do treinamento não esteja cadastrado no fluig, a tarefa de avaliação de treinamento será encaminhada ao usuário selecionado neste campo." data-original-title="Importante!"></span> </label> <strong>*</strong>
-											<input name="avaliadorTreinamento" id="avaliadorTreinamento" class="form-control" type="zoom" data-zoom="{
+					<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="avaliadorTreinamento">
+						<div class="form-input">
+							<div class="form-group">
+								<label for="avaliadorTreinamento">Avaliador
+									<span class="fluigicon fluigicon-sm bs-docs-popover-hover fluigicon-exclamation-sign" data-toggle="popover"
+									    title="" data-content="Caso o participante do treinamento não esteja cadastrado no fluig, a tarefa de avaliação de treinamento será encaminhada ao usuário selecionado neste campo."
+									    data-original-title="Importante!"></span>
+								</label>
+								<strong>*</strong>
+								<input name="avaliadorTreinamento" id="avaliadorTreinamento" class="form-control" type="zoom" data-zoom="{
 												'displayKey':'colleagueName',
 												'datasetId':'colleague',
 												'filterValues': 'active,true',
@@ -176,15 +183,16 @@
 													{'field':'colleagueName', 'label':'Nome'}
 													]
 											}">
-								</div>
 							</div>
 						</div>
+					</div>
 				</div>
 				<div class="col-md-3 col-xs-12">
 					<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="dataInicio">
 						<div class="form-input">
 							<div class="form-group">
-								<label for="dataInicio">Data de início </label><strong> *</strong>
+								<label for="dataInicio">Data de início </label>
+								<strong> *</strong>
 								<div class="input-group">
 									<input type="text" id="dataInicio" name="dataInicio" data-date-hour="date" class="form-control" mask="00/00/0000">
 									<span class="input-group-addon sp-clear btn-danger" style="border-radius: 4px; cursor:pointer;" value="">
@@ -200,7 +208,8 @@
 					<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="dataTermino">
 						<div class="form-input">
 							<div class="form-group">
-								<label for="dataTermino">Data de término </label><strong> *</strong>
+								<label for="dataTermino">Data de término </label>
+								<strong> *</strong>
 								<div class="input-group">
 									<input type="text" id="dataTermino" name="dataTermino" data-date-hour="date" class="form-control" mask="00/00/0000">
 									<span class="input-group-addon sp-clear btn-danger" style="border-radius: 4px; cursor:pointer;" value="">
@@ -228,10 +237,13 @@
 					<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="aprovadorTreinamento">
 						<div class="form-input">
 							<div class="form-group">
-									<label for="aprovadorTreinamento">Aprovador <span class="fluigicon fluigicon-sm bs-docs-popover-hover fluigicon-exclamation-sign"
-										data-toggle="popover" title="" data-content="Caso o aprovador seja o avaliador, a aprovação será automática." data-original-title="Importante!"></span> </label> <strong>*</strong>
-							
-										<input name="aprovadorTreinamento" id="aprovadorTreinamento" class="form-control" type="zoom" data-zoom="{
+								<label for="aprovadorTreinamento">Aprovador
+									<span class="fluigicon fluigicon-sm bs-docs-popover-hover fluigicon-exclamation-sign" data-toggle="popover"
+									    title="" data-content="Caso o aprovador seja o avaliador, a aprovação será automática." data-original-title="Importante!"></span>
+								</label>
+								<strong>*</strong>
+
+								<input name="aprovadorTreinamento" id="aprovadorTreinamento" class="form-control" type="zoom" data-zoom="{
 											'displayKey':'colleagueName',
 											'datasetId':'colleague',
 											'filterValues': 'active,true',
@@ -252,7 +264,8 @@
 					</button>
 				</div>
 				<div class="col-md-4 col-xs-12">
-					<button class="btn btn-primary" id="btnShowTreinamento" name="btnShowTreinamento" style="width: 100%; margin: 15px 0px 15px 0px" type="button">
+					<button class="btn btn-primary" id="btnShowTreinamento" name="btnShowTreinamento" style="width: 100%; margin: 15px 0px 15px 0px"
+					    type="button">
 						<span class="fluigicon fluigicon-process-details"></span> Visualizar treinamento
 					</button>
 				</div>
@@ -263,14 +276,16 @@
 					<p>Este instrumento tem como objetivo coletar informações sobre o treinamento realizado, a fim de aprimorar nosso trabalho.
 						<br/> Avalie as questões de 1 a 5, sendo 5 seu maior grau de satisfação. Sua opinião é muito importante para nós!</p>
 				</div>
-			</div> 
+			</div>
 
 			<div class="row pergunta-avaliacao" style="margin-top: 25px;">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 15px;">
 					<div class="form-field" data-type="radio" data-show-properties="" data-field-name="pergunta1">
 						<div class="form-input">
 							<div class="form-group">
-								<label>1 - Na sua opinião, o treinamento recebido atendeu suas expectativas?<strong> *</strong></label>
+								<label>1 - Na sua opinião, o treinamento recebido atendeu suas expectativas?
+									<strong> *</strong>
+								</label>
 								<div class="radio-options">
 									<div class="radio-inline">
 										<label class="label-for-radio">
@@ -304,7 +319,9 @@
 					<div class="form-field" data-type="radio" data-show-properties="" data-field-name="pergunta2">
 						<div class="form-input">
 							<div class="form-group">
-								<label>2- Você irá utilizar em seu trabalho o que aprendeu no treinamento?<strong> *</strong></label>
+								<label>2- Você irá utilizar em seu trabalho o que aprendeu no treinamento?
+									<strong> *</strong>
+								</label>
 								<div class="radio-options">
 									<div class="radio-inline">
 										<label class="label-for-radio">
@@ -670,7 +687,8 @@
 					<div class="form-field" data-type="radio" data-show-properties="" data-field-name="aprovarAvaliacaoRH">
 						<div class="form-input">
 							<div class="form-group">
-								<label>Avaliação aprovada?</label><strong> *</strong>
+								<label>Avaliação aprovada?</label>
+								<strong> *</strong>
 								<div class="radio-options">
 									<div class="radio-inline">
 										<label class="label-for-radio">
@@ -688,27 +706,27 @@
 			</div>
 
 			<div class="row" style="margin-top: 30px;">
-					<div class="verificarParticipacaoContainer col-md-4">
-						<div class="form-field" data-type="radio" data-show-properties="" data-field-name="usuarioParticipou">
-							<div class="form-input">
-								<div class="form-group">
-									<label>Participou do treinamento?</label>&nbsp;
-									<strong>*</strong>
-									<div class="radio-options">
-										<div class="radio-inline">
-											<label class="label-for-radio">
-												<input name="usuarioParticipou" id="usuarioParticipou" type="radio" value="Sim"> Sim </label>
-										</div>
-										<div class="radio-inline">
-											<label class="label-for-radio">
-												<input name="usuarioParticipou" id="usuarioParticipou" type="radio" value="Não"> Não, cancelar avaliação</label>
-										</div>
+				<div class="verificarParticipacaoContainer col-md-4">
+					<div class="form-field" data-type="radio" data-show-properties="" data-field-name="usuarioParticipou">
+						<div class="form-input">
+							<div class="form-group">
+								<label>Participou do treinamento?</label>&nbsp;
+								<strong>*</strong>
+								<div class="radio-options">
+									<div class="radio-inline">
+										<label class="label-for-radio">
+											<input name="usuarioParticipou" id="usuarioParticipou" type="radio" value="Sim"> Sim </label>
+									</div>
+									<div class="radio-inline">
+										<label class="label-for-radio">
+											<input name="usuarioParticipou" id="usuarioParticipou" type="radio" value="Não"> Não, cancelar avaliação</label>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+			</div>
 			<!-- FIM - Form -->
 			<!-- HISTORICO -->
 			<div class="row obsHistoricoContainer" style="margin-top: 30px;">
