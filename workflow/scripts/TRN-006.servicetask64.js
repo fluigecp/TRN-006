@@ -45,6 +45,7 @@ function servicetask64(attempt, message) {
 		
 		// Verifica media da avaliação;
 		var mediaAvaliacao = getMediaAvaliacao();
+		hAPI.setCardValue("fato_0", mediaAvaliacao);
 		// Array que armazena os valores de cada campo de participante
 		var arrayCardValuesAvaliacao = [
 			numSolicitacao,
